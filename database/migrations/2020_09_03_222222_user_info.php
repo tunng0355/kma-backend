@@ -15,10 +15,10 @@ class UserInfo extends Migration
     {
         Schema::create('user_info', function (Blueprint $table) {
             $table->bigIncrements('id'); // The data type is Big Integer.
-            $table->unsignedBigInteger("user_id");
-            $table->string('user_name', 25);
-            $table->string('name');
-            $table->string('code_std', 12);
+            $table->unsignedBigInteger("userId");
+            $table->string('userName', 25);
+            $table->string('fullName');
+            $table->string('codeStudent', 12);
             $table->dateTime('birthday', 0);
             $table->tinyInteger('gender')->default(0);
             $table->string('job')->nullable();
@@ -26,7 +26,7 @@ class UserInfo extends Migration
         });
 
         Schema::table('user_info', function(Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('userId')->references('id')->on('users');
         });
     }
 

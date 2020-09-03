@@ -53,7 +53,7 @@ class ChatController extends Controller
         $message = new Message();
         $message->message = $request->message;
         $message->type = $request->type;
-        $message->user_id = $user->id;
+        $message->userId = $user->id;
         $message->save();
         sendSocket(getResponeMessage($message), CHAT_CHANNEL);
         return response()->json(\getResponse([], META_CODE_SUCCESS, SEND_MESS_SUCCESS));

@@ -15,7 +15,7 @@ class CreateMessageTalbe extends Migration
     {
         Schema::create('message', function (Blueprint $table) {
             $table->bigIncrements('id'); // The data type is Big Integer.
-            $table->unsignedBigInteger("user_id");
+            $table->unsignedBigInteger("userId");
             $table->text('message');
             $table->string('type', 11)->nullable();
             $table->string('react')->nullable();
@@ -24,7 +24,7 @@ class CreateMessageTalbe extends Migration
         });
 
         Schema::table('message', function(Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('userId')->references('id')->on('users');
         });
 
     }

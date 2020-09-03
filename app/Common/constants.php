@@ -7,6 +7,7 @@ define('META_CODE_ERROR', 1);
 define('MSG_401', 'authentication_401');
 define('MSG_LOGIN_FAIL', 'login_fail');
 define('MSG_LOGIN_SUCCESS', 'login_success');
+define('VALIDATE_REGISTER', 'validate_register');
 //msg Chang password
 define('MSG_CHANGE_PASSWORD_SUCCESS', "change_pass_success");
 define('MSG_CHANGE_PASSWORD_VALIDATE', "validate_error");

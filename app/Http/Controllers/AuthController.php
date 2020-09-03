@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\UserInfo;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegisterFormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -13,12 +14,28 @@ class AuthController extends Controller
 {
     public function register(RegisterFormRequest $request)
     {
-        $params         = $request->only('email', 'name', 'password');
+        $validate = getValidate(VALIDATE_REGISTER);
+        $validator = Validator::make($request->all(), $validate[0],$validate[1]);
+        if($validator->fails()){
+            return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()), Response::HTTP_BAD_REQUEST);
+        }
+//        $table->string('role',24)->nullable();
+//        $table->string('email',128)->unique();
+//        $table->string('password');
+//        $table->tinyInteger('status')->default(0);
+//        $table->mediumInteger('sendCode')->nullable();
+
         $user           = new User();
-        $user->email    = $params['email'];
-        $user->name     = $params['name'];
-        $user->password = bcrypt($params['password']);
-        $user->save();
+        $user->email    = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->role     = 'user';
+        $user->status   = 3;
+        $user->sendCode= rand(100000, 999999);
+
+        $arr      = ["userName", "fullName", "codeStudent", "birthday", "gender"];
+        $userInfo = mapDataModel($arr, new UserInfo(), "user_id", 1);
+        dd($userInfo);
+//        $user->save();
         return response()->json($user, Response::HTTP_OK);
     }
 

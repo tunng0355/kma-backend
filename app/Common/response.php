@@ -5,7 +5,7 @@ function getResponeMessage($item){
         "id" => $item->id,
         "message" => $item->message,
         "type" => $item->type,
-        "userId" => $item->user_id,
+        "userId" => $item->userId,
         "react" => $item->react,
         "countReact" => $item->count_react,
         "createdAt" => strtotime($item->created_at),

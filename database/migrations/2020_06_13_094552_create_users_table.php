@@ -19,15 +19,15 @@ class CreateUsersTable extends Migration
             $table->string('email',128)->unique();
             $table->string('password');
             $table->tinyInteger('status')->default(0);
-            $table->mediumInteger('send_code')->nullable();
+            $table->mediumInteger('sendCode')->nullable();
             $table->string('avatar')->default('upload/avatar-default.png');
             $table->rememberToken()->nullable();
             $table->timestamps();
 
 //            //primary
-//            $table->foreign('user_id')->references('id')->on('message');
+//            $table->foreign('userId')->references('id')->on('message');
 //        Schema::table('message', function(Blueprint $table) {
-//            $table->foreign('user_id')->references('id')->on('users');
+//            $table->foreign('userId')->references('id')->on('users');
 //        });
         });
     }

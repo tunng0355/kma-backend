@@ -5,6 +5,16 @@ $chat = Message::all()->take(-10);
 $chat = Message::orderBy('created_at', 'desc')->take(10)->get();
  */
 
+function mapDataModel($arr,$model,$request, $custom_key = "", $id_key = 0){
+    foreach ($arr as $value){
+        $model->$value = $request->$value;
+    }
+    if($custom_key){
+        $model->$custom_key = $id_key;
+    }
+    return $model;
+}
+
 function getResponse($data, $code, $msg = ""){
   return ["meta" => ["code" => $code, "msg" => $msg], "data" => $data];
 }
