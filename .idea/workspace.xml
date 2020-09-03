@@ -19,7 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="" />
+    <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/upload/avatar-default.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contact.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_13_094552_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_13_094552_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_24_152057_create_contact_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_27_162356_create_message_talbe.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_27_162356_create_message_talbe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeds.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeds.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -140,13 +150,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Common" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/upload" />
       <recent name="$PROJECT_DIR$/app/Common" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/API" />
     </key>
@@ -171,7 +183,11 @@
       <workItem from="1598708952731" duration="7274000" />
       <workItem from="1598791808840" duration="20680000" />
       <workItem from="1598854998277" duration="6876000" />
-      <workItem from="1598919158329" duration="300000" />
+      <workItem from="1598919158329" duration="462000" />
+      <workItem from="1598919724359" duration="2164000" />
+      <workItem from="1599041885565" duration="1512000" />
+      <workItem from="1599123825811" duration="5000" />
+      <workItem from="1599145816271" duration="4570000" />
     </task>
     <servers />
   </component>
@@ -195,6 +211,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="679" y="354" width="619" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1598838484888" />
+    <state x="2631" y="11" width="478" height="1056" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1599149461343">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2631" y="11" width="478" height="1056" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599149461343" />
     <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598838627766">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -211,9 +231,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1598544609293" />
-    <state width="498" height="398" key="SwitcherDM" timestamp="1598840861843">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="517" height="409" key="SwitcherDM" timestamp="1599148666609">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
+    <state width="517" height="409" key="SwitcherDM/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599148666609" />
     <state width="498" height="398" key="SwitcherDM/67.27.1853.1053@67.27.1853.1053" timestamp="1598840861843" />
     <state x="774" y="467" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598794732918">
       <screen x="67" y="27" width="1853" height="1053" />

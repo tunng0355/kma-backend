@@ -22,6 +22,13 @@ class AuthController extends Controller
         return response()->json($user, Response::HTTP_OK);
     }
 
+//if (Auth::attempt(['userName' => $request->userName, 'password' => $request->passHash])) {
+//    // Do something
+//}else if(Auth::attempt(['loginName' => $request->loginName, 'password' =>
+//    $request->passHash])){
+//    //Do something too
+//}
+
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');

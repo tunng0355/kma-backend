@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessageTalbe extends Migration
+class UserInfo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,21 @@ class CreateMessageTalbe extends Migration
      */
     public function up()
     {
-        Schema::create('message', function (Blueprint $table) {
+        Schema::create('user_info', function (Blueprint $table) {
             $table->bigIncrements('id'); // The data type is Big Integer.
             $table->unsignedBigInteger("user_id");
-            $table->text('message');
-            $table->string('type', 11)->nullable();
-            $table->string('react')->nullable();
-            $table->string('count_react')->nullable();
+            $table->string('user_name', 25);
+            $table->string('name');
+            $table->string('code_std', 12);
+            $table->dateTime('birthday', 0);
+            $table->tinyInteger('gender')->default(0);
+            $table->string('job')->nullable();
             $table->timestamps();
         });
 
-        Schema::table('message', function(Blueprint $table) {
+        Schema::table('user_info', function(Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
         });
-
     }
 
     /**
@@ -36,6 +37,6 @@ class CreateMessageTalbe extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('message');
+        Schema::dropIfExists('user_info');
     }
 }
