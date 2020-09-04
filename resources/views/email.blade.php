@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>SEND MAIL BY DU SAINBOLT</title>
+ <title>SEND MAIL BY KMA SOCIAL</title>
 </head>
 <body>
- 
- <h1>{{ $msg }}</h1>
- <!-- <p>Thank you, {{ $msg }}</p> -->
- 
+  {!! $msg !!}
+
+<style>
+.email-title{
+    color: #fea700;
+    font-size: 24px;
+}
+</style>
 </body>
-</html> 
+</html>

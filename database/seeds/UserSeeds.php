@@ -15,6 +15,8 @@ class UserSeeds extends Seeder
             [
                 'id' => 1,
                 'email' => 'nobita@gmail.com',
+                'userName' => 'nobita',
+                'codeStudent' => 'AT140509',
                 'password' => bcrypt('nobita'),
                 'role'=> 'admin',
                 'status' => 1,
@@ -23,6 +25,8 @@ class UserSeeds extends Seeder
             [
                 'id' => 2,
                 'email' => 'doremon@gmail.com',
+                'userName' => 'doremon',
+                'codeStudent' => 'AT140510',
                 'password' => bcrypt('doremon'),
                 'role'=> 'admin',
                 'status' => 2,
@@ -31,6 +35,8 @@ class UserSeeds extends Seeder
             [
                 'id' => 3,
                 'email' => 'xuka@gmail.com',
+                'userName' => 'xuka_chan',
+                'codeStudent' => 'AT140511',
                 'password' => bcrypt('xuka'),
                 'role'=> 'admin',
                 'status' => 3,

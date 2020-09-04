@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('role',24)->nullable();
             $table->string('email',128)->unique();
             $table->string('password');
+            $table->string('codeStudent', 12);
+            $table->string('userName', 25);
             $table->tinyInteger('status')->default(0);
             $table->mediumInteger('sendCode')->nullable();
             $table->string('avatar')->default('upload/avatar-default.png');

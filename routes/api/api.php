@@ -8,7 +8,6 @@
 Route::prefix('admin')->group(function () {
 
     //Auth controller
-    Route::post('signup', 'AuthController@register');
     Route::post('login', 'AuthController@login');
 
     Route::middleware('jwt.refresh')->get('/token/refresh', 'AuthController@refresh');
@@ -31,6 +30,8 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('user')->group(function () {
 
+    Route::post('signup', 'AuthController@register');
+    Route::get('user_empty', 'AuthController@checkEmptyRegister');
     //Email controller
     Route::get('contact_mail', 'EmailController@sendEMail');
 

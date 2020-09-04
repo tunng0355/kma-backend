@@ -13,6 +13,11 @@ define('MSG_CHANGE_PASSWORD_SUCCESS', "change_pass_success");
 define('MSG_CHANGE_PASSWORD_VALIDATE', "validate_error");
 define('MSG_CHANGE_PASSWORD_PASS_FAIL', "password invalid");
 
+//msg register
+define('MSG_REGISTER_SUCCESS', 'register_success');
+define('DUPLICATE', '_duplicate');
+define('NOT_DUPLICATE', 'value_not_duplicate');
+define('CONFIRM_REGISTER', 'Xác nhận đăng ký tham gia ứng dụng mạng xã hội');
 //msg Email
 define('SEND_EMAIL_SUCCESS', "send success");
 
@@ -26,4 +31,12 @@ define('USER_ROLE', 'user');
 //Mesage
 define('VALIDATE_MESSAGE','validate_message');
 define('SEND_MESS_SUCCESS', 'send_mess_success');
+define('SERVER_LOGIC', 'TRY CATCH CRASH LOGIC');
+
+//role
+define('USER', 'user');
+define('ADMIN', 'admin');
+
+//common
+define('ERROR_TYPE', 'not_type');
 ?>

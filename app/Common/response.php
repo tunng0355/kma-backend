@@ -14,4 +14,9 @@ function getResponeMessage($item){
         "userName" => $user->name,
     ];
 }
+function formEmailConfirmCode($code){
+    $title = '<h4 class="email-title">Chào mừng bạn đến với hệ thống</h4>';
+    $description = '<p>Mã xác nhận của bạn là: <b>'.$code.'</b></p>';
+    return $title.$description;
+}
 ?>

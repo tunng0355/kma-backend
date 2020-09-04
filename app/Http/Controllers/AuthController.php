@@ -2,41 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailNotify;
 use App\UserInfo;
 use Illuminate\Http\Request;
-use App\Http\Requests\RegisterFormRequest;
 use Illuminate\Support\Facades\Auth;
+use Mail;
 use Tymon\JWTAuth\Facades\JWTAuth;
-use Illuminate\Http\Response;
 use App\User;
 use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
-    public function register(RegisterFormRequest $request)
+    public function register(Request $request)
     {
         $validate = getValidate(VALIDATE_REGISTER);
         $validator = Validator::make($request->all(), $validate[0],$validate[1]);
-        if($validator->fails()){
-            return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()), Response::HTTP_BAD_REQUEST);
+        if($validator->fails()) {
+            return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()));
         }
-//        $table->string('role',24)->nullable();
-//        $table->string('email',128)->unique();
-//        $table->string('password');
-//        $table->tinyInteger('status')->default(0);
-//        $table->mediumInteger('sendCode')->nullable();
-
         $user           = new User();
         $user->email    = $request->email;
         $user->password = bcrypt($request->password);
-        $user->role     = 'user';
         $user->status   = 3;
         $user->sendCode= rand(100000, 999999);
-
-        $arr      = ["userName", "fullName", "codeStudent", "birthday", "gender"];
-        $userInfo = mapDataModel($arr, new UserInfo(), "user_id", 1);
-        dd($userInfo);
-//        $user->save();
-        return response()->json($user, Response::HTTP_OK);
+        $user->codeStudent = $request->codeStudent;
+        $user->userName = $request->userName;
+        $user->save();
+        $arr      = ["fullName", "birthday", "gender"];
+        $userInfo = mapDataModel($arr, new UserInfo(), $request, "userId", $user->id);
+        $userInfo->save();
+        Mail::to($user->email)->send(new MailNotify(formEmailConfirmCode($user->sendCode), CONFIRM_REGISTER));
+        return response()->json(\getResponse($user, META_CODE_SUCCESS, MSG_REGISTER_SUCCESS));
     }
 
 //if (Auth::attempt(['userName' => $request->userName, 'password' => $request->passHash])) {
@@ -44,19 +39,29 @@ class AuthController extends Controller
 //}else if(Auth::attempt(['loginName' => $request->loginName, 'password' =>
 //    $request->passHash])){
 //    //Do something too
-//}
+//}eckEmptyUser
+
+    public function checkEmptyRegister(Request $request){
+        $value = $request->value;
+        $type = $request->type;
+        if(!$type){
+            return response()->json(\getResponse([], META_CODE_ERROR, ERROR_TYPE));
+        }
+        $user = User::where($type,'like',$value)->first();
+        return response()->json(\getResponse([], isset($user) ? META_CODE_ERROR : META_CODE_SUCCESS, $type));
+    }
 
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
         if (!($token = JWTAuth::attempt($credentials))) {
-            return response()->json(\getResponse([], META_CODE_ERROR, MSG_LOGIN_FAIL), Response::HTTP_BAD_REQUEST);
+            return response()->json(\getResponse([], META_CODE_ERROR, MSG_LOGIN_FAIL));
         }
         $remember_token       = explode(".", $token);
         $user                 = User::where('email','like',$credentials['email'])->first();
         $user->remember_token = $remember_token[2];
         $user->save();
-        return response()->json(\getResponse(['token' => $token, 'userInfo' => $user, 'type'=> $user->role], META_CODE_SUCCESS));
+        return response()->json(\getResponse(['token' => $token, 'userInfo' => $user, 'type'=> $user->role]));
     }
 
     public function user(Request $request)
@@ -64,10 +69,10 @@ class AuthController extends Controller
         $user = Auth::user();
 
         if ($user) {
-            return response($user, Response::HTTP_OK);
+            return response($user);
         }
 
-        return response(null, Response::HTTP_BAD_REQUEST);
+        return response(null);
     }
 
     public function changePassword(Request $request)
@@ -83,19 +88,19 @@ class AuthController extends Controller
                 'email'           => 'required | email',
             ]);
             if($validator->fails() || $input['password'] == $input['passwordNew'] || $input['passwordNew'] != $input['passwordConfirm']){
-                return response()->json(\getResponse([], META_CODE_ERROR, MSG_CHANGE_PASSWORD_VALIDATE), Response::HTTP_BAD_REQUEST);
+                return response()->json(\getResponse([], META_CODE_ERROR, MSG_CHANGE_PASSWORD_VALIDATE));
             }
             $credentials = $request->only('email', 'password');
             if (!($token = JWTAuth::attempt($credentials))) {
-                return response()->json(\getResponse([], META_CODE_ERROR, MSG_CHANGE_PASSWORD_PASS_FAIL), Response::HTTP_BAD_REQUEST);
+                return response()->json(\getResponse([], META_CODE_ERROR, MSG_CHANGE_PASSWORD_PASS_FAIL));
             }
             $userNew           = Auth::user();
             $userNew->password = bcrypt($request->passwordNew);
             $userNew->save();
-            return response()->json(\getResponse($user, META_CODE_SUCCESS, MSG_CHANGE_PASSWORD_SUCCESS), Response::HTTP_OK);
+            return response()->json(\getResponse($user, META_CODE_SUCCESS, MSG_CHANGE_PASSWORD_SUCCESS));
         }
 
-        return response(null, Response::HTTP_BAD_REQUEST);
+        return response(null);
     }
 
     public function logout(Request $request) {
@@ -103,14 +108,14 @@ class AuthController extends Controller
 
         try {
             JWTAuth::invalidate($request->input('token'));
-            return response()->json('You have successfully logged out.', Response::HTTP_OK);
+            return response()->json('You have successfully logged out.');
         } catch (JWTException $e) {
-            return response()->json('Failed to logout, please try again.', Response::HTTP_BAD_REQUEST);
+            return response()->json('Failed to logout, please try again.');
         }
     }
 
     public function refresh()
     {
-        return response(JWTAuth::getToken(), Response::HTTP_OK);
+        return response(JWTAuth::getToken());
     }
 }

@@ -24,18 +24,18 @@ function getValidate($type){
                 "gender" => "required",
             ];
             $arr_checkVali[1] = [
-                "email.required" => "message_required",
+                "email.required" => "message_required1",
                 "email.max" => "message than limit 255",
-                "userName.required" => "message_required",
+                "userName.required" => "message_required2",
                 "userName.max" => "message than limit 255",
-                "fullName.required" => "message_required",
+                "fullName.required" => "message_required3",
                 "fullName.max" => "message than limit 255",
-                "codeStudent.required" => "message_required",
+                "codeStudent.required" => "message_required4",
                 "codeStudent.max" => "message than limit 255",
-                "password.required" => "message_required",
+                "password.required" => "message_required5",
                 "password.max" => "message than limit 255",
-                "birthday.required" => "message_required",
-                "gender.required" => "message_required",
+                "birthday.required" => "message_required6",
+                "gender.required" => "message_required7",
             ];
             break;
         default:

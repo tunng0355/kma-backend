@@ -22,19 +22,17 @@
     <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Common/constants.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/constants.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Common/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/function.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Common/response.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/response.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Common/validate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/validate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/ChatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/ChatController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Message.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/MailNotify.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/MailNotify.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/UserInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/UserInfo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_13_094552_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_13_094552_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_27_162356_create_message_talbe.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_27_162356_create_message_talbe.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_03_222222_user_info.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_222222_user_info.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/MessageSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/MessageSeed.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/UserInfoSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserInfoSeed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeds.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeds.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +192,8 @@
       <workItem from="1599041885565" duration="1512000" />
       <workItem from="1599123825811" duration="5000" />
       <workItem from="1599145816271" duration="6134000" />
-      <workItem from="1599152061180" duration="766000" />
+      <workItem from="1599152061180" duration="806000" />
+      <workItem from="1599199971049" duration="15358000" />
     </task>
     <servers />
   </component>
@@ -226,9 +225,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1598838627766" />
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598842506877">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="537" y="560" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599240349855">
+      <screen x="0" y="369" width="1920" height="711" />
     </state>
+    <state x="537" y="560" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599240349855" />
     <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1598842506877" />
     <state x="2663" y="297" width="424" height="484" key="FileChooserDialogImpl" timestamp="1599152126366">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -242,23 +242,27 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1598544609293" />
-    <state width="517" height="409" key="SwitcherDM" timestamp="1599151507602">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="517" height="398" key="SwitcherDM" timestamp="1599241240579">
+      <screen x="0" y="369" width="1920" height="711" />
     </state>
+    <state width="517" height="399" key="SwitcherDM/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1599201629659" />
+    <state width="517" height="398" key="SwitcherDM/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599241240579" />
     <state width="517" height="409" key="SwitcherDM/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599151507602" />
     <state width="498" height="398" key="SwitcherDM/67.27.1853.1053@67.27.1853.1053" timestamp="1598840861843" />
     <state x="774" y="467" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598794732918">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="774" y="467" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1598794732918" />
-    <state x="2531" y="232" key="run.anything.popup" timestamp="1599151641988">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="611" y="522" key="run.anything.popup" timestamp="1599238328608">
+      <screen x="0" y="369" width="1920" height="711" />
     </state>
+    <state x="611" y="522" key="run.anything.popup/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599238328608" />
     <state x="2531" y="232" key="run.anything.popup/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599151641988" />
     <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1598844016802" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1598799536125">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="610" y="524" width="697" height="458" key="search.everywhere.popup" timestamp="1599241537734">
+      <screen x="0" y="369" width="1920" height="711" />
     </state>
+    <state x="610" y="524" width="697" height="458" key="search.everywhere.popup/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599241537734" />
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1598799536125" />
   </component>
 </project>
