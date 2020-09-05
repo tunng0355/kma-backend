@@ -30,8 +30,11 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('user')->group(function () {
 
+    //user
     Route::post('signup', 'AuthController@register');
     Route::get('user_empty', 'AuthController@checkEmptyRegister');
+    Route::post('confirm_code', 'AuthController@confirmSendCode');
+
     //Email controller
     Route::get('contact_mail', 'EmailController@sendEMail');
 

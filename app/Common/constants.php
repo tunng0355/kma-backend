@@ -36,7 +36,12 @@ define('SERVER_LOGIC', 'TRY CATCH CRASH LOGIC');
 //role
 define('USER', 'user');
 define('ADMIN', 'admin');
-
+define('USER_ACTIVE', 1);
+define('USER_NEW', 2);
+define('USER_BLOCK', 3);
 //common
 define('ERROR_TYPE', 'not_type');
+define('VALIDATE_SEND_CODE', 'validate_send_code');
+define('SEND_CODE_SUCCESS', 'send_code_success');
+define('SEND_CODE_ERROR', 'send_code_error');
 ?>

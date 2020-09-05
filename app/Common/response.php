@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\Validator;
+
 function getResponeMessage($item){
     $user = $item->getUser;
     return [
@@ -19,4 +21,13 @@ function formEmailConfirmCode($code){
     $description = '<p>Mã xác nhận của bạn là: <b>'.$code.'</b></p>';
     return $title.$description;
 }
+
+function responseValidate($typeValidate, $request){
+    $validate = getValidate($typeValidate);
+    $validator = Validator::make($request->all(), $validate[0],$validate[1]);
+    if($validator->fails()) {
+        return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()));
+    }
+}
+
 ?>

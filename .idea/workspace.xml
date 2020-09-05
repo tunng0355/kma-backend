@@ -25,13 +25,8 @@
       <change beforePath="$PROJECT_DIR$/app/Common/response.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/response.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Common/validate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/validate.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/MailNotify.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/MailNotify.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_13_094552_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_13_094552_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_03_222222_user_info.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_222222_user_info.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserInfoSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserInfoSeed.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeds.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeds.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/email.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -193,7 +188,7 @@
       <workItem from="1599123825811" duration="5000" />
       <workItem from="1599145816271" duration="6134000" />
       <workItem from="1599152061180" duration="806000" />
-      <workItem from="1599199971049" duration="15358000" />
+      <workItem from="1599199971049" duration="22583000" />
     </task>
     <servers />
   </component>
@@ -242,27 +237,27 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1598544609293" />
-    <state width="517" height="398" key="SwitcherDM" timestamp="1599241240579">
+    <state width="517" height="398" key="SwitcherDM" timestamp="1599277926527">
       <screen x="0" y="369" width="1920" height="711" />
     </state>
     <state width="517" height="399" key="SwitcherDM/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1599201629659" />
-    <state width="517" height="398" key="SwitcherDM/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599241240579" />
+    <state width="517" height="398" key="SwitcherDM/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599277926527" />
     <state width="517" height="409" key="SwitcherDM/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599151507602" />
     <state width="498" height="398" key="SwitcherDM/67.27.1853.1053@67.27.1853.1053" timestamp="1598840861843" />
     <state x="774" y="467" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598794732918">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="774" y="467" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1598794732918" />
-    <state x="611" y="522" key="run.anything.popup" timestamp="1599238328608">
+    <state x="611" y="522" width="672" height="677" key="run.anything.popup" timestamp="1599273070561">
       <screen x="0" y="369" width="1920" height="711" />
     </state>
-    <state x="611" y="522" key="run.anything.popup/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599238328608" />
+    <state x="611" y="522" width="672" height="677" key="run.anything.popup/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599273070561" />
     <state x="2531" y="232" key="run.anything.popup/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599151641988" />
     <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1598844016802" />
-    <state x="610" y="524" width="697" height="458" key="search.everywhere.popup" timestamp="1599241537734">
+    <state x="610" y="524" width="697" height="458" key="search.everywhere.popup" timestamp="1599271738097">
       <screen x="0" y="369" width="1920" height="711" />
     </state>
-    <state x="610" y="524" width="697" height="458" key="search.everywhere.popup/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599241537734" />
+    <state x="610" y="524" width="697" height="458" key="search.everywhere.popup/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599271738097" />
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1598799536125" />
   </component>
 </project>

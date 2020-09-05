@@ -38,6 +38,21 @@ function getValidate($type){
                 "gender.required" => "message_required7",
             ];
             break;
+        case VALIDATE_SEND_CODE:
+            $arr_checkVali[0] = [
+                "sendCode" => "required|max:6",
+                "type" => "required|max:21",
+                "userName" => "required|max:21",
+            ];
+            $arr_checkVali[1] = [
+                "sendCode.required" => "message_required1",
+                "sendCode.max" => "message than limit",
+                "type.required" => "message_required2",
+                "type.max" => "message than limit 21",
+                "userName.required" => "message_required2",
+                "userName.max" => "message than limit 21",
+            ];
+            break;
         default:
             $arr_checkVali = [];
     }

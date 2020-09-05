@@ -22,7 +22,6 @@ class AuthController extends Controller
         $user           = new User();
         $user->email    = $request->email;
         $user->password = bcrypt($request->password);
-        $user->status   = 3;
         $user->sendCode= rand(100000, 999999);
         $user->codeStudent = $request->codeStudent;
         $user->userName = $request->userName;
@@ -40,6 +39,18 @@ class AuthController extends Controller
 //    $request->passHash])){
 //    //Do something too
 //}eckEmptyUser
+    public function confirmSendCode(Request  $request){
+        $validate =  responseValidate(VALIDATE_SEND_CODE, $request);
+        if(isset($validate)) return $validate;
+        $user = User::where("userName",'like',$request->userName)->first();
+        if($user->sendCode == $request->sendCode){
+            $user->status = USER_ACTIVE;
+            $user->sendCode = null;
+            $user->save();
+            return response()->json(\getResponse($user, META_CODE_SUCCESS, $request->type));
+        }
+        return response()->json(\getResponse([], META_CODE_ERROR, SEND_CODE_ERROR));
+    }
 
     public function checkEmptyRegister(Request $request){
         $value = $request->value;
