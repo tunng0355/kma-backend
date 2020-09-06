@@ -33,12 +33,6 @@ class AuthController extends Controller
         return response()->json(\getResponse($user, META_CODE_SUCCESS, MSG_REGISTER_SUCCESS));
     }
 
-//if (Auth::attempt(['userName' => $request->userName, 'password' => $request->passHash])) {
-//    // Do something
-//}else if(Auth::attempt(['loginName' => $request->loginName, 'password' =>
-//    $request->passHash])){
-//    //Do something too
-//}eckEmptyUser
     public function confirmSendCode(Request  $request){
         $validate =  responseValidate(VALIDATE_SEND_CODE, $request);
         if(isset($validate)) return $validate;
@@ -64,15 +58,25 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
-        if (!($token = JWTAuth::attempt($credentials))) {
+        $uniqueUser = $request->uniqueUser;
+        $password = $request->password;
+        $condition_1 = ['userName' => $uniqueUser, 'password' => $password];
+        $condition_2 = ['codeStudent' => $uniqueUser, 'password' => $password];
+
+        if (!($token = JWTAuth::attempt($condition_1)) && !($token = JWTAuth::attempt($condition_2))) {
             return response()->json(\getResponse([], META_CODE_ERROR, MSG_LOGIN_FAIL));
         }
+
         $remember_token       = explode(".", $token);
-        $user                 = User::where('email','like',$credentials['email'])->first();
+        $user                 = User::where('userName','like',$condition_1['userName'])
+                               ->orWhere('codeStudent', 'like', $condition_2['codeStudent'])->first();
+        if($user->status != USER_ACTIVE){
+            return response()->json(\getResponse(['token' => '', 'userInfo' => $user, 'type'=> $user->role], META_CODE_SUCCESS, LOGIN_NEW));
+        }
+
         $user->remember_token = $remember_token[2];
         $user->save();
-        return response()->json(\getResponse(['token' => $token, 'userInfo' => $user, 'type'=> $user->role]));
+        return response()->json(\getResponse(['token' => $token, 'userInfo' => $user, 'type'=> $user->role], META_CODE_SUCCESS, LOGIN_ACTIVE));
     }
 
     public function user(Request $request)
@@ -119,7 +123,7 @@ class AuthController extends Controller
 
         try {
             JWTAuth::invalidate($request->input('token'));
-            return response()->json('You have successfully logged out.');
+            return response()->json(\getResponse(LOGOUT_SUCCESS, META_CODE_SUCCESS, LOGOUT_SUCCESS));
         } catch (JWTException $e) {
             return response()->json('Failed to logout, please try again.');
         }

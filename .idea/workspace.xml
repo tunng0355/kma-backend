@@ -22,11 +22,7 @@
     <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Common/constants.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/constants.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Common/response.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/response.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Common/validate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/validate.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_13_094552_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_13_094552_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeds.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeds.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,7 +184,8 @@
       <workItem from="1599123825811" duration="5000" />
       <workItem from="1599145816271" duration="6134000" />
       <workItem from="1599152061180" duration="806000" />
-      <workItem from="1599199971049" duration="22583000" />
+      <workItem from="1599199971049" duration="22963000" />
+      <workItem from="1599317168998" duration="5034000" />
     </task>
     <servers />
   </component>
@@ -237,9 +234,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1598544609293" />
-    <state width="517" height="398" key="SwitcherDM" timestamp="1599277926527">
-      <screen x="0" y="369" width="1920" height="711" />
+    <state width="498" height="869" key="SwitcherDM" timestamp="1599352450628">
+      <screen x="0" y="369" width="1080" height="1551" />
     </state>
+    <state width="498" height="869" key="SwitcherDM/1080.342.1920.1080/0.369.1080.1551@0.369.1080.1551" timestamp="1599352450628" />
     <state width="517" height="399" key="SwitcherDM/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1599201629659" />
     <state width="517" height="398" key="SwitcherDM/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599277926527" />
     <state width="517" height="409" key="SwitcherDM/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599151507602" />

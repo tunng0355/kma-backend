@@ -8,6 +8,9 @@ define('MSG_401', 'authentication_401');
 define('MSG_LOGIN_FAIL', 'login_fail');
 define('MSG_LOGIN_SUCCESS', 'login_success');
 define('VALIDATE_REGISTER', 'validate_register');
+define('LOGIN_ACTIVE', 'login_active');
+define('LOGIN_NEW', 'login_new');
+define('LOGOUT_SUCCESS', 'you_have_logout');
 //msg Chang password
 define('MSG_CHANGE_PASSWORD_SUCCESS', "change_pass_success");
 define('MSG_CHANGE_PASSWORD_VALIDATE', "validate_error");
