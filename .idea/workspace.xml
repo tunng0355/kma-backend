@@ -20,11 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/seeds/comment" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/like" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/post" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/subject" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Common/constants.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/constants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Like.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Like.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Subject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Subject.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_12_092256_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_12_092256_create_posts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/PostSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PostSeed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/SubjectSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/SubjectSeed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserInfoSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserInfoSeed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeds.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeds.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +206,7 @@
       <workItem from="1599658812073" duration="833000" />
       <workItem from="1599696312666" duration="635000" />
       <workItem from="1599786100002" duration="1085000" />
-      <workItem from="1599829825478" duration="6791000" />
+      <workItem from="1599829825478" duration="10288000" />
     </task>
     <servers />
   </component>
@@ -250,10 +256,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1598544609293" />
-    <state width="498" height="398" key="SwitcherDM" timestamp="1599400014371">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="498" height="869" key="SwitcherDM" timestamp="1599881414562">
+      <screen x="0" y="369" width="1080" height="1551" />
     </state>
-    <state width="498" height="869" key="SwitcherDM/1080.342.1920.1080/0.369.1080.1551@0.369.1080.1551" timestamp="1599352450628" />
+    <state width="498" height="869" key="SwitcherDM/1080.342.1920.1080/0.369.1080.1551@0.369.1080.1551" timestamp="1599881414562" />
     <state width="517" height="399" key="SwitcherDM/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1599201629659" />
     <state width="517" height="398" key="SwitcherDM/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599277926527" />
     <state width="517" height="409" key="SwitcherDM/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599151507602" />
@@ -262,9 +268,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="774" y="467" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1598794732918" />
-    <state x="611" y="522" width="672" height="677" key="run.anything.popup" timestamp="1599273070561">
-      <screen x="0" y="369" width="1920" height="711" />
+    <state x="344" y="703" width="672" height="1477" key="run.anything.popup" timestamp="1599878425360">
+      <screen x="0" y="369" width="1080" height="1551" />
     </state>
+    <state x="344" y="703" width="672" height="1477" key="run.anything.popup/1080.342.1920.1080/0.369.1080.1551@0.369.1080.1551" timestamp="1599878425360" />
     <state x="611" y="522" width="672" height="677" key="run.anything.popup/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599273070561" />
     <state x="2531" y="232" key="run.anything.popup/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599151641988" />
     <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1598844016802" />

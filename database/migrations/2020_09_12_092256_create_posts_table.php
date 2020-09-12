@@ -18,9 +18,9 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger("userId");
             $table->tinyInteger('type')->default(0);
             $table->tinyInteger('isHot')->default(0);
-            $table->smallInteger('subjectId');
+            $table->smallInteger('subjectId')->nullable();
             $table->string('caption')->nullable();
-            $table->string('content')->nullable();
+            $table->binary('content')->nullable();
             $table->string('tag')->nullable();
             $table->timestamps();
         });

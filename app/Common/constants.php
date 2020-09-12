@@ -47,4 +47,7 @@ define('ERROR_TYPE', 'not_type');
 define('VALIDATE_SEND_CODE', 'validate_send_code');
 define('SEND_CODE_SUCCESS', 'send_code_success');
 define('SEND_CODE_ERROR', 'send_code_error');
+define('POST_TYPE_STATUS', 0);
+define('POST_TYPE_IMAGE', 1);
+define('POST_TYPE_VIDEO', 2);
 ?>
