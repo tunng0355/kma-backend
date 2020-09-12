@@ -14,6 +14,7 @@ class PostSeed extends Seeder
 
         $data = [
             [
+                'id' => 1,
                 'userId' => 1,
                 'type' => POST_TYPE_STATUS,
                 'subjectId' => 1,
@@ -24,6 +25,7 @@ class PostSeed extends Seeder
                 'updated_at' => '2020-07-20 12:42:22'
             ],
             [
+                'id' => 2,
                 'userId' => 4,
                 'type' => POST_TYPE_IMAGE,
                 'subjectId' => 2,
@@ -34,6 +36,7 @@ class PostSeed extends Seeder
                 'updated_at' => '2020-07-19 12:42:22'
             ],
             [
+                'id' => 3,
                 'userId' => 1,
                 'type' => POST_TYPE_IMAGE,
                 'subjectId' => 2,
@@ -44,6 +47,7 @@ class PostSeed extends Seeder
                 'updated_at' => '2020-07-18 12:42:22'
             ],
             [
+                'id' => 4,
                 'userId' => 1,
                 'type' => POST_TYPE_IMAGE,
                 'subjectId' => 2,
@@ -54,6 +58,7 @@ class PostSeed extends Seeder
                 'updated_at' => '2020-07-18 12:42:22'
             ],
             [
+                'id' => 5,
                 'userId' => 1,
                 'type' => POST_TYPE_IMAGE,
                 'subjectId' => 2,
@@ -64,6 +69,7 @@ class PostSeed extends Seeder
                 'updated_at' => '2020-07-18 12:42:22'
             ],
             [
+                'id' => 6,
                 'userId' => 4,
                 'type' => POST_TYPE_IMAGE,
                 'subjectId' => 2,
@@ -74,6 +80,7 @@ class PostSeed extends Seeder
                 'updated_at' => '2020-07-18 12:42:22'
             ],
             [
+                'id' => 7,
                 'userId' => 4,
                 'type' => POST_TYPE_IMAGE,
                 'subjectId' => 2,

@@ -25,15 +25,15 @@ function getValidate($type){
             ];
             $arr_checkVali[1] = [
                 "email.required" => "message_required1",
-                "email.max" => "message than limit 255",
+                "email.max" => "email_than_limit_255",
                 "userName.required" => "message_required2",
-                "userName.max" => "message than limit 255",
+                "userName.max" => "user_name_than_limit_255",
                 "fullName.required" => "message_required3",
-                "fullName.max" => "message than limit 255",
+                "fullName.max" => "full_name_than_limit_255",
                 "codeStudent.required" => "message_required4",
-                "codeStudent.max" => "message than limit 255",
+                "codeStudent.max" => "code_student_than_limit_255",
                 "password.required" => "message_required5",
-                "password.max" => "message than limit 255",
+                "password.max" => "password_than_limit_255",
                 "birthday.required" => "message_required6",
                 "gender.required" => "message_required7",
             ];

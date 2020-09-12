@@ -14,6 +14,7 @@ class CommentSeed extends Seeder
         $data = [];
         for ($i = 0; $i < 30; $i++){
             $data[] = [
+                'id' => $i + 1,
                 'userId' => rand(1, 4),
                 'postId' => rand(1, 7),
                 'content' => "Hello this is my comment ".($i + 1),
