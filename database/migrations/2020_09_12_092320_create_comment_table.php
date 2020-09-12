@@ -16,7 +16,7 @@ class CreateCommentTable extends Migration
         Schema::create('comment', function (Blueprint $table) {
             $table->bigIncrements('id'); // The data type is Big Integer.
             $table->unsignedBigInteger("userId");
-            $table->unsignedBigInteger("postId");
+            $table->unsignedBigInteger("postId")->nullable();
             $table->integer("childId")->nullable();
             $table->tinyInteger('isHot')->default(0);
             $table->string('content')->nullable();
