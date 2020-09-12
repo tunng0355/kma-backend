@@ -17,7 +17,7 @@ class CreateLikeTable extends Migration
             $table->bigIncrements('id'); // The data type is Big Integer.
             $table->unsignedBigInteger("userId");
             $table->unsignedBigInteger("postId");
-            $table->unsignedBigInteger("commentId");
+            $table->unsignedBigInteger("commentId")->nullable();
             $table->timestamps();
         });
 

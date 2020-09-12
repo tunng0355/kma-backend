@@ -17,7 +17,7 @@ class CreateCommentTable extends Migration
             $table->bigIncrements('id'); // The data type is Big Integer.
             $table->unsignedBigInteger("userId");
             $table->unsignedBigInteger("postId");
-            $table->integer("childId");
+            $table->integer("childId")->nullable();
             $table->tinyInteger('isHot')->default(0);
             $table->string('content')->nullable();
             $table->timestamps();

@@ -16,6 +16,25 @@ function getResponeMessage($item){
         "userName" => $user->name,
     ];
 }
+
+function getResponseNewFeed($item){
+    $countComment = $item->getComment->count();
+    $userPost     = $item->getUser;
+    $countLike    = $item->getLike->count();
+    $nameUserLike = $item->getLike[rand(0, $countLike)]->getUser->getUserInfo->fullName;
+    $arrMap = ['id','userId','type','isHot', 'caption', 'content','tag'];
+    $data = mapDataResponse($arrMap, [], $item);
+    return array_merge($data, [
+        "avatarUrl" => $userPost->avatar,
+        "userName" => $userPost->getUserInfo->fullName,
+        "subjectName" => $item->getSubject->name,
+        "totalComment"=> $countComment,
+        "totalLike"=> $countLike,
+        "userLike"=> $nameUserLike,
+        "created_at"=> strtotime($item->created_at),
+        "updated_at"=> strtotime($item->updated_at),
+    ]);
+}
 function formEmailConfirmCode($code){
     $title = '<h4 class="email-title">Chào mừng bạn đến với hệ thống</h4>';
     $description = '<p>Mã xác nhận của bạn là: <b>'.$code.'</b></p>';

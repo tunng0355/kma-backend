@@ -26,7 +26,6 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::prefix('user')->group(function () {
-
     //user
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@register');
@@ -34,6 +33,8 @@ Route::prefix('user')->group(function () {
     Route::post('confirm_code', 'AuthController@confirmSendCode');
     Route::group(['middleware' => 'jwt.auth'], function () {
         Route::post('logout', 'AuthController@logout');
+        Route::get('my_feed', 'API\PostController@myNewFeed');
+        Route::apiResource('post', 'API\PostController');
     });
     //Email controller
     Route::get('contact_mail', 'EmailController@sendEMail');

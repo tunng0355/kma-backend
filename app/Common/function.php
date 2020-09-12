@@ -15,6 +15,13 @@ function mapDataModel($arr,$model,$request, $custom_key = "", $id_key = 0){
     return $model;
 }
 
+function mapDataResponse($arr,$data,$model){
+    foreach ($arr as $value){
+        $data[$value] = $model->$value;
+    }
+    return $data;
+}
+
 function getResponse($data, $code, $msg = ""){
   return ["meta" => ["code" => $code, "msg" => $msg], "data" => $data];
 }
