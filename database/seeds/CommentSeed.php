@@ -12,7 +12,7 @@ class CommentSeed extends Seeder
     public function run()
     {
         $data = [];
-        for ($i = 0; $i < 30; $i++){
+        for ($i = 0; $i < 2; $i++){
             $data[] = [
                 'userId' => rand(1, 4),
                 'postId' => rand(1, 7),

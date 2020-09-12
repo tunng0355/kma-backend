@@ -20,8 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_12_092320_create_comment_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_12_092320_create_comment_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/CommentSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CommentSeed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +196,7 @@
       <workItem from="1599658812073" duration="833000" />
       <workItem from="1599696312666" duration="635000" />
       <workItem from="1599786100002" duration="1085000" />
-      <workItem from="1599829825478" duration="21814000" />
+      <workItem from="1599829825478" duration="21922000" />
     </task>
     <servers />
   </component>
