@@ -30,7 +30,7 @@ class PostSeed extends Seeder
                 'type' => POST_TYPE_IMAGE,
                 'subjectId' => 2,
                 'caption' => "Hello KMA-social, my name is Du. I'm verry happy for your app",
-                'content' => 'https://lh3.googleusercontent.com/proxy/nEARFlOORYHiOmNZ0PMPCSgGkAoD9FYR8YN53MFvgVtncHtg2XH9EvI1-iQaqPLAr4J4HR23V8uGvUXACns3uN-aYuf9SghQ_AbxS0flX23orzy0VmJbTdv-MXIY0vQIDeMHq7sYcbhGEkAfmF_kzbpGbcqj',
+                'content' => 'https://i.pinimg.com/originals/93/c0/4c/93c04c7993df4e10cca4f39ec43e4014.png',
                 'tag' => 'wellcome, hello, hi, startapp',
                 'created_at' => '2020-07-19 12:42:22',
                 'updated_at' => '2020-07-19 12:42:22'
@@ -41,7 +41,7 @@ class PostSeed extends Seeder
                 'type' => POST_TYPE_IMAGE,
                 'subjectId' => 2,
                 'caption' => "Hello KMA-social, my name is Du. I'm verry happy for your app",
-                'content' => 'https://lh3.googleusercontent.com/proxy/nEARFlOORYHiOmNZ0PMPCSgGkAoD9FYR8YN53MFvgVtncHtg2XH9EvI1-iQaqPLAr4J4HR23V8uGvUXACns3uN-aYuf9SghQ_AbxS0flX23orzy0VmJbTdv-MXIY0vQIDeMHq7sYcbhGEkAfmF_kzbpGbcqj,https://lh3.googleusercontent.com/proxy/_p5aYP1bQMRFRzE6dIyZrnt793V8GIKADk8tqHmaFEsR0ijw0Hn5aFGE9zhuasnGDvXNWZtH5wEzkik8xZfTDNa2PeilFWFfe0c4iKtLkrHaBMMpi1KKYqQiRMv7nkgaVdfssTbxaydVIL1JfYfro0jwpS6Phqg,https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF-0Ace1036bc8oh1Ndrc3_QahoKvhE4jI0g&usqp=CAU',
+                'content' => "https://phunugioi.com/wp-content/uploads/2020/04/nhung-hinh-anh-dep-ve-que-huong-dat-nuoc-con-nguoi-viet-nam.jpg,https://lh3.googleusercontent.com/proxy/vS9Ob_wvfMG6jMX4wcIV-kD_won6OuRREzoGEAUOT1AFVXcvGTBkzHuwJChIBCrc7W8lAmUXRixzALN7-MXzNNNxMShL8kzn0lBIWVOyD3b1hCRKB6UYAfa5IRvdXOU",
                 'tag' => 'wellcome, hello, hi, startapp',
                 'created_at' => '2020-07-18 12:42:22',
                 'updated_at' => '2020-07-18 12:42:22'
@@ -52,7 +52,7 @@ class PostSeed extends Seeder
                 'type' => POST_TYPE_IMAGE,
                 'subjectId' => 2,
                 'caption' => "Hello KMA-social, my name is Du. I'm verry happy for your app",
-                'content' => 'https://lh3.googleusercontent.com/proxy/nEARFlOORYHiOmNZ0PMPCSgGkAoD9FYR8YN53MFvgVtncHtg2XH9EvI1-iQaqPLAr4J4HR23V8uGvUXACns3uN-aYuf9SghQ_AbxS0flX23orzy0VmJbTdv-MXIY0vQIDeMHq7sYcbhGEkAfmF_kzbpGbcqj,https://lh3.googleusercontent.com/proxy/_p5aYP1bQMRFRzE6dIyZrnt793V8GIKADk8tqHmaFEsR0ijw0Hn5aFGE9zhuasnGDvXNWZtH5wEzkik8xZfTDNa2PeilFWFfe0c4iKtLkrHaBMMpi1KKYqQiRMv7nkgaVdfssTbxaydVIL1JfYfro0jwpS6Phqg,',
+                'content' => 'https://bizweb.dktcdn.net/100/109/172/files/du-lich-dien-bien.jpg?v=1562658570749,https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRwpHRsD4U0g92yld5qxLoHMu1lI2J0FRrX6Q&usqp=CAU,https://phanthistudio.vn/admin/webroot/uploads/images/album_tuoi_tho/24.jpg',
                 'tag' => 'wellcome, hello, hi, startapp',
                 'created_at' => '2020-07-18 12:42:22',
                 'updated_at' => '2020-07-18 12:42:22'
@@ -63,7 +63,7 @@ class PostSeed extends Seeder
                 'type' => POST_TYPE_IMAGE,
                 'subjectId' => 2,
                 'caption' => "Hello KMA-social, my name is Du. I'm verry happy for your app",
-                'content' => 'https://lh3.googleusercontent.com/proxy/nEARFlOORYHiOmNZ0PMPCSgGkAoD9FYR8YN53MFvgVtncHtg2XH9EvI1-iQaqPLAr4J4HR23V8uGvUXACns3uN-aYuf9SghQ_AbxS0flX23orzy0VmJbTdv-MXIY0vQIDeMHq7sYcbhGEkAfmF_kzbpGbcqj,https://lh3.googleusercontent.com/proxy/_p5aYP1bQMRFRzE6dIyZrnt793V8GIKADk8tqHmaFEsR0ijw0Hn5aFGE9zhuasnGDvXNWZtH5wEzkik8xZfTDNa2PeilFWFfe0c4iKtLkrHaBMMpi1KKYqQiRMv7nkgaVdfssTbxaydVIL1JfYfro0jwpS6Phqg,https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF-0Ace1036bc8oh1Ndrc3_QahoKvhE4jI0g&usqp=CAU,https://phunugioi.com/wp-content/uploads/2020/04/nhung-hinh-anh-dep-ve-que-huong-dat-nuoc-con-nguoi-viet-nam.jpg,',
+                'content' => 'https://benative.vn/wp-content/uploads/2019/11/bai-van-tieng-anh-ve-que-huong-1.jpg,https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSEi9_hQW5Wzy-OWfHFHA8a5H1IyiAsJgyJ5w&usqp=CAU,https://songgiatri.com/wp-content/uploads/2019/07/Mui-vi-que-huong-1-960x570.jpg,https://dichungxe.net/wp-content/uploads/2019/05/bai-tho-que-huong.jpg',
                 'tag' => 'wellcome, hello, hi, startapp',
                 'created_at' => '2020-07-18 12:42:22',
                 'updated_at' => '2020-07-18 12:42:22'
@@ -74,7 +74,7 @@ class PostSeed extends Seeder
                 'type' => POST_TYPE_IMAGE,
                 'subjectId' => 2,
                 'caption' => "Hello KMA-social, my name is Du. I'm verry happy for your app",
-                'content' => 'https://lh3.googleusercontent.com/proxy/nEARFlOORYHiOmNZ0PMPCSgGkAoD9FYR8YN53MFvgVtncHtg2XH9EvI1-iQaqPLAr4J4HR23V8uGvUXACns3uN-aYuf9SghQ_AbxS0flX23orzy0VmJbTdv-MXIY0vQIDeMHq7sYcbhGEkAfmF_kzbpGbcqj,https://lh3.googleusercontent.com/proxy/_p5aYP1bQMRFRzE6dIyZrnt793V8GIKADk8tqHmaFEsR0ijw0Hn5aFGE9zhuasnGDvXNWZtH5wEzkik8xZfTDNa2PeilFWFfe0c4iKtLkrHaBMMpi1KKYqQiRMv7nkgaVdfssTbxaydVIL1JfYfro0jwpS6Phqg,https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF-0Ace1036bc8oh1Ndrc3_QahoKvhE4jI0g&usqp=CAU,https://phunugioi.com/wp-content/uploads/2020/04/nhung-hinh-anh-dep-ve-que-huong-dat-nuoc-con-nguoi-viet-nam.jpg,https://bizweb.dktcdn.net/100/202/714/articles/201678154543244.jpg?v=1493007042240',
+                'content' => 'https://benative.vn/wp-content/uploads/2019/11/bai-van-tieng-anh-ve-que-huong-1.jpg,https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSEi9_hQW5Wzy-OWfHFHA8a5H1IyiAsJgyJ5w&usqp=CAU,https://songgiatri.com/wp-content/uploads/2019/07/Mui-vi-que-huong-1-960x570.jpg,https://dichungxe.net/wp-content/uploads/2019/05/bai-tho-que-huong.jpg,https://www.gocbao.com/wp-content/uploads/2020/02/tho-luc-bat-ve-tinh-yeu-que-huong-dat-nuoc7.jpg',
                 'tag' => 'wellcome, hello, hi, startapp',
                 'created_at' => '2020-07-18 12:42:22',
                 'updated_at' => '2020-07-18 12:42:22'
@@ -85,7 +85,7 @@ class PostSeed extends Seeder
                 'type' => POST_TYPE_IMAGE,
                 'subjectId' => 2,
                 'caption' => "Hello KMA-social, my name is Du. I'm verry happy for your app",
-                'content' => 'https://lh3.googleusercontent.com/proxy/nEARFlOORYHiOmNZ0PMPCSgGkAoD9FYR8YN53MFvgVtncHtg2XH9EvI1-iQaqPLAr4J4HR23V8uGvUXACns3uN-aYuf9SghQ_AbxS0flX23orzy0VmJbTdv-MXIY0vQIDeMHq7sYcbhGEkAfmF_kzbpGbcqj,https://lh3.googleusercontent.com/proxy/_p5aYP1bQMRFRzE6dIyZrnt793V8GIKADk8tqHmaFEsR0ijw0Hn5aFGE9zhuasnGDvXNWZtH5wEzkik8xZfTDNa2PeilFWFfe0c4iKtLkrHaBMMpi1KKYqQiRMv7nkgaVdfssTbxaydVIL1JfYfro0jwpS6Phqg,https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF-0Ace1036bc8oh1Ndrc3_QahoKvhE4jI0g&usqp=CAU,https://phunugioi.com/wp-content/uploads/2020/04/nhung-hinh-anh-dep-ve-que-huong-dat-nuoc-con-nguoi-viet-nam.jpg,https://bizweb.dktcdn.net/100/202/714/articles/201678154543244.jpg?v=1493007042240,https://danviet.mediacdn.vn/upload/3-2013/images/2013-09-08/1434778795-lht_9142.jpg',
+                'content' => 'https://benative.vn/wp-content/uploads/2019/11/bai-van-tieng-anh-ve-que-huong-1.jpg,https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSEi9_hQW5Wzy-OWfHFHA8a5H1IyiAsJgyJ5w&usqp=CAU,https://songgiatri.com/wp-content/uploads/2019/07/Mui-vi-que-huong-1-960x570.jpg,https://dichungxe.net/wp-content/uploads/2019/05/bai-tho-que-huong.jpg,https://www.gocbao.com/wp-content/uploads/2020/02/tho-luc-bat-ve-tinh-yeu-que-huong-dat-nuoc7.jpg,https://images.baodantoc.vn/uploads/2020/Th%C3%A1ng%203/Ng%C3%A0y_25/A1111111.jpg',
                 'tag' => 'wellcome, hello, hi, startapp',
                 'created_at' => '2020-07-18 12:42:22',
                 'updated_at' => '2020-07-18 12:42:22'

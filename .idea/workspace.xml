@@ -21,11 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Common/validate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/validate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/CommentSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CommentSeed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/LikeSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/LikeSeed.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/PostSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PostSeed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/SubjectSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/SubjectSeed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +197,7 @@
       <workItem from="1599658812073" duration="833000" />
       <workItem from="1599696312666" duration="635000" />
       <workItem from="1599786100002" duration="1085000" />
-      <workItem from="1599829825478" duration="24662000" />
+      <workItem from="1599829825478" duration="25707000" />
     </task>
     <servers />
   </component>
@@ -270,10 +266,10 @@
     <state x="611" y="522" width="672" height="677" key="run.anything.popup/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599273070561" />
     <state x="2531" y="232" key="run.anything.popup/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599151641988" />
     <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1598844016802" />
-    <state x="343" y="707" width="672" height="1000" key="search.everywhere.popup" timestamp="1599901926246">
+    <state x="343" y="707" width="672" height="1000" key="search.everywhere.popup" timestamp="1599903867849">
       <screen x="0" y="369" width="1080" height="1551" />
     </state>
-    <state x="343" y="707" width="672" height="1000" key="search.everywhere.popup/1080.342.1920.1080/0.369.1080.1551@0.369.1080.1551" timestamp="1599901926246" />
+    <state x="343" y="707" width="672" height="1000" key="search.everywhere.popup/1080.342.1920.1080/0.369.1080.1551@0.369.1080.1551" timestamp="1599903867849" />
     <state x="610" y="524" width="697" height="458" key="search.everywhere.popup/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599271738097" />
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1598799536125" />
   </component>
