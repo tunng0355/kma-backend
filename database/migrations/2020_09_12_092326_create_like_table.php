@@ -16,7 +16,7 @@ class CreateLikeTable extends Migration
         Schema::create('like', function (Blueprint $table) {
             $table->bigIncrements('id'); // The data type is Big Integer.
             $table->unsignedBigInteger("userId");
-            $table->unsignedBigInteger("postId");
+            $table->unsignedBigInteger("postId")->nullable();
             $table->unsignedBigInteger("commentId")->nullable();
             $table->timestamps();
         });
