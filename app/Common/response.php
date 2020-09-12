@@ -21,7 +21,8 @@ function getResponseNewFeed($item){
     $countComment = $item->getComment->count();
     $userPost     = $item->getUser;
     $countLike    = $item->getLike->count();
-    $nameUserLike = $item->getLike[rand(0, $countLike)]->getUser->getUserInfo->fullName;
+//    dd(rand(0, $countLike) ,$item->getLike->count(),$item->getLike);
+    $nameUserLike = $item->getLike[rand(0, $countLike-1)]->getUser->getUserInfo->fullName;
     $arrMap = ['id','userId','type','isHot', 'caption', 'content','tag'];
     $data = mapDataResponse($arrMap, [], $item);
     return array_merge($data, [

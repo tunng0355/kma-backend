@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Posts extends Model
 {
     protected $table = 'posts';
+    protected $fillable = ['id'];
 
     public function getComment(){
         return $this->hasMany('App\Comment','postId','id');

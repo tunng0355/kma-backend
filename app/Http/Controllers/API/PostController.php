@@ -12,9 +12,8 @@ class PostController extends Controller
 
     public function myNewFeed(Request $request){
         $limit = $request->limit ? $request->limit : 10;
-        $listPost  = Posts::orderBy('created_at', 'desc')
-            ->offset(0)
-            ->limit($limit)->get();
+        $listPost  = Posts::orderBy('created_at', 'desc')->take($limit)->get();
+//        $listPost = Posts::orderBy('created_at','desc')->take($limit)->get();
         foreach ($listPost as $post){
             $data[] = getResponseNewFeed($post);
         }
