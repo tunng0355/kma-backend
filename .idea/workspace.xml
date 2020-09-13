@@ -22,9 +22,6 @@
     <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Common/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/CommentSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CommentSeed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/LikeSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/LikeSeed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PostSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PostSeed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +199,7 @@
       <workItem from="1599786100002" duration="1085000" />
       <workItem from="1599829825478" duration="26997000" />
       <workItem from="1599959197384" duration="5536000" />
-      <workItem from="1599998058910" duration="4695000" />
+      <workItem from="1599998058910" duration="4885000" />
     </task>
     <servers />
   </component>
