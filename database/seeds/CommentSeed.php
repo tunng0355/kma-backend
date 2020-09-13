@@ -12,10 +12,10 @@ class CommentSeed extends Seeder
     public function run()
     {
         $data = [];
-        for ($i = 0; $i < 30; $i++){
+        for ($i = 0; $i < 60; $i++){
             $data[] = [
                 'id' => $i + 1,
-                'userId' => rand(1, 4),
+                'userId' => rand(1, 5),
                 'postId' => rand(1, 8),
                 'content' => "Hello this is my comment ".($i + 1),
                 'created_at' => '2020-07-20 12:'.($i < 10 ? "0".$i : $i).':22',

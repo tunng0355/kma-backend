@@ -39,6 +39,13 @@ class UserInfoSeed extends Seeder
                 'birthday' => 1599204711,
                 'created_at' => '2020-09-05 00:24:21',
                 'updated_at' => '2020-09-05 00:24:21',
+            ],
+            [
+                'userId' => 5,
+                'fullName' => 'Phạm Lưu Ly',
+                'birthday' => 1599304711,
+                'created_at' => '2020-09-13 00:24:21',
+                'updated_at' => '2020-09-13 00:24:21',
             ]
         ];
         \App\UserInfo::insert($data);

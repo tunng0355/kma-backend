@@ -56,6 +56,17 @@ class UserSeeds extends Seeder
                 'status' => USER_ACTIVE,
                 'created_at' => '2020-07-19 12:42:22'
             ],
+            [
+                'id' => 5,
+                'avatar' => null,
+                'email' => 'ply56787@gmail.com',
+                'userName' => 'phamlymiu',
+                'codeStudent' => 'AT140222',
+                'password' => bcrypt('at140222'),
+                'role'=> 'user',
+                'status' => USER_ACTIVE,
+                'created_at' => '2020-09-13 12:42:22'
+            ],
         ];
         \App\User::insert($data);
     }
