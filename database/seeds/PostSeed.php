@@ -41,7 +41,7 @@ class PostSeed extends Seeder
                 'type' => POST_TYPE_IMAGE,
                 'subjectId' => 2,
                 'caption' => "Hello KMA-social, my name is Du. I'm verry happy for your app",
-                'content' => "https://phunugioi.com/wp-content/uploads/2020/04/nhung-hinh-anh-dep-ve-que-huong-dat-nuoc-con-nguoi-viet-nam.jpg,https://lh3.googleusercontent.com/proxy/vS9Ob_wvfMG6jMX4wcIV-kD_won6OuRREzoGEAUOT1AFVXcvGTBkzHuwJChIBCrc7W8lAmUXRixzALN7-MXzNNNxMShL8kzn0lBIWVOyD3b1hCRKB6UYAfa5IRvdXOU",
+                'content' => "https://phunugioi.com/wp-content/uploads/2020/04/nhung-hinh-anh-dep-ve-que-huong-dat-nuoc-con-nguoi-viet-nam.jpg,https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSQpNC_n8JafTzShD7yCEgYiEVbW8Xt8wwJaA&usqp=CAU",
                 'tag' => 'wellcome, hello, hi, startapp',
                 'created_at' => '2020-07-18 12:42:22',
                 'updated_at' => '2020-07-18 12:42:22'
