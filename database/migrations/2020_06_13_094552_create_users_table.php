@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('userName', 25);
             $table->tinyInteger('status')->default(USER_NEW);
             $table->mediumInteger('sendCode')->nullable();
-            $table->string('avatar')->default('upload/avatar-default.png');
+            $table->string('avatar')->nullable();
             $table->rememberToken()->nullable();
             $table->timestamps();
 

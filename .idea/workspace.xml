@@ -21,7 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PostSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PostSeed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_13_094552_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_13_094552_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeds.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeds.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/avatar-default.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +199,8 @@
       <workItem from="1599658812073" duration="833000" />
       <workItem from="1599696312666" duration="635000" />
       <workItem from="1599786100002" duration="1085000" />
-      <workItem from="1599829825478" duration="25707000" />
+      <workItem from="1599829825478" duration="26997000" />
+      <workItem from="1599959197384" duration="1153000" />
     </task>
     <servers />
   </component>
@@ -247,14 +250,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1598544609293" />
-    <state width="498" height="869" key="SwitcherDM" timestamp="1599902334915">
-      <screen x="0" y="369" width="1080" height="1551" />
+    <state width="498" height="398" key="SwitcherDM" timestamp="1599960297277">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="498" height="869" key="SwitcherDM/1080.342.1920.1080/0.369.1080.1551@0.369.1080.1551" timestamp="1599902334915" />
     <state width="517" height="399" key="SwitcherDM/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1599201629659" />
     <state width="517" height="398" key="SwitcherDM/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599277926527" />
     <state width="517" height="409" key="SwitcherDM/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599151507602" />
-    <state width="498" height="398" key="SwitcherDM/67.27.1853.1053@67.27.1853.1053" timestamp="1599400014371" />
+    <state width="498" height="398" key="SwitcherDM/67.27.1853.1053@67.27.1853.1053" timestamp="1599960297277" />
     <state x="774" y="467" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598794732918">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

@@ -14,6 +14,7 @@ class UserSeeds extends Seeder
         $data = [
             [
                 'id' => 1,
+                'avatar'=> 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS4P1wXmQrrkSiJVXy3WjfOtuJDT5r4DVWwXA&usqp=CAU',
                 'email' => 'nobita@gmail.com',
                 'userName' => 'nobita',
                 'codeStudent' => 'AT140000',
@@ -24,6 +25,7 @@ class UserSeeds extends Seeder
             ],
             [
                 'id' => 2,
+                'avatar' => null,
                 'email' => 'doremon@gmail.com',
                 'userName' => 'doremon',
                 'codeStudent' => 'AT140001',
@@ -34,6 +36,7 @@ class UserSeeds extends Seeder
             ],
             [
                 'id' => 3,
+                'avatar' => null,
                 'email' => 'xuka@gmail.com',
                 'userName' => 'xuka_chan',
                 'codeStudent' => 'AT140002',
@@ -44,6 +47,7 @@ class UserSeeds extends Seeder
             ],
             [
                 'id' => 4,
+                'avatar' => 'https://i.pinimg.com/736x/3b/74/bc/3b74bca401101300aba962b2d867a209.jpg',
                 'email' => 'dulh181199@gmail.com',
                 'userName' => 'dusainbolt',
                 'codeStudent' => 'AT140509',
