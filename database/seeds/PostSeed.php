@@ -91,7 +91,7 @@ class PostSeed extends Seeder
                 'updated_at' => '2020-07-18 12:42:22'
             ],
             [
-                'id' => 7,
+                'id' => 8,
                 'userId' => 4,
                 'type' => POST_TYPE_VIDEO,
                 'subjectId' => 2,
