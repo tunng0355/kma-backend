@@ -17,7 +17,7 @@ class LikeSeed extends Seeder
             $data[] = [
                 'id' => $i + 1,
                 'userId' => rand(1, 5),
-                'postId' => rand(1, 8),
+                'postId' => rand(1, 9),
                 'created_at' => '2020-07-20 12:'.rand(0,5).rand(0,9).':22',
                 'updated_at' => '2020-07-20 12:42:22'
             ];
