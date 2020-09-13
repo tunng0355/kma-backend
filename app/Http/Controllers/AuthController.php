@@ -76,6 +76,7 @@ class AuthController extends Controller
 
         $user->remember_token = $remember_token[2];
         $user->save();
+        $info = $user->getUserInfo;
         return response()->json(\getResponse(['token' => $token, 'userInfo' => $user, 'type'=> $user->role], META_CODE_SUCCESS, LOGIN_ACTIVE));
     }
 
