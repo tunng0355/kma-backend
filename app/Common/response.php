@@ -27,7 +27,7 @@ function getResponseNewFeed($item){
     $data = mapDataResponse($arrMap, [], $item);
     return array_merge($data, [
         "avatarUrl" => $userPost->avatar,
-        "userName" => $userPost->getUserInfo->fullName,
+        "fullName" => $userPost->getUserInfo->fullName,
         "subjectName" => $item->getSubject->name,
         "totalComment"=> $countComment,
         "totalLike"=> $countLike,
