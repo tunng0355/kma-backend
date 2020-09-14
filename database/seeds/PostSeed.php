@@ -20,7 +20,7 @@ class PostSeed extends Seeder
                 'subjectId' => rand(1,6),
                 'caption' => "Hello KMA-social, my name is Du. I'm verry happy for your app",
                 'content' => null,
-                'tag' => randomString(5).",".randomString(6).",".randomString(4).",".randomString(10),
+                'tag' => null,
                 'created_at' => '2020-07-20 12:42:22',
                 'updated_at' => '2020-07-20 12:42:22'
             ],
@@ -64,7 +64,7 @@ class PostSeed extends Seeder
                 'subjectId' => rand(1,6),
                 'caption' => "Hello KMA-social, my name is Du. I'm verry happy for your app",
                 'content' => 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4',
-                'tag' => randomString(5).",".randomString(6).",".randomString(4).",".randomString(15),
+                'tag' => null,
                 'created_at' => '2020-07-18 12:42:22',
                 'updated_at' => '2020-07-18 12:42:22'
             ],

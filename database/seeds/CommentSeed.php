@@ -12,13 +12,13 @@ class CommentSeed extends Seeder
     public function run()
     {
         $data = [];
-        for ($i = 0; $i < 60; $i++){
+        for ($i = 0; $i < 90; $i++){
             $data[] = [
                 'id' => $i + 1,
                 'userId' => rand(1, 5),
                 'postId' => rand(1, 9),
                 'content' => "Hello this is my comment ".($i + 1),
-                'created_at' => '2020-07-20 12:'.($i < 10 ? "0".$i : $i).':22',
+                'created_at' => '2020-07-20 12:'.rand(0,5).rand(0,9).':22',
                 'updated_at' => '2020-07-20 12:42:22'
             ];
         };
