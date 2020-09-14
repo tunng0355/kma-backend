@@ -36,7 +36,7 @@ function getResponseNewFeed($item, $limitComment){
         "totalComment"=> $countComment,
         "totalLike"=> $countLike,
         "userLike"=> $nameUserLike,
-        "listCommnet" => $dataComment,
+        "listComment" => $dataComment,
         "created_at"=> strtotime($item->created_at),
         "updated_at"=> strtotime($item->updated_at),
     ]);
