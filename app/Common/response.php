@@ -17,10 +17,12 @@ function getResponeMessage($item){
     ];
 }
 
-function getResponseNewFeed($item){
+function getResponseNewFeed($item, $limitComment){
     $countComment = $item->getComment->count();
     $userPost     = $item->getUser;
     $countLike    = $item->getLike->count();
+    $listComment  = \App\Comment::where('postId', $item->id)->orderBy('created_at', 'desc')->take($limitComment)->get();
+
     $nameUserLike = $item->getLike[rand(0, $countLike-1)]->getUser->getUserInfo->fullName;
     $arrMap = ['id','userId','type','isHot', 'caption', 'content','tag'];
     $data = mapDataResponse($arrMap, [], $item);
@@ -31,6 +33,7 @@ function getResponseNewFeed($item){
         "totalComment"=> $countComment,
         "totalLike"=> $countLike,
         "userLike"=> $nameUserLike,
+        "listCommnet" => $listComment,
         "created_at"=> strtotime($item->created_at),
         "updated_at"=> strtotime($item->updated_at),
     ]);
