@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubjectTable extends Migration
+class CreateRoomChatTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateSubjectTable extends Migration
      */
     public function up()
     {
-        Schema::create('subject', function (Blueprint $table) {
+        Schema::create('room_chat', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('tag', 50)->nullable();
-            $table->string('name')->nullable();
+            $table->string('listId', 150);
+            $table->string('setName', 100);
+            $table->timestamps();
         });
     }
 
@@ -27,6 +28,6 @@ class CreateSubjectTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subject');
+        Schema::dropIfExists('room_chat');
     }
 }

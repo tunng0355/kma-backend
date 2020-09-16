@@ -14,7 +14,7 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->bigIncrements('id'); // The data type is Big Integer.
+            $table->bigIncrements('id');
             $table->unsignedBigInteger("userId");
             $table->tinyInteger('type')->default(0);
             $table->tinyInteger('isHot')->default(0);

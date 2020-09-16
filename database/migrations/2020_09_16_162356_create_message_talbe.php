@@ -14,17 +14,19 @@ class CreateMessageTalbe extends Migration
     public function up()
     {
         Schema::create('message', function (Blueprint $table) {
-            $table->bigIncrements('id'); // The data type is Big Integer.
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger("roomId")->nullable();
             $table->unsignedBigInteger("userId");
-            $table->text('message');
-            $table->string('type', 11)->nullable();
-            $table->string('react')->nullable();
-            $table->string('count_react')->nullable();
+            $table->binary('message');
+            $table->tinyInteger('type')->default(0);
             $table->timestamps();
+            //$table->string('react')->nullable();
+            //$table->string('count_react')->nullable();
         });
 
         Schema::table('message', function(Blueprint $table) {
             $table->foreign('userId')->references('id')->on('users');
+            $table->foreign('roomId')->references('id')->on('room_chat');
         });
 
     }

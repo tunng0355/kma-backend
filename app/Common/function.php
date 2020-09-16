@@ -17,6 +17,10 @@ function mapDataModel($arr,$model,$request, $custom_key = "", $id_key = 0){
 
 function mapDataResponse($arr,$data,$model){
     foreach ($arr as $value){
+        if($value == AVATAR_FOREIGN){
+            $data['avatarUrl'] = $model->getUser->avatar;
+            continue;
+        }
         $data[$value] = $model->$value;
     }
     return $data;

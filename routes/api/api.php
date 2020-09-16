@@ -35,6 +35,8 @@ Route::prefix('user')->group(function () {
         Route::apiResource('post', 'API\PostController');
         //Chat controller
         Route::apiResource('chat', 'API\ChatController');
+
+        Route::get('list_friends', 'UserController@getListFriends');
     });
     //Email controller
     Route::get('contact_mail', 'EmailController@sendEMail');

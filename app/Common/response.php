@@ -42,19 +42,27 @@ function getResponseNewFeed($item, $limitComment){
     ]);
 }
 
-//function getResponseComment($comment){
-//    $arrMap = ['id','userId','childId','isHot', 'content', 'postId'];
-//    $countLikeComment = \App\Like::where('commentId', $comment->id)->count();
-//    $data = mapDataResponse($arrMap, [], $comment);
-//    return array_merge($data, [
-//        "avatarUrl" => $comment->getUser->avatar,
-//        "fullName" => $comment->getUser->getUserInfo->fullName,
-//        "countLike" => $countLikeComment,
-//        "created_at"=> strtotime($comment->created_at),
-//        "updated_at"=> strtotime($comment->updated_at),
-//    ]);
-//
-//}
+function getResponseComment($comment){
+    $arrMap = ['id','userId','childId','isHot', 'content', 'postId'];
+    $countLikeComment = \App\Like::where('commentId', $comment->id)->count();
+    $data = mapDataResponse($arrMap, [], $comment);
+    return array_merge($data, [
+        "avatarUrl" => $comment->getUser->avatar,
+        "fullName" => $comment->getUser->getUserInfo->fullName,
+        "countLike" => $countLikeComment,
+        "created_at"=> strtotime($comment->created_at),
+        "updated_at"=> strtotime($comment->updated_at),
+    ]);
+}
+
+function getResponseListFriends($listInfo){
+    $arrMap = ['userId','fullName',AVATAR_FOREIGN];
+    $data = [];
+    foreach ($listInfo as $infoItem){
+        $data[] = mapDataResponse($arrMap, [], $infoItem);
+    }
+    return $data;
+}
 
 function formEmailConfirmCode($code){
     $title = '<h4 class="email-title">Chào mừng bạn đến với hệ thống</h4>';

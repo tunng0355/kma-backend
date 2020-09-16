@@ -53,4 +53,7 @@ define('POST_TYPE_VIDEO', 2);
 
 define('UPLOAD_DIR', 'kma_social/');
 define('FORMAT_CURRENT_TIME', 'Y-m-d H:i:s');
+
+define('LIMIT_LIST_FRIENDS', 10);
+define('AVATAR_FOREIGN', 'get_avatar_other_table');
 ?>
