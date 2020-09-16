@@ -68,6 +68,19 @@ class UserSeeds extends Seeder
                 'created_at' => '2020-09-13 12:42:22'
             ],
         ];
+        for ($i = 6; $i < 15; $i++){
+            $data[] = [
+                'id' => $i,
+                'avatar' => null,
+                'email' => 'seed'.$i.'@gmail.com',
+                'userName' => 'seed'.$i,
+                'codeStudent' => 'AT0000'.getValueOnZero($i),
+                'password' => bcrypt('admin123'),
+                'role'=> 'user',
+                'status' => USER_ACTIVE,
+                'created_at' => '2020-09-13 12:42:'.getValueOnZero($i),
+            ];
+        };
         \App\User::insert($data);
     }
 }

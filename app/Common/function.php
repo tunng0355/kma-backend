@@ -123,4 +123,8 @@ function randomString($length = 10){
     return $randstring;
 }
 
+function getValueOnZero($number){
+    return $number < 10 ? "0$number" : $number;
+}
+
 ?>

@@ -48,6 +48,17 @@ class UserInfoSeed extends Seeder
                 'updated_at' => '2020-09-13 00:24:21',
             ]
         ];
+
+        for ($i = 6; $i < 15; $i++){
+            $data[] = [
+                'userId' => $i,
+                'fullName' => 'Seed name'.$i,
+                'birthday' => 1599304700 + $i,
+                'created_at' => '2020-09-13 00:24:'.getValueOnZero($i),
+                'updated_at' => '2020-09-13 00:24:'.getValueOnZero($i),
+            ];
+        };
+
         \App\UserInfo::insert($data);
     }
 }
