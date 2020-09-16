@@ -21,11 +21,11 @@ function getResponseNewFeed($item, $limitComment){
     $countComment = $item->getComment->count();
     $userPost     = $item->getUser;
     $countLike    = $item->getLike->count();
-    $listComment  = \App\Comment::where('postId', $item->id)->orderBy('created_at', 'desc')->take($limitComment)->get();
-    $dataComment  = [];
-    foreach ($listComment as $comment){
-        $dataComment[] = getResponseComment($comment);
-    }
+//    $listComment  = \App\Comment::where('postId', $item->id)->orderBy('created_at', 'desc')->take($limitComment)->get();
+//    $dataComment  = [];
+//    foreach ($listComment as $comment){
+//        $dataComment[] = getResponseComment($comment);
+//    }
     $nameUserLike = $item->getLike[rand(0, $countLike-1)]->getUser->getUserInfo->fullName;
     $arrMap = ['id','userId','type','isHot', 'caption', 'content','tag'];
     $data = mapDataResponse($arrMap, [], $item);
@@ -36,25 +36,25 @@ function getResponseNewFeed($item, $limitComment){
         "totalComment"=> $countComment,
         "totalLike"=> $countLike,
         "userLike"=> $nameUserLike,
-        "listComment" => $dataComment,
+//        "listComment" => $dataComment,
         "created_at"=> strtotime($item->created_at),
         "updated_at"=> strtotime($item->updated_at),
     ]);
 }
 
-function getResponseComment($comment){
-    $arrMap = ['id','userId','childId','isHot', 'content', 'postId'];
-    $countLikeComment = \App\Like::where('commentId', $comment->id)->count();
-    $data = mapDataResponse($arrMap, [], $comment);
-    return array_merge($data, [
-        "avatarUrl" => $comment->getUser->avatar,
-        "fullName" => $comment->getUser->getUserInfo->fullName,
-        "countLike" => $countLikeComment,
-        "created_at"=> strtotime($comment->created_at),
-        "updated_at"=> strtotime($comment->updated_at),
-    ]);
-
-}
+//function getResponseComment($comment){
+//    $arrMap = ['id','userId','childId','isHot', 'content', 'postId'];
+//    $countLikeComment = \App\Like::where('commentId', $comment->id)->count();
+//    $data = mapDataResponse($arrMap, [], $comment);
+//    return array_merge($data, [
+//        "avatarUrl" => $comment->getUser->avatar,
+//        "fullName" => $comment->getUser->getUserInfo->fullName,
+//        "countLike" => $countLikeComment,
+//        "created_at"=> strtotime($comment->created_at),
+//        "updated_at"=> strtotime($comment->updated_at),
+//    ]);
+//
+//}
 
 function formEmailConfirmCode($code){
     $title = '<h4 class="email-title">Chào mừng bạn đến với hệ thống</h4>';
