@@ -48,10 +48,18 @@ class ChatController extends Controller
         if($validator->fails()){
             return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()), Response::HTTP_BAD_REQUEST);
         }
-        $mess['message'] = $request->message;
+
+//        content: "ABCCCCC",
+//      type: null,
+//      userId: 1,
+//      createAt: 1600134710,
+//      isRead: null,
+        $mess['content'] = $request->message;
         $mess['type'] = $request->type;
-        $mess['indexLoad'] = 3;
-//        dd($mess);
+        $mess['indexLoad'] = $request->indexLoad;
+        $mess['createAt'] = strtotime((date(FORMAT_CURRENT_TIME)));
+        $mess['idRead'] = null;
+        $mess['userId'] = $request->userId;
 //
 //        $user = Auth::user();
 //        $message = new Message();
