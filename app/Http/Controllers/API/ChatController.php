@@ -48,14 +48,18 @@ class ChatController extends Controller
         if($validator->fails()){
             return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()), Response::HTTP_BAD_REQUEST);
         }
-
-        $user = Auth::user();
-        $message = new Message();
-        $message->message = $request->message;
-        $message->type = $request->type;
-        $message->userId = $user->id;
-        $message->save();
-        sendSocket(getResponeMessage($message), CHAT_CHANNEL);
+        $mess['message'] = $request->message;
+        $mess['type'] = $request->type;
+        $mess['indexLoad'] = 3;
+//        dd($mess);
+//
+//        $user = Auth::user();
+//        $message = new Message();
+//        $message->message = $request->message;
+//        $message->type = $request->types;
+//        $message->userId = $user->id;
+//        $message->save();
+        sendSocket($mess, CHAT_CHANNEL);
         return response()->json(\getResponse([], META_CODE_SUCCESS, SEND_MESS_SUCCESS));
     }
 

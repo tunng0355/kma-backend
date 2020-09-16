@@ -19,8 +19,6 @@ Route::prefix('admin')->group(function () {
             //Socket controller
 //            Route::post('sendmessage', 'API\ChatController');
 
-            //Chat controller
-            Route::apiResource('chat', 'API\ChatController');
         });
     });
 });
@@ -35,8 +33,9 @@ Route::prefix('user')->group(function () {
         Route::post('logout', 'AuthController@logout');
         Route::get('my_feed', 'API\PostController@myNewFeed');
         Route::apiResource('post', 'API\PostController');
+        //Chat controller
+        Route::apiResource('chat', 'API\ChatController');
     });
     //Email controller
     Route::get('contact_mail', 'EmailController@sendEMail');
-
 });

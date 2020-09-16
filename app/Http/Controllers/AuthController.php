@@ -6,6 +6,7 @@ use App\Mail\MailNotify;
 use App\UserInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Mail;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\User;
@@ -14,23 +15,28 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        $validate = getValidate(VALIDATE_REGISTER);
-        $validator = Validator::make($request->all(), $validate[0],$validate[1]);
-        if($validator->fails()) {
-            return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()));
-        }
-        $user           = new User();
-        $user->email    = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->sendCode= rand(100000, 999999);
-        $user->codeStudent = $request->codeStudent;
-        $user->userName = $request->userName;
-        $user->save();
-        $arr      = ["fullName", "birthday", "gender"];
-        $userInfo = mapDataModel($arr, new UserInfo(), $request, "userId", $user->id);
-        $userInfo->save();
-        Mail::to($user->email)->send(new MailNotify(formEmailConfirmCode($user->sendCode), CONFIRM_REGISTER));
-        return response()->json(\getResponse($user, META_CODE_SUCCESS, MSG_REGISTER_SUCCESS));
+        $file = $request->file('file');
+        $fullpath = UPLOAD_DIR .''.randomString(20).''.strtotime(date(FORMAT_CURRENT_TIME));
+        Storage::disk('s3')->put($fullpath, file_get_contents($file), 'public');
+//        dd(Storage::disk('s3'));
+        dd(Storage::disk('s3')->url($fullpath));
+//        $validate = getValidate(VALIDATE_REGISTER);
+//        $validator = Validator::make($request->all(), $validate[0],$validate[1]);
+//        if($validator->fails()) {
+//            return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()));
+//        }
+//        $user           = new User();
+//        $user->email    = $request->email;
+//        $user->password = bcrypt($request->password);
+//        $user->sendCode= rand(100000, 999999);
+//        $user->codeStudent = $request->codeStudent;
+//        $user->userName = $request->userName;
+//        $user->save();
+//        $arr      = ["fullName", "birthday", "gender"];
+//        $userInfo = mapDataModel($arr, new UserInfo(), $request, "userId", $user->id);
+//        $userInfo->save();
+//        Mail::to($user->email)->send(new MailNotify(formEmailConfirmCode($user->sendCode), CONFIRM_REGISTER));
+//        return response()->json(\getResponse($user, META_CODE_SUCCESS, MSG_REGISTER_SUCCESS));
     }
 
     public function confirmSendCode(Request  $request){
