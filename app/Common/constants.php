@@ -35,6 +35,7 @@ define('USER_ROLE', 'user');
 define('VALIDATE_MESSAGE','validate_message');
 define('SEND_MESS_SUCCESS', 'send_mess_success');
 define('SERVER_LOGIC', 'TRY CATCH CRASH LOGIC');
+define('VALIDATE_LIST_CHAT','validate_list_chat');
 
 //role
 define('USER', 'user');
@@ -50,6 +51,9 @@ define('SEND_CODE_ERROR', 'send_code_error');
 define('POST_TYPE_STATUS', 0);
 define('POST_TYPE_IMAGE', 1);
 define('POST_TYPE_VIDEO', 2);
+
+define('ROOM_CHAT_NEW', 0);
+define('ROM_CHAT_ACTIVE', 1);
 
 define('UPLOAD_DIR', 'kma_social/');
 define('FORMAT_CURRENT_TIME', 'Y-m-d H:i:s');

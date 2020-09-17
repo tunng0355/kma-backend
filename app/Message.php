@@ -12,5 +12,8 @@ class Message extends Model
     public function getUser(){
         return $this->belongsTo('App\User','userId','id');
     }
+    public function getRoomChat(){
+        return $this->belongsTo('App\RoomChat','roomId','id');
+    }
 
 }

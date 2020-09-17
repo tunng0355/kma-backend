@@ -53,6 +53,14 @@ function getValidate($type){
                 "userName.max" => "message than limit 21",
             ];
             break;
+        case VALIDATE_LIST_CHAT:
+            $arr_checkVali[0] = [
+                "userId" => "required",
+            ];
+            $arr_checkVali[1] = [
+                "userId.required" => "userId_required",
+            ];
+            break;
         default:
             $arr_checkVali = [];
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Message;
+use App\RoomChat;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,6 +18,36 @@ class ChatController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
+
+    public function getListChat(Request $request)
+    {
+        $validate = getValidate(VALIDATE_LIST_CHAT);
+        $validator = Validator::make($request->all(), $validate[0], $validate[1]);
+        if ($validator->fails()) {
+            return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()));
+        }
+        $userId_1   = Auth::user()->id;
+        $limit      = $request->limit ? $request->limit : 15;
+        $offset     = $request->offset ? $request->offset : 0;
+        $userId_2   = $request->userId;
+        $userId_1   = Auth::user()->id;
+        $romChat    = RoomChat::where('listId', 'like', $userId_1.','.$userId_2)
+                              ->orWhere('listId', 'like', $userId_2.','.$userId_1)->first();
+        if (!isset($romChat)){
+            return $this->createBoxChat($userId_1, $userId_2);
+        }
+        $listMessage = Message::where('roomId', $romChat->id)
+                                ->offset($offset)->limit($limit)->orderBy('created_at')->get();
+        return response()->json(\getResponse(["roomChat" => $romChat, "listChat" => $listMessage], META_CODE_SUCCESS, ROOM_CHAT_NEW));
+    }
+
+    protected function createBoxChat($userId_1, $userId_2){
+        $newRoomChat = new RoomChat();
+        $newRoomChat->listId = $userId_1.','.$userId_2;
+        $newRoomChat->save();
+        return response()->json(\getResponse(["roomChat" => $newRoomChat, "listChat" => []], META_CODE_SUCCESS, ROOM_CHAT_NEW));
+    }
+
     public function index(Request $request)
     {
         $limit = $request->limit ? $request->limit : 10;
@@ -48,7 +79,6 @@ class ChatController extends Controller
         if($validator->fails()){
             return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()), Response::HTTP_BAD_REQUEST);
         }
-
         $mess['content'] = $request->message;
         $mess['type'] = $request->type;
         $mess['indexLoad'] = $request->indexLoad;

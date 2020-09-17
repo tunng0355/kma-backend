@@ -15,8 +15,8 @@ class CreateRoomChatTable extends Migration
     {
         Schema::create('room_chat', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('listId', 150);
-            $table->string('setName', 100);
+            $table->string('listId', 150)->nullable();
+            $table->string('setName', 100)->nullable();
             $table->timestamps();
         });
     }
