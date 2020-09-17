@@ -12,7 +12,7 @@ class UserController extends Controller
         $offset          = $request->offset ? $request->offset : 0;
         $searchText      = $request->searchText ? $request->searchText : "%";
         $listFriends     = UserInfo::where('fullName', 'like', '%'.$searchText.'%')
-                         ->offset($offset)->limit($limit)->get();
+                         ->offset($offset)->limit($limit)->orderBy('fullName')->get();
         return response()->json(\getResponse(getResponseListFriends($listFriends), META_CODE_SUCCESS, SEND_EMAIL_SUCCESS));
     }
 }
