@@ -51,7 +51,7 @@ define('SEND_CODE_ERROR', 'send_code_error');
 define('POST_TYPE_STATUS', 0);
 define('POST_TYPE_IMAGE', 1);
 define('POST_TYPE_VIDEO', 2);
-
+define('MAX_VALUE', 99999999999);
 define('ROOM_CHAT_NEW', 0);
 define('ROM_CHAT_ACTIVE', 1);
 

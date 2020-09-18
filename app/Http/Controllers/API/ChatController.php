@@ -26,18 +26,18 @@ class ChatController extends Controller
         if ($validator->fails()) {
             return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()));
         }
-        $userId_1   = Auth::user()->id;
         $limit      = $request->limit ? $request->limit : 15;
         $offset     = $request->offset ? $request->offset : 0;
+        $chatId     = $request->chatId ? $request->chatId : 9999999999999;
         $userId_2   = $request->userId;
         $userId_1   = Auth::user()->id;
-        $romChat    = RoomChat::where('listId', 'like', $userId_1.','.$userId_2)
+        $romChat    = RoomChat::where('listId', 'like', $userId_1.','.$userId_2)->where('id', '<', MAX_VALUE)
                               ->orWhere('listId', 'like', $userId_2.','.$userId_1)->first();
         if (!isset($romChat)){
             return $this->createBoxChat($userId_1, $userId_2);
         }
         $listMessage = Message::where('roomId', $romChat->id)
-                                ->offset($offset)->limit($limit)->orderBy('created_at','desc')->get();
+                                ->offset($offset)->limit($limit)->orderBy('id','desc')->get();
         return response()->json(\getResponse(["roomChat" => $romChat, "listChat" => $listMessage], META_CODE_SUCCESS, ROOM_CHAT_NEW));
     }
 
