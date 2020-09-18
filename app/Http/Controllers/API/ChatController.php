@@ -79,14 +79,14 @@ class ChatController extends Controller
         if($validator->fails()){
             return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()), Response::HTTP_BAD_REQUEST);
         }
-        $mess['content'] = $request->message;
-        $mess['type'] = $request->type;
-        $mess['indexLoad'] = $request->indexLoad;
-        $mess['createAt'] = strtotime((date(FORMAT_CURRENT_TIME)));
-        $mess['idRead'] = null;
-        $mess['userId'] = $request->userId;
-
-        sendSocket($mess, CHAT_CHANNEL);
+        $message = new Message();
+        if($request->type == POST_TYPE_STATUS){
+            $arr = ['userId','roomId','type','message','indexLoad'];
+            $message = mapDataModel($arr, $message, $request);
+            $message->save();
+        }
+        $data = Message::find($message->id);
+        sendSocket($data, CHANNEL_ROM.$message->roomId);
         return response()->json(\getResponse([], META_CODE_SUCCESS, SEND_MESS_SUCCESS));
     }
 

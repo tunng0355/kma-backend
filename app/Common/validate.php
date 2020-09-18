@@ -4,13 +4,16 @@ function getValidate($type){
     switch ($type){
         case VALIDATE_MESSAGE:
             $arr_checkVali[0] = [
-                "message" => "required|max:255",
-                "type" => "required"
+                "message" => "required",
+                "type" => "required|max:255",
+                "userId"=> "required|max:255",
+                "roomId" =>  "required|max:255",
             ];
             $arr_checkVali[1] = [
                 "message.required" => "message_required",
-                "message.max" => "message_than_limit_255",
                 "type.required" => "type_required",
+                "userId.required"=> "userId_required",
+                "roomId.required" =>  "roomId_required",
             ];
             break;
         case VALIDATE_REGISTER:

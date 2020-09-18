@@ -25,7 +25,7 @@ define('CONFIRM_REGISTER', 'Xác nhận đăng ký tham gia ứng dụng mạng 
 define('SEND_EMAIL_SUCCESS', "send success");
 
 //msg channel
-define('CHAT_CHANNEL', "_chatSocket");
+define('CHANNEL_ROM', "_roomChat:id=");
 
 //Role
 define('ADMIN_ROLE', 'admin');

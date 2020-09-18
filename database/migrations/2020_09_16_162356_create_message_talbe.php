@@ -15,10 +15,11 @@ class CreateMessageTalbe extends Migration
     {
         Schema::create('message', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger("roomId")->nullable();
+            $table->unsignedBigInteger("roomId");
             $table->unsignedBigInteger("userId");
-            $table->binary('message');
             $table->tinyInteger('type')->default(0);
+            $table->binary('message');
+            $table->tinyInteger('indexLoad')->nullable();
             $table->timestamps();
             //$table->string('react')->nullable();
             //$table->string('count_react')->nullable();
