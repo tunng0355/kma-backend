@@ -37,7 +37,7 @@ class ChatController extends Controller
             return $this->createBoxChat($userId_1, $userId_2);
         }
         $listMessage = Message::where('roomId', $romChat->id)
-                                ->offset($offset)->limit($limit)->orderBy('created_at')->get();
+                                ->offset($offset)->limit($limit)->orderBy('created_at','desc')->get();
         return response()->json(\getResponse(["roomChat" => $romChat, "listChat" => $listMessage], META_CODE_SUCCESS, ROOM_CHAT_NEW));
     }
 

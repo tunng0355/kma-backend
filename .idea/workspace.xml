@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Common/constants.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/constants.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Common/validate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/validate.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/ChatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/ChatController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_16_162356_create_message_talbe.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_16_162356_create_message_talbe.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +222,7 @@
       <workItem from="1600324056862" duration="2449000" />
       <workItem from="1600337865128" duration="85000" />
       <workItem from="1600348212921" duration="9019000" />
-      <workItem from="1600412071105" duration="3406000" />
+      <workItem from="1600412071105" duration="4861000" />
     </task>
     <servers />
   </component>
