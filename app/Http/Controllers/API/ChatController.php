@@ -28,17 +28,20 @@ class ChatController extends Controller
         }
         $limit      = $request->limit ? $request->limit : 15;
         $offset     = $request->offset ? $request->offset : 0;
-        $chatId     = $request->chatId ? $request->chatId : 9999999999999;
+        $chatId     = $request->chatId ? $request->chatId : MAX_VALUE;
         $userId_2   = $request->userId;
         $userId_1   = Auth::user()->id;
-        $romChat    = RoomChat::where('listId', 'like', $userId_1.','.$userId_2)->where('id', '<', MAX_VALUE)
+        $romChat    = RoomChat::where('listId', 'like', $userId_1.','.$userId_2)
                               ->orWhere('listId', 'like', $userId_2.','.$userId_1)->first();
         if (!isset($romChat)){
             return $this->createBoxChat($userId_1, $userId_2);
         }
-        $listMessage = Message::where('roomId', $romChat->id)
+        $listMessage = Message::where('roomId', $romChat->id)->where('id', '<', MAX_VALUE)
                                 ->offset($offset)->limit($limit)->orderBy('id','desc')->get();
-        return response()->json(\getResponse(["roomChat" => $romChat, "listChat" => $listMessage], META_CODE_SUCCESS, ROOM_CHAT_NEW));
+        $countMessage = Message::where('roomId', $romChat->id)->where('id', '<', $chatId)
+            ->offset($offset)->limit($limit)->orderBy('id','desc')->count();
+
+        return response()->json(\getResponse(["roomChat" => $romChat, "listChat" => $listMessage, "exact" => $countMessage - $limit], META_CODE_SUCCESS, ROOM_CHAT_NEW));
     }
 
     protected function createBoxChat($userId_1, $userId_2){
