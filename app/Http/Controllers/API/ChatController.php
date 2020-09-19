@@ -52,7 +52,7 @@ class ChatController extends Controller
         $newRoomChat = new RoomChat();
         $newRoomChat->listId = $userId_1.','.$userId_2;
         $newRoomChat->save();
-        return response()->json(\getResponse(["roomChat" => $newRoomChat, "listChat" => []], META_CODE_SUCCESS, ROOM_CHAT_NEW));
+        return response()->json(\getResponse(["roomChat" => $newRoomChat, "listChat" => [], "exact" => 0], META_CODE_SUCCESS, ROOM_CHAT_NEW));
     }
 
     public function index(Request $request)
@@ -93,8 +93,10 @@ class ChatController extends Controller
             $message->save();
         }
         $data = Message::find($message->id);
+        $data->idUserReceive = Message::select('userId')->where('roomId', $message->roomId)
+                        ->where('userId','!=', $message->userId)->first()->userId;
         sendSocket($data, CHANNEL_ROM.$message->roomId);
-        return response()->json(\getResponse([], META_CODE_SUCCESS, SEND_MESS_SUCCESS));
+        return response()->json(\getResponse($data, META_CODE_SUCCESS, SEND_MESS_SUCCESS));
     }
 
     /**
