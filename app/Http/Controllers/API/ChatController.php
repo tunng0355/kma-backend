@@ -93,8 +93,7 @@ class ChatController extends Controller
             $message->save();
         }
         $data = Message::find($message->id);
-        $data->idUserReceive = Message::select('userId')->where('roomId', $message->roomId)
-                        ->where('userId','!=', $message->userId)->first()->userId;
+        $data->idUserInbox = $request->idUserInbox;
         sendSocket($data, CHANNEL_ROM.$message->roomId);
         return response()->json(\getResponse($data, META_CODE_SUCCESS, SEND_MESS_SUCCESS));
     }
