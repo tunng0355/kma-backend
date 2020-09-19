@@ -61,27 +61,31 @@ function getResponseListFriends($listInfo, $userId){
     $arrMap = ['userId','fullName',AVATAR_FOREIGN];
     $data = [];
     foreach ($listInfo as $infoItem){
-        $romChat    = RoomChat::where('listId', 'like', $userId.','.$infoItem->userId)
-                     ->orWhere('listId', 'like', $infoItem->userId.','.$userId)->first();
-        $countMessage = isset($romChat) ? \App\Message::where('roomId', $romChat->id)->where('indexLoad', '>', '0')->count() : 0;
         $data[] = array_merge(mapDataResponse($arrMap, [], $infoItem), [
-           "countMessage"=> $countMessage,
+           "countMessage"=> getCountMessage($userId, $infoItem->userId),
            "content"=> "",
         ]);
     }
     return $data;
 }
 
-function getResponseFriendMessage($infoItem, $userId){
-    $data = mapDataResponse($arrMap, [], $infoItem);
-    return array_merge($data, [
-            "avatarUrl" => $comment->getUser->avatar,
-            "fullName" => $comment->getUser->getUserInfo->fullName,
-            "countLike" => $countLikeComment,
-            "created_at"=> strtotime($comment->created_at),
-            "updated_at"=> strtotime($comment->updated_at),
-    ]);
+function getCountMessage($userIdSend, $userIdView){
+    $romChat    = RoomChat::where('listId', 'like', $userIdSend.','.$userIdView)
+        ->orWhere('listId', 'like', $userIdView.','.$userIdSend)->first();
+    return isset($romChat) ? \App\Message::where('roomId', $romChat->id)->where('indexLoad', '>', '0')
+                                           ->where('userId', $userIdView)->count() : 0;
 }
+
+//function getResponseFriendMessage($infoItem, $userId){
+//    $data = mapDataResponse($arrMap, [], $infoItem);
+//    return array_merge($data, [
+//            "avatarUrl" => $comment->getUser->avatar,
+//            "fullName" => $comment->getUser->getUserInfo->fullName,
+//            "countLike" => $countLikeComment,
+//            "created_at"=> strtotime($comment->created_at),
+//            "updated_at"=> strtotime($comment->updated_at),
+//    ]);
+//}
 
 function formEmailConfirmCode($code){
     $title = '<h4 class="email-title">Chào mừng bạn đến với hệ thống</h4>';

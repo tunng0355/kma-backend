@@ -88,18 +88,19 @@ class ChatController extends Controller
             return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()), Response::HTTP_BAD_REQUEST);
         }
         $message = new Message();
+        $userSend = Auth::user();
         if($request->type == POST_TYPE_STATUS){
-            $arr = ['userId','roomId','type','message','indexLoad'];
-            $message = mapDataModel($arr, $message, $request);
+            $arr = ['roomId','type','message','indexLoad'];
+            $message = mapDataModel($arr, $message, $request, 'userId', $userSend->id);
             $message->save();
         }
         $data = Message::find($message->id);
-
-        $userInfo = UserInfo::where('userId', $request->userId)->first();
+        $userInfo = $userSend->getUserInfo;
         $dataUserMessage = [
             "fullName" => $userInfo->fullName,
             "avatarUrl" => $userInfo->getUser->avatar,
-            "userId" => $request->userId,
+            "userId" => $userSend->id,
+            "countMessage" => getCountMessage($request->userId, $request->idUserInbox),
         ];
         $data->idUserInbox = $request->idUserInbox;
         $data->userInbox = $dataUserMessage;

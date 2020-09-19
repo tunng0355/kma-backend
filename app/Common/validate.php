@@ -6,13 +6,13 @@ function getValidate($type){
             $arr_checkVali[0] = [
                 "message" => "required",
                 "type" => "required|max:255",
-                "userId"=> "required|max:255",
+                "idUserInbox"=> "required|max:255",
                 "roomId" =>  "required|max:255",
             ];
             $arr_checkVali[1] = [
                 "message.required" => "message_required",
                 "type.required" => "type_required",
-                "userId.required"=> "userId_required",
+                "idUserInbox.required"=> "idUserInbox_required",
                 "roomId.required" =>  "roomId_required",
             ];
             break;
