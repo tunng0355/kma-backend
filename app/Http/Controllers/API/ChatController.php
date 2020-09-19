@@ -46,7 +46,6 @@ class ChatController extends Controller
                                 ->offset($offset)->limit($limit)->orderBy('id','desc')->get();
         $countMessage = Message::where('roomId', $romChat->id)->where('id', '<', $chatId)
             ->offset($offset)->limit($limit)->orderBy('id','desc')->count();
-
         return response()->json(\getResponse(["roomChat" => $romChat, "listChat" => $listMessage, "exact" => $countMessage - $limit], META_CODE_SUCCESS, ROOM_CHAT_NEW));
     }
 
