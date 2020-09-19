@@ -100,7 +100,7 @@ class ChatController extends Controller
             "fullName" => $userInfo->fullName,
             "avatarUrl" => $userInfo->getUser->avatar,
             "userId" => $userSend->id,
-            "countMessage" => getCountMessage($request->userId, $request->idUserInbox),
+            "countMessage" => getCountMessage($userSend->id, $request->idUserInbox),
         ];
         $data->idUserInbox = $request->idUserInbox;
         $data->userInbox = $dataUserMessage;
