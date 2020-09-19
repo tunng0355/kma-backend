@@ -34,13 +34,14 @@ class ChatController extends Controller
             $romChat    = RoomChat::find($request->roomId);
         }else{
             $userId_2   = $request->userId;
-            $userId_1   = Auth::user()->id;
-            $romChat    = RoomChat::where('listId', 'like', $userId_1.','.$userId_2)
-                        ->orWhere('listId', 'like', $userId_2.','.$userId_1)->first();
+            $userIdAuth   = Auth::user()->id;
+            $romChat    = RoomChat::where('listId', 'like', $userIdAuth.','.$userId_2)
+                        ->orWhere('listId', 'like', $userId_2.','.$userIdAuth)->first();
         }
         if (!isset($romChat)){
-            return $this->createBoxChat($userId_1, $userId_2);
+            return $this->createBoxChat($userIdAuth, $userId_2);
         }
+        Message::where('roomId', $romChat->id)->where('userId', $userId_2)->update(['indexLoad' => 0]);
         $listMessage = Message::where('roomId', $romChat->id)->where('id', '<', $chatId)
                                 ->offset($offset)->limit($limit)->orderBy('id','desc')->get();
         $countMessage = Message::where('roomId', $romChat->id)->where('id', '<', $chatId)
@@ -49,9 +50,9 @@ class ChatController extends Controller
         return response()->json(\getResponse(["roomChat" => $romChat, "listChat" => $listMessage, "exact" => $countMessage - $limit], META_CODE_SUCCESS, ROOM_CHAT_NEW));
     }
 
-    protected function createBoxChat($userId_1, $userId_2){
+    protected function createBoxChat($userIdAuth, $userId_2){
         $newRoomChat = new RoomChat();
-        $newRoomChat->listId = $userId_1.','.$userId_2;
+        $newRoomChat->listId = $userIdAuth.','.$userId_2;
         $newRoomChat->save();
         return response()->json(\getResponse(["roomChat" => $newRoomChat, "listChat" => [], "exact" => 0], META_CODE_SUCCESS, ROOM_CHAT_NEW));
     }
