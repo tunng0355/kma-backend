@@ -62,7 +62,7 @@ function getResponseListFriends($listInfo, $userId){
     $data = [];
     foreach ($listInfo as $infoItem){
         $data[] = array_merge(mapDataResponse($arrMap, [], $infoItem), [
-           "countMessage"=> getCountMessage($userId, $infoItem->userId),
+           "countMessage"=> getCountMessage($infoItem->userId, $userId),
            "content"=> "",
         ]);
     }
@@ -73,8 +73,8 @@ function getCountMessage($userIdSend, $userIdView){
     $romChat    = RoomChat::where('listId', 'like', $userIdSend.','.$userIdView)
         ->orWhere('listId', 'like', $userIdView.','.$userIdSend)->first();
     return isset($romChat) ? \App\Message::where('roomId', $romChat->id)->where('indexLoad', '>', '0')
-                                           ->where('userId', $userIdView)->count() : 0;
-}
+                                           ->where('userId', $userIdSend)->count() : 0;
+};
 
 //function getResponseFriendMessage($infoItem, $userId){
 //    $data = mapDataResponse($arrMap, [], $infoItem);
