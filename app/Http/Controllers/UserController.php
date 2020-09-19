@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\UserInfo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -13,6 +14,6 @@ class UserController extends Controller
         $searchText      = $request->searchText ? $request->searchText : "%";
         $listFriends     = UserInfo::where('fullName', 'like', '%'.$searchText.'%')
                          ->offset($offset)->limit($limit)->orderBy('fullName')->get();
-        return response()->json(\getResponse(getResponseListFriends($listFriends), META_CODE_SUCCESS, SEND_EMAIL_SUCCESS));
+        return response()->json(\getResponse(getResponseListFriends($listFriends, Auth::user()->id), META_CODE_SUCCESS, SEND_EMAIL_SUCCESS));
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Message;
 use App\RoomChat;
 use App\User;
+use App\UserInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
@@ -93,7 +94,14 @@ class ChatController extends Controller
             $message->save();
         }
         $data = Message::find($message->id);
-        $data->idUserInbox = $request->idUserInbox;
+
+        $userInfo = UserInfo::where('userId', $request->idUserInbox)->first();
+        $dataUserInbox = [
+            "fullName" => $userInfo->fullName,
+            "avatarUrl" => $userInfo->getUser->avatar,
+            "userId" => $userInfo->userId,
+        ];
+        $data->userInbox = $dataUserInbox;
         sendSocket($data, CHANNEL_ROM.$message->roomId);
         return response()->json(\getResponse($data, META_CODE_SUCCESS, SEND_MESS_SUCCESS));
     }
