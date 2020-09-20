@@ -30,18 +30,18 @@ class ChatController extends Controller
         $limit      = $request->limit ? $request->limit : 15;
         $offset     = $request->offset ? $request->offset : 0;
         $chatId     = $request->chatId ? $request->chatId : MAX_VALUE;
+        $userId_2   = $request->userId;
         if(isset($request->roomId)){
             $romChat    = RoomChat::find($request->roomId);
         }else{
-            $userId_2   = $request->userId;
             $userIdAuth   = Auth::user()->id;
             $romChat    = RoomChat::where('listId', 'like', $userIdAuth.','.$userId_2)
                         ->orWhere('listId', 'like', $userId_2.','.$userIdAuth)->first();
-            Message::where('roomId', $romChat->id)->where('userId', $userId_2)->update(['indexLoad' => 0]);
         }
         if (!isset($romChat)){
             return $this->createBoxChat($userIdAuth, $userId_2);
         }
+        Message::where('roomId', $romChat->id)->where('userId', $userId_2)->update(['indexLoad' => 0]);
         $listMessage = Message::where('roomId', $romChat->id)->where('id', '<', $chatId)
                                 ->offset($offset)->limit($limit)->orderBy('id','desc')->get();
         $countMessage = Message::where('roomId', $romChat->id)->where('id', '<', $chatId)
