@@ -89,6 +89,7 @@ class ChatController extends Controller
         }
         $message = new Message();
         $userSend = Auth::user();
+        Message::where('roomId', $request->roomId)->where('userId','!=',$userSend->id)->update(['indexLoad' => 0]);
         if($request->type == POST_TYPE_STATUS){
             $arr = ['roomId','type','message','indexLoad'];
             $message = mapDataModel($arr, $message, $request, 'userId', $userSend->id);
