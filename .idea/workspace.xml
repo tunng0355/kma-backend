@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.prd" beforeDir="false" afterPath="$PROJECT_DIR$/.env.prd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/PostSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PostSeed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +163,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -239,7 +239,10 @@
       <workItem from="1600592633097" duration="5090000" />
       <workItem from="1600661569802" duration="1545000" />
       <workItem from="1600753371861" duration="2634000" />
-      <workItem from="1600910257349" duration="409000" />
+      <workItem from="1600910257349" duration="1032000" />
+      <workItem from="1601474710616" duration="765000" />
+      <workItem from="1601531373081" duration="732000" />
+      <workItem from="1601553276457" duration="859000" />
     </task>
     <servers />
   </component>
@@ -287,11 +290,12 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1598838519274" />
-    <state x="482" y="187" key="SettingsEditor" timestamp="1598544609293">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="483" y="187" width="1022" height="737" key="SettingsEditor" timestamp="1601531487966">
+      <screen x="68" y="27" width="1852" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1598544609293" />
-    <state width="854" height="400" key="SwitcherDM" timestamp="1600754909121">
+    <state x="483" y="187" width="1022" height="737" key="SettingsEditor/68.27.1852.1053@68.27.1852.1053" timestamp="1601531487966" />
+    <state width="854" height="400" key="SwitcherDM" timestamp="1601531445043">
       <screen x="68" y="27" width="1852" height="1053" />
     </state>
     <state width="517" height="409" key="SwitcherDM/1080.0.1920.1080/0.140.1080.1920@1080.0.1920.1080" timestamp="1600592928530" />
@@ -303,7 +307,7 @@
     <state width="517" height="398" key="SwitcherDM/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599277926527" />
     <state width="517" height="409" key="SwitcherDM/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599151507602" />
     <state width="498" height="398" key="SwitcherDM/67.27.1853.1053@67.27.1853.1053" timestamp="1600325135828" />
-    <state width="854" height="400" key="SwitcherDM/68.27.1852.1053@68.27.1852.1053" timestamp="1600754909121" />
+    <state width="854" height="400" key="SwitcherDM/68.27.1852.1053@68.27.1852.1053" timestamp="1601531445043" />
     <state x="774" y="467" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598794732918">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
