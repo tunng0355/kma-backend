@@ -15,10 +15,10 @@ class PostController extends Controller
 
     public function myNewFeed(Request $request){
         $limit = $request->limit ? $request->limit : 5;
-        $limitComment = $request->limitComment ? $request->limitComment : 10;
+//        $limitComment = $request->limitComment ? $request->limitComment : 10;
         $listPost  = Posts::orderBy('created_at', 'desc')->take($limit)->get();
         foreach ($listPost as $post){
-            $data[] = getResponseNewFeed($post, $limitComment);
+            $data[] = getResponseNewFeed($post);
         }
         return response()->json(\getResponse($data, META_CODE_SUCCESS));
     }
@@ -48,11 +48,11 @@ class PostController extends Controller
         }else if($request->type == 1 && !isset($request->payload)){
             return response()->json(\getResponse([], META_CODE_ERROR, PAYLOAD_REQUIRED), Response::HTTP_BAD_REQUEST);
         }
-        $arrKey = ["type", "tag", "subjectId"];
+        $arrKey = ["type", "tag", "subjectId", "caption"];
         $newPost = mapDataModel($arrKey, new Posts(),$request, USER_ID, Auth::user()->id);
         $newPost->content = $this->genderContentPost($request);
         $newPost->save();
-        return response()->json(\getResponse($newPost, META_CODE_SUCCESS, POST_NEW_SUCCESS));
+        return response()->json(\getResponse(getResponseNewFeed($newPost), META_CODE_SUCCESS, POST_NEW_SUCCESS));
     }
 
     protected function genderContentPost($request){
@@ -61,7 +61,8 @@ class PostController extends Controller
                 return $request->payload;
             case POST_TYPE_IMAGE:
                 return  null;
-            default: return "default";
+                break;
+            default: return null;
         }
     }
 

@@ -19,7 +19,7 @@ function getResponeMessage($item){
     ];
 }
 
-function getResponseNewFeed($item, $limitComment){
+function getResponseNewFeed($item){
     $countComment = $item->getComment->count();
     $userPost     = $item->getUser;
     $countLike    = $item->getLike->count();
