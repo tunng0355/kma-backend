@@ -28,17 +28,16 @@ function getResponseNewFeed($item, $limitComment){
 //    foreach ($listComment as $comment){
 //        $dataComment[] = getResponseComment($comment);
 //    }
-    $nameUserLike = $item->getLike[rand(0, $countLike-1)]->getUser->getUserInfo->fullName;
+    $nameUserLike = $countLike ? $item->getLike[rand(0, $countLike-1)]->getUser->getUserInfo->fullName : null;
     $arrMap = ['id','userId','type','isHot', 'caption', 'content','tag'];
     $data = mapDataResponse($arrMap, [], $item);
     return array_merge($data, [
         "avatarUrl" => $userPost->avatar,
         "fullName" => $userPost->getUserInfo->fullName,
-        "subjectName" => $item->getSubject->name,
+        "subjectName" => $item->subjectId ?  $item->getSubject->name : null,
         "totalComment"=> $countComment,
         "totalLike"=> $countLike,
         "userLike"=> $nameUserLike,
-//        "listComment" => $dataComment,
         "created_at"=> strtotime($item->created_at),
         "updated_at"=> strtotime($item->updated_at),
     ]);
