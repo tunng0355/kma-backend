@@ -7,7 +7,7 @@ $chat = Message::orderBy('created_at', 'desc')->take(10)->get();
 
 function mapDataModel($arr,$model,$request, $custom_key = "", $id_key = 0){
     foreach ($arr as $value){
-        $model->$value = $request->$value;
+        $model->$value = is_numeric($request->$value) ? (int)$request->$value : $request->$value;
     }
     if($custom_key){
         $model->$custom_key = $id_key;

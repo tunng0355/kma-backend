@@ -64,6 +64,14 @@ function getValidate($type){
                 "userId.required" => "userId_required",
             ];
             break;
+        case VALIDATE_POST:
+            $arr_checkVali[0] = [
+                "type" => "required",
+            ];
+            $arr_checkVali[1] = [
+                "type.required" => "type_required",
+            ];
+            break;
         default:
             $arr_checkVali = [];
     }
