@@ -20,24 +20,21 @@ function getResponeMessage($item){
 }
 
 function getResponseNewFeed($item){
-    $countComment = $item->getComment->count();
+//    $countComment = $item->getComment->count();
     $userPost     = $item->getUser;
-    $countLike    = $item->getLike->count();
 //    $listComment  = \App\Comment::where('postId', $item->id)->orderBy('created_at', 'desc')->take($limitComment)->get();
 //    $dataComment  = [];
 //    foreach ($listComment as $comment){
 //        $dataComment[] = getResponseComment($comment);
 //    }
-    $nameUserLike = $countLike ? $item->getLike[rand(0, $countLike-1)]->getUser->getUserInfo->fullName : null;
-    $arrMap = ['id','userId','type','isHot', 'caption', 'content','tag'];
+//    $nameUserLike = $countLike ? $item->getLike[rand(0, $countLike-1)]->getUser->getUserInfo->fullName : null;
+    $arrMap = ['id','userId','type','isHot', 'caption', 'content','tag','totalComment','totalLike'];
     $data = mapDataResponse($arrMap, [], $item);
     return array_merge($data, [
         "avatarUrl" => $userPost->avatar,
         "fullName" => $userPost->getUserInfo->fullName,
         "subjectName" => $item->subjectId ?  $item->getSubject->name : null,
-        "totalComment"=> $countComment,
-        "totalLike"=> $countLike,
-        "userLike"=> $nameUserLike,
+        "userLike"=> "name user like",
         "created_at"=> strtotime($item->created_at),
         "updated_at"=> strtotime($item->updated_at),
     ]);

@@ -19,6 +19,9 @@ class CreatePostsTable extends Migration
             $table->tinyInteger('type')->default(0);
             $table->tinyInteger('isHot')->default(0);
             $table->smallInteger('subjectId')->nullable();
+            $table->integer('totalComment')->default(0);
+            $table->integer('totalLike')->default(0);
+            $table->string('listUserIdLike')->nullable();
             $table->binary('caption')->nullable();
             $table->binary('content')->nullable();
             $table->string('tag')->nullable();
