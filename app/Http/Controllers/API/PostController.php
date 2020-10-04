@@ -64,6 +64,9 @@ class PostController extends Controller
                 $content = "";
                 $listImage = $request->images;
                 foreach($listImage as $item){
+                    if($item->getSize() > 1024){
+                        continue;
+                    }
                     $fullpath = UPLOAD_DIR .''.randomString(20).''.strtotime(date(FORMAT_CURRENT_TIME));
                     Storage::disk('s3')->put($fullpath, file_get_contents($item), 'public');
                     $content  .= ",".Storage::disk('s3')->url($fullpath);
