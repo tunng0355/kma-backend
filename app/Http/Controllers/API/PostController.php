@@ -64,7 +64,7 @@ class PostController extends Controller
                 $content = "";
                 $listImage = $request->images;
                 foreach($listImage as $item){
-                    if($item->getSize() > 1024){
+                    if($item->getSize() > 1024 * 1024){
                         continue;
                     }
                     $fullpath = UPLOAD_DIR .''.randomString(20).''.strtotime(date(FORMAT_CURRENT_TIME));
