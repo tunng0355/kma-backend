@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SubjectSeed::class);
         $this->call(PostSeed::class);
         $this->call(CommentSeed::class);
-        $this->call(LikeSeed::class);
+//        $this->call(LikeSeed::class);
         $this->call(RoomChatSeeder::class);
         $this->call(MessageSeed::class);
     }
