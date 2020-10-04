@@ -61,7 +61,7 @@ define('FORMAT_CURRENT_TIME', 'Y-m-d H:i:s');
 define('LIMIT_LIST_FRIENDS', 10);
 define('AVATAR_FOREIGN', 'get_avatar_other_table');
 define('VALIDATE_POST','validate_post');
-define('PAYLOAD_REQUIRED', 'payload_required');
+define('IMAGES_REQUIRED', 'images_required');
 define('POST_NEW_SUCCESS', 'post_new_success');
 define('GET_LIST_SUBJECT_SUCCESS', 'get_list_subject_success');
 define('USER_ID', 'userId');

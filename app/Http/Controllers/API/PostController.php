@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -45,8 +46,8 @@ class PostController extends Controller
         $validator = Validator::make($request->all(), $validate[0],$validate[1]);
         if($validator->fails()){
             return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()), Response::HTTP_BAD_REQUEST);
-        }else if($request->type == 1 && !isset($request->payload)){
-            return response()->json(\getResponse([], META_CODE_ERROR, PAYLOAD_REQUIRED), Response::HTTP_BAD_REQUEST);
+        }else if($request->type == 1 && !isset($request->images)){
+            return response()->json(\getResponse([], META_CODE_ERROR, IMAGES_REQUIRED), Response::HTTP_BAD_REQUEST);
         }
         $arrKey = ["type", "tag", "subjectId", "caption"];
         $newPost = mapDataModel($arrKey, new Posts(),$request, USER_ID, Auth::user()->id);
@@ -60,8 +61,14 @@ class PostController extends Controller
             case POST_TYPE_STATUS:
                 return $request->payload;
             case POST_TYPE_IMAGE:
-                return  null;
-                break;
+                $content = "";
+                $listImage = $request->images;
+                foreach($listImage as $item){
+                    $fullpath = UPLOAD_DIR .''.randomString(20).''.strtotime(date(FORMAT_CURRENT_TIME));
+                    Storage::disk('s3')->put($fullpath, file_get_contents($item), 'public');
+                    $content  .= ",".Storage::disk('s3')->url($fullpath);
+                }
+                return  ltrim($content, ",");
             default: return null;
         }
     }

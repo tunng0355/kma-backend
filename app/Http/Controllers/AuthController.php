@@ -6,20 +6,15 @@ use App\Mail\MailNotify;
 use App\UserInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Mail;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\User;
 use Illuminate\Support\Facades\Validator;
+
 class AuthController extends Controller
 {
     public function register(Request $request)
     {
-//        $file = $request->file('file');
-//        $fullpath = UPLOAD_DIR .''.randomString(20).''.strtotime(date(FORMAT_CURRENT_TIME));
-//        Storage::disk('s3')->put($fullpath, file_get_contents($file), 'public');
-////        dd(Storage::disk('s3'));
-//        dd(Storage::disk('s3')->url($fullpath));
         $validate = getValidate(VALIDATE_REGISTER);
         $validator = Validator::make($request->all(), $validate[0],$validate[1]);
         if($validator->fails()) {
