@@ -51,6 +51,7 @@ define('SEND_CODE_ERROR', 'send_code_error');
 define('POST_TYPE_STATUS', 0);
 define('POST_TYPE_IMAGE', 1);
 define('POST_TYPE_VIDEO', 2);
+define('POST_TYPE_SUBJECT', 3);
 define('POST_TYPE_HOST', 4);
 define('BOOL_TRUE', 1);
 define('BOOL_FALSE', 0);
@@ -58,7 +59,7 @@ define('FILTER_ALL', 0);
 define('MAX_VALUE', 99999999999);
 define('ROOM_CHAT_NEW', 0);
 define('ROM_CHAT_ACTIVE', 1);
-
+define('SUBJECTID_VAR', 'subjectId');
 define('UPLOAD_DIR', 'kma_social/');
 define('FORMAT_CURRENT_TIME', 'Y-m-d H:i:s');
 

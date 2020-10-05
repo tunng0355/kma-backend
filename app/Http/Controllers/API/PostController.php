@@ -18,7 +18,14 @@ class PostController extends Controller
         $typeFilter = $request->type;
         $type = $typeFilter && $typeFilter != POST_TYPE_HOST ? $typeFilter : FILTER_ALL;
         $isText = $request->type == 5 ? BOOL_TRUE : BOOL_FALSE;
-        $listPost = Posts::where('type', $isText || $type != FILTER_ALL ? "=" : ">", $isText ? 0 : $type)
+        $subjectId = $request->subjectId ? $request->subjectId : "";
+        $condition = [
+            'type' => $type == 3 ? SUBJECTID_VAR : 'type',
+            'operator' => $isText || $type == 3 || $type != FILTER_ALL ? "=" : ">",
+            'value' => $type == 3 ? $subjectId : ($isText ? 0 : $type),
+        ];
+
+        $listPost = Posts::where($condition['type'],$condition['operator'], $condition['value'])
                          ->orderBy('created_at', 'desc')->take($limit)->get();
         foreach ($listPost as $post) {
             $data[] = getResponseNewFeed($post);
