@@ -32,16 +32,12 @@ class LikeController extends Controller
             $likeNew->active = $type;
             $likeNew->save();
         }
-        $post = Posts::find($postId);
+        $postResponse = getResponseNewFeed(Posts::find($postId));
         $dataUserLike = [
-            "fullName" => Auth::user()->getUserInfo->fullName,
-            "userId" => $userId,
-            "postId" => $postId,
-            "type" => $post->type,
-            "caption" => $post->caption,
-            "content" => $post->content,
+            "fullNameLike" => Auth::user()->getUserInfo->fullName,
+            "userIdLike" => $userId,
         ];
-        sendSocket($dataUserLike, CHANNEL_NEW_FEED.$post->userId);
-        return response()->json(\getResponse(getResponseNewFeed($post), META_CODE_SUCCESS));
+        sendSocket(array_merge($dataUserLike, $postResponse), CHANNEL_NEW_FEED.$postResponse['userId']);
+        return response()->json(\getResponse($postResponse, META_CODE_SUCCESS));
     }
 }
