@@ -1,6 +1,7 @@
 <?php
 
-use App\RoomCat;
+use App\RoomChat;
+use App\Message;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 
@@ -72,7 +73,7 @@ function getResponseListFriends($listInfo, $userId){
 function getCountMessage($userIdSend, $userIdView){
     $romChat    = RoomChat::where('listId', 'like', $userIdSend.','.$userIdView)
         ->orWhere('listId', 'like', $userIdView.','.$userIdSend)->first();
-    return isset($romChat) ? \App\Message::where('roomId', $romChat->id)->where('indexLoad', '>', '0')
+    return isset($romChat) ? Message::where('roomId', $romChat->id)->where('indexLoad', '>', '0')
                                            ->where('userId', $userIdSend)->count() : 0;
 };
 
