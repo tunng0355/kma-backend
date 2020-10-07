@@ -22,7 +22,7 @@ class LikeController extends Controller
         $userId = Auth::user()->id;
         $likeNow = Like::where('userId', $userId)->where('postId', $postId)->first();
 
-        if (count($likeNow)) {
+        if (isset($likeNow->id)) {
             $likeNow->active = $type;
             $likeNow->save();
         } else {
@@ -32,6 +32,16 @@ class LikeController extends Controller
             $likeNew->active = $type;
             $likeNew->save();
         }
-        return response()->json(\getResponse(getResponseNewFeed(Posts::find($postId)), META_CODE_SUCCESS));
+        $post = Posts::find($postId);
+        $dataUserLike = [
+            "fullName" => Auth::user()->getUserInfo->fullName,
+            "userId" => $userId,
+            "postId" => $postId,
+            "type" => $post->type,
+            "caption" => $post->caption,
+            "content" => $post->content,
+        ];
+        sendSocket($dataUserLike, CHANNEL_NEW_FEED.$post->userId);
+        return response()->json(\getResponse(getResponseNewFeed($post), META_CODE_SUCCESS));
     }
 }

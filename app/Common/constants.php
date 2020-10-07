@@ -26,6 +26,7 @@ define('SEND_EMAIL_SUCCESS', "send success");
 
 //msg channel
 define('CHANNEL_ROM', "__roomChat:id=");
+define('CHANNEL_NEW_FEED', "__newFeed:id=");
 
 //Role
 define('ADMIN_ROLE', 'admin');
