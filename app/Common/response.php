@@ -30,7 +30,7 @@ function getResponseNewFeed($item){
 //        $dataComment[] = getResponseComment($comment);
 //    }
     $listUserLike = \App\Like::where('postId', $item->id)->where('active', 1)->pluck('userId');
-    $nameUserLike = $item->totalLike > 5 ? $item->getLike[rand(0, $item->totalLike - 3 )]->getUser->getUserInfo->fullName : null;
+    $nameUserLike = count($listUserLike) > 10 ? $item->getLike[rand(0, count($listUserLike) - 1 )]->getUser->getUserInfo->fullName : null;
     $arrMap = ['id','userId','type','isHot', 'caption', 'content','tag','totalComment','totalLike'];
     $data = mapDataResponse($arrMap, [], $item);
     return array_merge($data, [
