@@ -27,6 +27,7 @@ class PostController extends Controller
 
         $listPost = Posts::where($condition['type'],$condition['operator'], $condition['value'])
                          ->orderBy('created_at', 'desc')->take($limit)->get();
+        $data = [];
         foreach ($listPost as $post) {
             $data[] = getResponseNewFeed($post);
         }
@@ -52,11 +53,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $validate = getValidate(VALIDATE_POST);
-        $validator = Validator::make($request->all(), $validate[0], $validate[1]);
+        $validator = getValidatorData(VALIDATE_POST, $request);
         if ($validator->fails()) {
-            return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()), Response::HTTP_BAD_REQUEST);
-        } else if ($request->type == 1 && !isset($request->images)) {
+            return responseValidate($validator->errors()->first(), []);
+        }
+        if ($request->type == 1 && !isset($request->images)) {
             return response()->json(\getResponse([], META_CODE_ERROR, IMAGES_REQUIRED), Response::HTTP_BAD_REQUEST);
         }
         $arrKey = ["type", "tag", "subjectId", "caption"];

@@ -127,4 +127,8 @@ function getValueOnZero($number){
     return $number < 10 ? "0$number" : $number;
 }
 
+function renderArrayModalToString($modalPluck){
+    return implode(",", $modalPluck->toArray());
+};
+
 ?>

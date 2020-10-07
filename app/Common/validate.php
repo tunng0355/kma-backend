@@ -72,6 +72,16 @@ function getValidate($type){
                 "type.required" => "type_required",
             ];
             break;
+        case VALIDATE_LIKE_NEW_FEED:
+            $arr_checkVali[0] = [
+                "postId" => "required",
+                "typeLike" => "required",
+            ];
+            $arr_checkVali[1] = [
+                "postId.required" => "postId_required",
+                "typeLike.required" => "typeLike_required",
+            ];
+            break;
         default:
             $arr_checkVali = [];
     }

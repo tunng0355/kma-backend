@@ -62,8 +62,10 @@ define('ROM_CHAT_ACTIVE', 1);
 define('SUBJECTID_VAR', 'subjectId');
 define('UPLOAD_DIR', 'kma_social/');
 define('FORMAT_CURRENT_TIME', 'Y-m-d H:i:s');
-
+define('LIST_CONDITION_VALIDATE', 0);
+define('LIST_MSG_VALIDATE', 1);
 define('LIMIT_LIST_FRIENDS', 10);
+define('VALIDATE_LIKE_NEW_FEED', 'validate_like_new_feed');
 define('AVATAR_FOREIGN', 'get_avatar_other_table');
 define('VALIDATE_POST','validate_post');
 define('IMAGES_REQUIRED', 'images_required');

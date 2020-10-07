@@ -1,6 +1,7 @@
 <?php
 
-use App\RoomChat;
+use App\RoomCat;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 
 function getResponeMessage($item){
@@ -27,6 +28,7 @@ function getResponseNewFeed($item){
 //    foreach ($listComment as $comment){
 //        $dataComment[] = getResponseComment($comment);
 //    }
+    $listUserLike = \App\Like::where('postId', $item->id)->where('active', 1)->pluck('userId');
     $nameUserLike = $item->totalLike > 5 ? $item->getLike[rand(0, $item->totalLike - 3 )]->getUser->getUserInfo->fullName : null;
     $arrMap = ['id','userId','type','isHot', 'caption', 'content','tag','totalComment','totalLike'];
     $data = mapDataResponse($arrMap, [], $item);
@@ -35,6 +37,8 @@ function getResponseNewFeed($item){
         "fullName" => $userPost->getUserInfo->fullName,
         "subjectName" => $item->subjectId ?  $item->getSubject->name : null,
         "userLike"=> $nameUserLike,
+        "totalLike" => count($listUserLike),
+        "listUserLike" => renderArrayModalToString($listUserLike),
         "created_at"=> strtotime($item->created_at),
         "updated_at"=> strtotime($item->updated_at),
     ]);
@@ -89,12 +93,20 @@ function formEmailConfirmCode($code){
     return $title.$description;
 }
 
-function responseValidate($typeValidate, $request){
+//function responseValidate($typeValidate, $request){
+//    $validate = getValidate($typeValidate);
+//    $validator = Validator::make($request->all(), $validate[LIST_CONDITION_VALIDATE],$validate[LIST_MSG_VALIDATE]);
+//    if($validator->fails()) {
+//        return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()));
+//    }
+//}
+
+function getValidatorData($typeValidate, $request){
     $validate = getValidate($typeValidate);
-    $validator = Validator::make($request->all(), $validate[0],$validate[1]);
-    if($validator->fails()) {
-        return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()));
-    }
+    return Validator::make($request->all(), $validate[LIST_CONDITION_VALIDATE], $validate[LIST_MSG_VALIDATE]);
 }
 
+function responseValidate($msg = "", $arr = []){
+    return response()->json(\getResponse($arr, META_CODE_ERROR, $msg), 400);
+}
 ?>

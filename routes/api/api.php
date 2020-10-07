@@ -30,17 +30,25 @@ Route::prefix('user')->group(function () {
     Route::get('user_empty', 'AuthController@checkEmptyRegister');
     Route::post('confirm_code', 'AuthController@confirmSendCode');
     Route::group(['middleware' => 'jwt.auth'], function () {
+        //AUTH
         Route::post('logout', 'AuthController@logout');
+
+        //POST
         Route::get('my_feed', 'API\PostController@myNewFeed');
         Route::apiResource('post', 'API\PostController');
-        //Chat controller
+
+        //ChatController
         Route::apiResource('chat', 'API\ChatController');
         Route::get('list_chat', 'API\ChatController@getListChat');
 
+        //UserController
         Route::get('list_friends', 'UserController@getListFriends');
 
         //SubjectController
         Route::get('list_subject', 'SubjectController@getListSubject');
+
+        //LikeController
+        Route::put('handle_like', 'LikeController@handleLikeNewFeed');
     });
     //Email controller
     Route::get('contact_mail', 'EmailController@sendEMail');

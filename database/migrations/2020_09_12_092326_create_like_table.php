@@ -18,6 +18,7 @@ class CreateLikeTable extends Migration
             $table->unsignedBigInteger("userId");
             $table->unsignedBigInteger("postId")->nullable();
             $table->unsignedBigInteger("commentId")->nullable();
+            $table->tinyInteger('active')->nullable();
             $table->timestamps();
         });
 

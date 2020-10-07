@@ -15,10 +15,9 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        $validate = getValidate(VALIDATE_REGISTER);
-        $validator = Validator::make($request->all(), $validate[0],$validate[1]);
-        if($validator->fails()) {
-            return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()));
+        $validator = getValidatorData(VALIDATE_REGISTER, $request);
+        if ($validator->fails()) {
+            return responseValidate($validator->errors()->first(), []);
         }
         $user           = new User();
         $user->email    = $request->email;

@@ -13,7 +13,7 @@ class LikeSeed extends Seeder
     {
 
         $data = [];
-        for ($i = 0; $i < 250; $i++){
+        for ($i = 0; $i < 50; $i++){
             $data[] = [
                 'id' => $i + 1,
                 'userId' => rand(1, 5),
@@ -24,7 +24,7 @@ class LikeSeed extends Seeder
             ];
         };
 
-        for ($i = 250; $i < 300; $i++){
+        for ($i = 50; $i < 100; $i++){
             $data[] = [
                 'id' => $i + 1,
                 'userId' => rand(1, 5),
