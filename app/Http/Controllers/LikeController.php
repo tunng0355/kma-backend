@@ -38,6 +38,7 @@ class LikeController extends Controller
         if($type == 1){
             $dataUserLike = [
                 "fullNameLike" => Auth::user()->getUserInfo->fullName,
+                "avatarUserLike" => Auth::user()->avatar,
                 "userIdLike" => $userId,
                 "sendNotify" => $isNewLike
             ];
