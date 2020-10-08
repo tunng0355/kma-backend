@@ -17,6 +17,7 @@ class CommentSeed extends Seeder
                 'id' => $i + 1,
                 'userId' => rand(1, 5),
                 'postId' => rand(1, 9),
+                'active' => ACTIVE,
                 'content' => "Hello this is my comment ".($i + 1),
                 'created_at' => '2020-07-20 12:'.rand(0,5).rand(0,9).':22',
                 'updated_at' => '2020-07-20 12:42:22'

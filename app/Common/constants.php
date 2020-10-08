@@ -62,6 +62,8 @@ define('FILTER_ALL', 0);
 define('MAX_VALUE', 99999999999);
 define('ROOM_CHAT_NEW', 0);
 define('ROM_CHAT_ACTIVE', 1);
+define('ACTIVE', 1);
+define('INACTIVE', 0);
 define('SUBJECTID_VAR', 'subjectId');
 define('UPLOAD_DIR', 'kma_social/');
 define('FORMAT_CURRENT_TIME', 'Y-m-d H:i:s');

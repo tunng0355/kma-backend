@@ -2,7 +2,8 @@
 
 use App\RoomChat;
 use App\Message;
-use Illuminate\Http\Response;
+use App\Comment;
+use App\Like;
 use Illuminate\Support\Facades\Validator;
 
 function getResponeMessage($item){
@@ -30,7 +31,8 @@ function getResponseNewFeed($item){
 //    foreach ($listComment as $comment){
 //        $dataComment[] = getResponseComment($comment);
 //    }
-        $listUserLike = \App\Like::where('postId', $item->id)->where('active', 1)->pluck('userId');
+        $listUserLike = Like::where('postId', $item->id)->where('active', 1)->pluck('userId');
+        $countComment = Comment::where('postId', $item->id)->where('active', 1)->count();
         $nameUserLike = count($listUserLike) > 10 ? $item->getLike[rand(0, count($listUserLike) - 1 )]->getUser->getUserInfo->fullName : null;
         $arrMap = ['id','userId','type','isHot', 'caption', 'content','tag','totalComment','totalLike'];
         $data = mapDataResponse($arrMap, [], $item);
@@ -39,6 +41,7 @@ function getResponseNewFeed($item){
             "fullName" => $userPost->getUserInfo->fullName,
             "subjectName" => $item->subjectId ?  $item->getSubject->name : null,
             "userLike"=> $nameUserLike,
+            "totalComment" => $countComment,
             "totalLike" => count($listUserLike),
             "listUserLike" => renderArrayModalToString($listUserLike),
             "created_at"=> strtotime($item->created_at),
