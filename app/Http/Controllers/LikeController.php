@@ -17,6 +17,7 @@ class LikeController extends Controller
         if ($validator->fails()) {
             return responseValidate($validator->errors()->first(), []);
         }
+        $isNewLike = 0;
         $postId = $request->postId;
         $type = $request->typeLike;
         $userId = Auth::user()->id;
@@ -31,13 +32,17 @@ class LikeController extends Controller
             $likeNew->postId = $postId;
             $likeNew->active = $type;
             $likeNew->save();
+            $isNewLike = 1;
         }
         $postResponse = getResponseNewFeed(Posts::find($postId));
-        $dataUserLike = [
-            "fullNameLike" => Auth::user()->getUserInfo->fullName,
-            "userIdLike" => $userId,
-        ];
-        sendSocket(array_merge($dataUserLike, $postResponse), CHANNEL_NEW_FEED.$postResponse['userId']);
+        if($type == 1){
+            $dataUserLike = [
+                "fullNameLike" => Auth::user()->getUserInfo->fullName,
+                "userIdLike" => $userId,
+                "sendNotify" => $isNewLike
+            ];
+            sendSocket(array_merge($dataUserLike, $postResponse), CHANNEL_NEW_FEED.$postResponse['userId']);
+        }
         return response()->json(\getResponse($postResponse, META_CODE_SUCCESS));
     }
 }
