@@ -174,7 +174,7 @@ function filterTypeNewFeed($typeFilter, $subjectId, $postId)
         default:
             $arr_condition = [
                 'type' => 'type',
-                'operator' => ">",
+                'operator' => ">=",
                 'value' => 0,
             ];
     }

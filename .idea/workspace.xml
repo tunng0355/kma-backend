@@ -22,7 +22,6 @@
     <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Common/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/PostController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +255,7 @@
       <workItem from="1602032225321" duration="1286000" />
       <workItem from="1602072993248" duration="8513000" />
       <workItem from="1602117341374" duration="1965000" />
-      <workItem from="1602162083541" duration="3049000" />
+      <workItem from="1602162083541" duration="3240000" />
     </task>
     <servers />
   </component>
