@@ -22,27 +22,30 @@ function getResponeMessage($item){
 }
 
 function getResponseNewFeed($item){
-//    $countComment = $item->getComment->count();
-    $userPost     = $item->getUser;
+    if(isset($item->id)){
+        //    $countComment = $item->getComment->count();
+        $userPost     = $item->getUser;
 //    $listComment  = \App\Comment::where('postId', $item->id)->orderBy('created_at', 'desc')->take($limitComment)->get();
 //    $dataComment  = [];
 //    foreach ($listComment as $comment){
 //        $dataComment[] = getResponseComment($comment);
 //    }
-    $listUserLike = \App\Like::where('postId', $item->id)->where('active', 1)->pluck('userId');
-    $nameUserLike = count($listUserLike) > 10 ? $item->getLike[rand(0, count($listUserLike) - 1 )]->getUser->getUserInfo->fullName : null;
-    $arrMap = ['id','userId','type','isHot', 'caption', 'content','tag','totalComment','totalLike'];
-    $data = mapDataResponse($arrMap, [], $item);
-    return array_merge($data, [
-        "avatarUrl" => $userPost->avatar,
-        "fullName" => $userPost->getUserInfo->fullName,
-        "subjectName" => $item->subjectId ?  $item->getSubject->name : null,
-        "userLike"=> $nameUserLike,
-        "totalLike" => count($listUserLike),
-        "listUserLike" => renderArrayModalToString($listUserLike),
-        "created_at"=> strtotime($item->created_at),
-        "updated_at"=> strtotime($item->updated_at),
-    ]);
+        $listUserLike = \App\Like::where('postId', $item->id)->where('active', 1)->pluck('userId');
+        $nameUserLike = count($listUserLike) > 10 ? $item->getLike[rand(0, count($listUserLike) - 1 )]->getUser->getUserInfo->fullName : null;
+        $arrMap = ['id','userId','type','isHot', 'caption', 'content','tag','totalComment','totalLike'];
+        $data = mapDataResponse($arrMap, [], $item);
+        return array_merge($data, [
+            "avatarUrl" => $userPost->avatar,
+            "fullName" => $userPost->getUserInfo->fullName,
+            "subjectName" => $item->subjectId ?  $item->getSubject->name : null,
+            "userLike"=> $nameUserLike,
+            "totalLike" => count($listUserLike),
+            "listUserLike" => renderArrayModalToString($listUserLike),
+            "created_at"=> strtotime($item->created_at),
+            "updated_at"=> strtotime($item->updated_at),
+        ]);
+    } return [];
+
 }
 
 function getResponseComment($comment){

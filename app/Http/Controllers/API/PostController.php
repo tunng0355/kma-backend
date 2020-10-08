@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -16,17 +15,15 @@ class PostController extends Controller
     {
         $limit = $request->limit ? $request->limit : 10;
         $typeFilter = $request->type;
-        $type = $typeFilter && $typeFilter != POST_TYPE_HOST ? $typeFilter : FILTER_ALL;
-        $isText = $request->type == 5 ? BOOL_TRUE : BOOL_FALSE;
-        $subjectId = $request->subjectId ? $request->subjectId : "";
-        $condition = [
-            'type' => $type == 3 ? SUBJECTID_VAR : 'type',
-            'operator' => $isText || $type == 3 || $type != FILTER_ALL ? "=" : ">",
-            'value' => $type == 3 ? $subjectId : ($isText ? 0 : $type),
-        ];
-
-        $listPost = Posts::where($condition['type'],$condition['operator'], $condition['value'])
-                         ->orderBy('created_at', 'desc')->take($limit)->get();
+        $postId = $request->postId;
+        if ($typeFilter == POST_TYPE_ONLY_ID){
+            $listPost = $postId ? Posts::where('id', $postId)->get() : [];
+        }else {
+            $subjectId = $request->subjectId ? $request->subjectId : "";
+            $condition = filterTypeNewFeed($typeFilter, $subjectId);
+            $listPost = Posts::where($condition['type'],$condition['operator'], $condition['value'])
+                        ->orderBy('created_at', 'desc')->take($limit)->get();
+        }
         $data = [];
         foreach ($listPost as $post) {
             $data[] = getResponseNewFeed($post);
