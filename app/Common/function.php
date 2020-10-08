@@ -143,8 +143,9 @@ function renderArrayModalToString($modalPluck)
     return implode(",", $modalPluck->toArray());
 }
 
-function filterTypeNewFeed($typeFilter, $subjectId)
+function filterTypeNewFeed($typeFilter, $subjectId, $postId)
 {
+    $isSubject = $typeFilter == POST_TYPE_SUBJECT;
     switch ($typeFilter) {
         case POST_TYPE_IMAGE:
         case POST_TYPE_VIDEO:
@@ -156,21 +157,26 @@ function filterTypeNewFeed($typeFilter, $subjectId)
             ];
             break;
         case POST_TYPE_SUBJECT:
-            $arr_condition = [
-                'type' => SUBJECTID_VAR,
+        case POST_TYPE_ONLY_ID:
+        $arr_condition = [
+                'type' => $isSubject ? SUBJECTID_VAR : 'id',
                 'operator' => "=",
-                'value' => $subjectId,
+                'value' => $isSubject ? $subjectId : $postId,
             ];
             break;
         case POST_TYPE_ONLY_TEXT:
-            $arr_condition = [
+        $arr_condition = [
                 'type' => 'type',
                 'operator' => "=",
                 'value' => POST_TYPE_STATUS,
             ];
             break;
         default:
-            $arr_condition = [];
+            $arr_condition = [
+                'type' => 'type',
+                'operator' => ">",
+                'value' => 0,
+            ];
     }
     return $arr_condition;
 
