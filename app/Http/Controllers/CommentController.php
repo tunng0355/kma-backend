@@ -40,9 +40,9 @@ class CommentController extends Controller
         $comment->key = $indexLoad;
         $dataResult = getResponseComment($comment);
         sendSocket($dataResult, CHANNEL_COMMENT_FEED . $postId);
-        $listUserIdComment = Comment::where('postId', $postId)->pluck('userId')->toArray();
-        //boUserId
-        foreach (array_unique($listUserIdComment) as $id) {
+        $listUserIdComment = Comment::where('postId', $postId)->where('userId', '!=', $userId)
+                            ->distinct()->pluck('userId')->toArray();
+        foreach ($listUserIdComment as $id) {
             sendNotifySocket($comment->toArray(), $id, "sdsd");
         }
         return response()->json(\getResponse($dataResult, META_CODE_SUCCESS));
