@@ -25,7 +25,7 @@ function mapDataResponse($arr, $data, $model)
             $data['avatarUrl'] = $model->getUser->avatar;
             continue;
         }
-        $data[$value] = $model->$value;
+        $data[$value] = $model->$value ? $model->$value : "";
     }
     return $data;
 }
