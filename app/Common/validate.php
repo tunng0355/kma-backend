@@ -82,7 +82,17 @@ function getValidate($type){
                 "typeLike.required" => "typeLike_required",
             ];
             break;
-        default:
+        case VALIDATE_POST_COMMENT:
+            $arr_checkVali[0] = [
+                "postId" => "required",
+                "message" => "required",
+            ];
+            $arr_checkVali[1] = [
+                "postId.required" => "postId_required",
+                "message.required" => "message_required",
+            ];
+            break;
+            default:
             $arr_checkVali = [];
     }
     return $arr_checkVali;

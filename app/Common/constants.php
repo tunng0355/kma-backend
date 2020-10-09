@@ -27,6 +27,7 @@ define('SEND_EMAIL_SUCCESS', "send success");
 //msg channel
 define('CHANNEL_ROM', "__roomChat:id=");
 define('CHANNEL_NEW_FEED', "__newFeed:id=");
+define('CHANNEL_COMMENT_FEED', "__commentNewFeed:id=");
 
 //Role
 define('ADMIN_ROLE', 'admin');
@@ -47,6 +48,7 @@ define('USER_BLOCK', 3);
 //common
 define('ERROR_TYPE', 'not_type');
 define('VALIDATE_SEND_CODE', 'validate_send_code');
+define('VALIDATE_POST_COMMENT', 'validate_post_comment');
 define('SEND_CODE_SUCCESS', 'send_code_success');
 define('SEND_CODE_ERROR', 'send_code_error');
 define('POST_TYPE_STATUS', 0);

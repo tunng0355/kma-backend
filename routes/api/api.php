@@ -51,6 +51,7 @@ Route::prefix('user')->group(function () {
 
         //CommentController
         Route::get('list_comment', 'CommentController@getListCommentPost');
+        Route::post('add_comment', 'CommentController@addNewCommentPost');
     });
 
     //Email controller
