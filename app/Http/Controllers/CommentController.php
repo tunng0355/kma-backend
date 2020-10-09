@@ -32,14 +32,16 @@ class CommentController extends Controller
         $userId = Auth::user()->id;
         $comment = new Comment();
         $indexLoad = $request->key ? $request->key : 0;
+        $postId = $request->postId;
         $comment->userId = $userId;
-        $comment->postId = $request->postId;
+        $comment->postId = $postId;
         $comment->active = ACTIVE;
         $comment->content = $request->message;
         $comment->save();
         $comment->key = $indexLoad;
-        sendSocket($comment, CHANNEL_COMMENT_FEED);
-        $listUserIdComment = Comment::where('postId', $request->postId)->pluck('userId')->toArray();
+        sendSocket($comment, CHANNEL_COMMENT_FEED.$postId);
+        $listUserIdComment = Comment::where('postId', $postId)->pluck('userId')->toArray();
+        //boUserId
         foreach (array_unique($listUserIdComment) as $id) {
             sendNotifySocket($comment->toArray(), $id, "sdsd");
         }
