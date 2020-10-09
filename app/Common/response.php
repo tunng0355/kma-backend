@@ -24,13 +24,7 @@ function getResponeMessage($item){
 
 function getResponseNewFeed($item){
     if(isset($item->id)){
-        //    $countComment = $item->getComment->count();
         $userPost     = $item->getUser;
-//    $listComment  = \App\Comment::where('postId', $item->id)->orderBy('created_at', 'desc')->take($limitComment)->get();
-//    $dataComment  = [];
-//    foreach ($listComment as $comment){
-//        $dataComment[] = getResponseComment($comment);
-//    }
         $listUserLike = Like::where('postId', $item->id)->where('active', 1)->pluck('userId');
         $countComment = Comment::where('postId', $item->id)->where('active', 1)->count();
         $nameUserLike = count($listUserLike) > 10 ? $item->getLike[rand(0, count($listUserLike) - 1 )]->getUser->getUserInfo->fullName : null;
@@ -83,30 +77,11 @@ function getCountMessage($userIdSend, $userIdView){
                                            ->where('userId', $userIdSend)->count() : 0;
 };
 
-//function getResponseFriendMessage($infoItem, $userId){
-//    $data = mapDataResponse($arrMap, [], $infoItem);
-//    return array_merge($data, [
-//            "avatarUrl" => $comment->getUser->avatar,
-//            "fullName" => $comment->getUser->getUserInfo->fullName,
-//            "countLike" => $countLikeComment,
-//            "created_at"=> strtotime($comment->created_at),
-//            "updated_at"=> strtotime($comment->updated_at),
-//    ]);
-//}
-
 function formEmailConfirmCode($code){
     $title = '<h4 class="email-title">Chào mừng bạn đến với hệ thống</h4>';
     $description = '<p>Mã xác nhận của bạn là: <b>'.$code.'</b></p>';
     return $title.$description;
 }
-
-//function responseValidate($typeValidate, $request){
-//    $validate = getValidate($typeValidate);
-//    $validator = Validator::make($request->all(), $validate[LIST_CONDITION_VALIDATE],$validate[LIST_MSG_VALIDATE]);
-//    if($validator->fails()) {
-//        return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()));
-//    }
-//}
 
 function getValidatorData($typeValidate, $request){
     $validate = getValidate($typeValidate);
@@ -116,4 +91,10 @@ function getValidatorData($typeValidate, $request){
 function responseValidate($msg = "", $arr = []){
     return response()->json(\getResponse($arr, META_CODE_ERROR, $msg), 400);
 }
+
+function sendNotifySocket($data, $userId, $typeNotify){
+    $data['typeNotify'] = $typeNotify;
+    sendSocket($data, CHANNEL_NOTIFY.$userId);
+};
+
 ?>

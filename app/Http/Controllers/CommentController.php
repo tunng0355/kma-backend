@@ -11,7 +11,7 @@ class CommentController extends Controller
 {
     public function getListCommentPost(Request $request)
     {
-        if(!($postId = $request->postId)){
+        if (!($postId = $request->postId)) {
             return response()->json(\getResponse([], META_CODE_ERROR, ""));
         }
         $limit = $request->limit ? $request->limit : 15;
@@ -31,12 +31,18 @@ class CommentController extends Controller
         }
         $userId = Auth::user()->id;
         $comment = new Comment();
+        $indexLoad = $request->key ? $request->key : 0;
         $comment->userId = $userId;
         $comment->postId = $request->postId;
         $comment->active = ACTIVE;
         $comment->content = $request->message;
         $comment->save();
+        $comment->key = $indexLoad;
         sendSocket($comment, CHANNEL_COMMENT_FEED);
+        $listUserIdComment = Comment::where('postId', $request->postId)->pluck('userId')->toArray();
+        foreach (array_unique($listUserIdComment) as $id) {
+            sendNotifySocket($comment->toArray(), $id, "sdsd");
+        }
         return response()->json(\getResponse($comment, META_CODE_SUCCESS));
     }
 }

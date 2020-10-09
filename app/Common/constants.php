@@ -28,6 +28,7 @@ define('SEND_EMAIL_SUCCESS', "send success");
 define('CHANNEL_ROM', "__roomChat:id=");
 define('CHANNEL_NEW_FEED', "__newFeed:id=");
 define('CHANNEL_COMMENT_FEED', "__commentNewFeed:id=");
+define('CHANNEL_NOTIFY', '__notify:id=');
 
 //Role
 define('ADMIN_ROLE', 'admin');
