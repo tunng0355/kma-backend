@@ -67,6 +67,17 @@ class UserSeeds extends Seeder
                 'status' => USER_ACTIVE,
                 'created_at' => '2020-09-13 12:42:22'
             ],
+            [
+                'id' => 6,
+                'avatar' => null,
+                'email' => 'nguyenlong30111999@gmail.com',
+                'userName' => 'thanhlong',
+                'codeStudent' => 'AT140725',
+                'password' => bcrypt('at140725'),
+                'role'=> 'user',
+                'status' => USER_ACTIVE,
+                'created_at' => '2020-09-13 12:42:22'
+            ],
         ];
         for ($i = 6; $i < 15; $i++){
             $data[] = [

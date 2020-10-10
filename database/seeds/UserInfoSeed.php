@@ -42,10 +42,17 @@ class UserInfoSeed extends Seeder
             ],
             [
                 'userId' => 5,
-                'fullName' => 'Your name',
+                'fullName' => 'Phạm Lưu Ly',
                 'birthday' => 1599304711,
                 'created_at' => '2020-09-13 00:24:21',
                 'updated_at' => '2020-09-13 00:24:21',
+            ],
+            [
+                'userId' => 6,
+                'fullName' => 'Nguyễn Thành Long',
+                'birthday' => 1596304711,
+                'created_at' => '2020-09-14 00:24:21',
+                'updated_at' => '2020-09-14 00:24:21',
             ]
         ];
 
