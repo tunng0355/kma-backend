@@ -79,7 +79,7 @@ class UserSeeds extends Seeder
                 'created_at' => '2020-09-13 12:42:22'
             ],
         ];
-        for ($i = 6; $i < 15; $i++){
+        for ($i = 7; $i < 16; $i++){
             $data[] = [
                 'id' => $i,
                 'avatar' => null,

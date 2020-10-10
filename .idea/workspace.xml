@@ -20,8 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserInfoSeed.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserInfoSeed.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeds.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeds.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -263,7 +261,7 @@
       <workItem from="1602258153083" duration="1755000" />
       <workItem from="1602295037889" duration="111000" />
       <workItem from="1602325307083" duration="3467000" />
-      <workItem from="1602345923329" duration="2043000" />
+      <workItem from="1602345923329" duration="2072000" />
     </task>
     <servers />
   </component>
