@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Posts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,6 +43,11 @@ class CommentController extends Controller
         sendSocket($dataResult, CHANNEL_COMMENT_FEED . $postId);
         $listUserIdComment = Comment::where('postId', $postId)->where('userId', '!=', $userId)
                             ->distinct()->pluck('userId')->toArray();
+        $post = Posts::find($postId);
+        $comment->typePost = $post->type;
+        $comment->caption = $post->caption;
+        $comment->postUserId = $post->userId;
+        $comment->avatarUserNotify = Auth::user()->avatar;
         foreach ($listUserIdComment as $id) {
             sendNotifySocket($comment->toArray(), $id, "sdsd");
         }
