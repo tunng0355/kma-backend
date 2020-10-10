@@ -21,8 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LikeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LikeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_13_094552_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_13_094552_create_users_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +262,8 @@
       <workItem from="1602230970430" duration="8132000" />
       <workItem from="1602258153083" duration="1755000" />
       <workItem from="1602295037889" duration="111000" />
-      <workItem from="1602325307083" duration="2247000" />
+      <workItem from="1602325307083" duration="3467000" />
+      <workItem from="1602345923329" duration="699000" />
     </task>
     <servers />
   </component>
@@ -316,7 +317,7 @@
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1598544609293" />
     <state x="483" y="187" width="1022" height="737" key="SettingsEditor/68.27.1852.1053@68.27.1852.1053" timestamp="1601531487966" />
-    <state width="517" height="409" key="SwitcherDM" timestamp="1602326916713">
+    <state width="517" height="409" key="SwitcherDM" timestamp="1602346610699">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="517" height="409" key="SwitcherDM/1080.0.1920.1080/0.140.1080.1920@1080.0.1920.1080" timestamp="1600592928530" />
@@ -324,7 +325,7 @@
     <state width="517" height="409" key="SwitcherDM/1080.342.1920.1080/0.369.1080.1551@1080.342.1920.1080" timestamp="1600513630337" />
     <state width="498" height="539" key="SwitcherDM/1080.472.1920.1080/0.499.1080.1421@0.499.1080.1421" timestamp="1600661913821" />
     <state width="517" height="399" key="SwitcherDM/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1602260711964" />
-    <state width="517" height="409" key="SwitcherDM/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1602326916713" />
+    <state width="517" height="409" key="SwitcherDM/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1602346610699" />
     <state width="517" height="398" key="SwitcherDM/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599277926527" />
     <state width="517" height="409" key="SwitcherDM/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599151507602" />
     <state width="498" height="398" key="SwitcherDM/67.27.1853.1053@67.27.1853.1053" timestamp="1600325135828" />

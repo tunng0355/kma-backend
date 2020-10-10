@@ -34,8 +34,10 @@ class AuthController extends Controller
     }
 
     public function confirmSendCode(Request  $request){
-        $validate =  responseValidate(VALIDATE_SEND_CODE, $request);
-        if(isset($validate)) return $validate;
+        $validator = getValidatorData(VALIDATE_SEND_CODE, $request);
+        if ($validator->fails()) {
+            return responseValidate($validator->errors()->first(), []);
+        }
         $user = User::where("userName",'like',$request->userName)->first();
         if($user->sendCode == $request->sendCode){
             $user->status = USER_ACTIVE;
