@@ -76,8 +76,10 @@ define('LIMIT_LIST_FRIENDS', 10);
 define('VALIDATE_LIKE_NEW_FEED', 'validate_like_new_feed');
 define('AVATAR_FOREIGN', 'get_avatar_other_table');
 define('VALIDATE_POST','validate_post');
+define('VALIDATE_HANDLE_SEARCH', 'validate_handle_search');
 define('IMAGES_REQUIRED', 'images_required');
 define('POST_NEW_SUCCESS', 'post_new_success');
 define('GET_LIST_SUBJECT_SUCCESS', 'get_list_subject_success');
 define('USER_ID', 'userId');
+define('GET_HISTORY_SEARCH_SUCCESS', 'get_history_search_success');
 ?>

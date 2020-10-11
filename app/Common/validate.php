@@ -72,6 +72,14 @@ function getValidate($type){
                 "type.required" => "type_required",
             ];
             break;
+        case VALIDATE_HANDLE_SEARCH:
+            $arr_checkVali[0] = [
+                "searchText" => "required",
+            ];
+            $arr_checkVali[1] = [
+                "searchText.required" => "searchText_required",
+            ];
+            break;
         case VALIDATE_LIKE_NEW_FEED:
             $arr_checkVali[0] = [
                 "postId" => "required",

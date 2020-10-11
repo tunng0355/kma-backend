@@ -52,6 +52,10 @@ Route::prefix('user')->group(function () {
         //CommentController
         Route::get('list_comment', 'CommentController@getListCommentPost');
         Route::post('add_comment', 'CommentController@addNewCommentPost');
+
+        //SearchController
+        Route::get('list_search', 'SearchController@getListSearch');
+        Route::post('handle_search', 'SearchController@handleSearch');
     });
 
     //Email controller

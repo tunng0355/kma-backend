@@ -64,15 +64,19 @@ function getResponseComment($comment)
 
 function getResponseListFriends($listInfo, $userId)
 {
-    $arrMap = ['userId', 'fullName', AVATAR_FOREIGN];
     $data = [];
     foreach ($listInfo as $infoItem) {
-        $data[] = array_merge(mapDataResponse($arrMap, [], $infoItem), [
+        $data[] = array_merge(getResponseListUserInfo($infoItem), [
             "countMessage" => getCountMessage($infoItem->userId, $userId),
             "content" => "",
         ]);
     }
     return $data;
+}
+
+function getResponseListUserInfo($infoUser){
+    $arrMap = ['userId', 'fullName', AVATAR_FOREIGN];
+    return  mapDataResponse($arrMap, [], $infoUser);
 }
 
 function getCountMessage($userIdSend, $userIdView)
