@@ -14,7 +14,7 @@ class SearchController extends Controller
     public function getListSearch()
     {
         $searchByUser = $this->getSearchByUser(Auth::user()->id);
-        return response()->json(\getResponse($searchByUser->listHistory, META_CODE_SUCCESS, GET_HISTORY_SEARCH_SUCCESS));
+        return response()->json(\getResponse(isset($searchByUser) ? $searchByUser->listHistory : [], META_CODE_SUCCESS, GET_HISTORY_SEARCH_SUCCESS));
     }
 
     public function handleSearch(Request $request)
