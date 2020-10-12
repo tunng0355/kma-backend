@@ -14,7 +14,15 @@ class SearchController extends Controller
     public function getListSearch()
     {
         $searchByUser = $this->getSearchByUser(Auth::user()->id);
-        return response()->json(\getResponse(isset($searchByUser) ? $searchByUser->listHistory : [], META_CODE_SUCCESS, GET_HISTORY_SEARCH_SUCCESS));
+        $data = [];
+        if ((isset($searchByUser)) && $searchByUser->listHistory != "") {
+            $data = $searchByUser->listHistory;
+        } else {
+            $search = new Search();
+            $search->userId = Auth::user()->id;
+            $search->save();
+        }
+        return response()->json(\getResponse($data, META_CODE_SUCCESS, GET_HISTORY_SEARCH_SUCCESS));
     }
 
     public function handleSearch(Request $request)
@@ -25,9 +33,15 @@ class SearchController extends Controller
         }
         $searchText = $request->searchText;
         $searchByUser = $this->getSearchByUser(Auth::user()->id);
+        if (!isset($searchByUser)) {
+            return response()->json(\getResponse([], META_CODE_SUCCESS, NO_RECORD));
+        }
+
         $listHistory = explode(',', $searchByUser->listHistory);
-        if (($count = count($listHistory)) <= 9) {
+        if (($count = count($listHistory)) <= 9 && $listHistory[0] != "") {
             $listHistory[$count] = $searchText;
+        } else if($listHistory[0] == "") {
+            $listHistory[0] = $searchText;
         } else {
             array_shift($listHistory);
             $listHistory[9] = $searchText;

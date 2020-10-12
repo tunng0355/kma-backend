@@ -82,4 +82,5 @@ define('POST_NEW_SUCCESS', 'post_new_success');
 define('GET_LIST_SUBJECT_SUCCESS', 'get_list_subject_success');
 define('USER_ID', 'userId');
 define('GET_HISTORY_SEARCH_SUCCESS', 'get_history_search_success');
+define('NO_RECORD', 'no_record');
 ?>
