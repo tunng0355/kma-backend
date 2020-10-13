@@ -38,7 +38,11 @@ class SearchController extends Controller
         }
 
         $listHistory = explode(',', $searchByUser->listHistory);
-        if (($count = count($listHistory)) <= 9 && $listHistory[0] != "") {
+        $found = array_search($searchText, $listHistory);
+        if($found){
+            unset($listHistory[$found]);
+            $listHistory[] = $searchText;
+        }else if (($count = count($listHistory)) <= 9 && $listHistory[0] != "") {
             $listHistory[$count] = $searchText;
         } else if($listHistory[0] == "") {
             $listHistory[0] = $searchText;
@@ -64,7 +68,7 @@ class SearchController extends Controller
         return response()->json(\getResponse([
             "listUser" => $dataListUser,
             "listSubject" => $listSubject,
-            "listHistory" => $listHistory
+            "listHistory" => array_values($listHistory),
         ], META_CODE_SUCCESS, GET_HISTORY_SEARCH_SUCCESS));
 
     }
