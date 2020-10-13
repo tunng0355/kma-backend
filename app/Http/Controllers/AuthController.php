@@ -28,6 +28,7 @@ class AuthController extends Controller
         $user->save();
         $arr      = ["fullName", "birthday", "gender"];
         $userInfo = mapDataModel($arr, new UserInfo(), $request, "userId", $user->id);
+        $userInfo->sologan = `Xin chào tên tôi là "`.$request->fullName.`", hãy cùng chia sẻ cho nhau những điều thú vị và bổ ích nhé 😍🥰😘🥳`;
         $userInfo->save();
         Mail::to($user->email)->send(new MailNotify(formEmailConfirmCode($user->sendCode), CONFIRM_REGISTER));
         return response()->json(\getResponse($user, META_CODE_SUCCESS, MSG_REGISTER_SUCCESS));

@@ -18,6 +18,7 @@ class UserInfo extends Migration
             $table->unsignedBigInteger("userId");
             $table->string('fullName');
             $table->integer('birthday');
+            $table->string('sologan')->nullable();
             $table->tinyInteger('gender')->default(0);
             $table->string('job')->nullable();
             $table->timestamps();
