@@ -1,5 +1,6 @@
 <?php
 
+use App\Rate;
 use App\RoomChat;
 use App\Message;
 use App\Comment;
@@ -74,9 +75,10 @@ function getResponseListFriends($listInfo, $userId)
     return $data;
 }
 
-function getResponseListUserInfo($infoUser){
+function getResponseListUserInfo($infoUser)
+{
     $arrMap = ['userId', 'fullName', AVATAR_FOREIGN];
-    return  mapDataResponse($arrMap, [], $infoUser);
+    return mapDataResponse($arrMap, [], $infoUser);
 }
 
 function getCountMessage($userIdSend, $userIdView)
@@ -107,9 +109,10 @@ function responseValidate($msg = "", $arr = [])
     return response()->json(\getResponse($arr, META_CODE_ERROR, $msg), 400);
 }
 
-//function getResponseDetailRate($listRate){
-//    foreach (list)
-//}
+function getAVGRate($userId)
+{
+    return Rate::where('userIdRate', $userId)->avg('rateCount');
+}
 
 function sendNotifySocket($data, $userId, $typeNotify)
 {

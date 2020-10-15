@@ -45,7 +45,7 @@ class User extends Authenticatable implements JWTSubject
     }
 
     public function getUserRate(){
-        return $this->hasMany('App\Rate','userId','id');
+        return $this->hasMany('App\Rate','userIdRate','id');
     }
 
     public function getUserPost(){

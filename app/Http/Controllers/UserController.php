@@ -57,7 +57,7 @@ class UserController extends Controller
                 $join->on('comment.id', '=', 'like.commentId')->where('comment.userId', $userId);
             })->count();
             $data = [
-                "rateCountAVG" => Rate::where('userIdRate', $userId)->avg('rateCount'),
+                "rateCountAVG" => getAVGRate($userId),
                 "totalLike" => $countLikePost + $countLikeComment,
                 "totalPoint" => $user->getUserPoint->total,
             ];
