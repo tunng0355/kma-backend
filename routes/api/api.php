@@ -42,6 +42,7 @@ Route::prefix('user')->group(function () {
 
         //UserController
         Route::get('list_friends', 'UserController@getListFriends');
+        Route::get('get_user_detail', 'UserController@getUserDetail');
 
         //SubjectController
         Route::get('list_subject', 'SubjectController@getListSubject');

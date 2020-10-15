@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SearchSeed::class);
         $this->call(RoomChatSeeder::class);
         $this->call(MessageSeed::class);
+        $this->call(FriendsFollowSeeder::class);
+        $this->call(RateSeeder::class);
     }
 }

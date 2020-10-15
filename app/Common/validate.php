@@ -2,6 +2,14 @@
 function getValidate($type){
     $arr_checkVali = array();
     switch ($type){
+        case VALIDATE_GET_USER_DETAIL:
+            $arr_checkVali[0] = [
+                "userId" =>  "required",
+            ];
+            $arr_checkVali[1] = [
+                "userId.required" => "userId_required",
+            ];
+            break;
         case VALIDATE_MESSAGE:
             $arr_checkVali[0] = [
                 "message" => "required",

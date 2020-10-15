@@ -73,13 +73,15 @@ class AuthController extends Controller
         $remember_token       = explode(".", $token);
         $user                 = User::where('userName','like',$condition_1['userName'])
                                ->orWhere('codeStudent', 'like', $condition_2['codeStudent'])->first();
+
         if($user->status != USER_ACTIVE){
             return response()->json(\getResponse(['token' => '', 'userInfo' => $user, 'type'=> $user->role], META_CODE_SUCCESS, LOGIN_NEW));
         }
 
         $user->remember_token = $remember_token[2];
         $user->save();
-        $info = $user->getUserInfo;
+        $user->getUserInfo;
+        $user->getUserRate;
         return response()->json(\getResponse(['token' => $token, 'userInfo' => $user, 'type'=> $user->role], META_CODE_SUCCESS, LOGIN_ACTIVE));
     }
 

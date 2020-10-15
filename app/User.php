@@ -27,7 +27,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'sendCode'
+        'password', 'remember_token', 'sendCode', 'email'
     ];
 
     public function getJWTIdentifier()
@@ -42,5 +42,9 @@ class User extends Authenticatable implements JWTSubject
 
     public function getUserInfo(){
         return $this->hasOne('App\UserInfo','userId','id');
+    }
+
+    public function getUserRate(){
+        return $this->hasOne('App\Rate','userId','id');
     }
 }
