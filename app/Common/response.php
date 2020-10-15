@@ -107,12 +107,14 @@ function responseValidate($msg = "", $arr = [])
     return response()->json(\getResponse($arr, META_CODE_ERROR, $msg), 400);
 }
 
+//function getResponseDetailRate($listRate){
+//    foreach (list)
+//}
+
 function sendNotifySocket($data, $userId, $typeNotify)
 {
     $data['typeNotify'] = $typeNotify;
     sendSocket($data, CHANNEL_NOTIFY . $userId);
 }
-
-;
 
 ?>

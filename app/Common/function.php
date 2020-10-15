@@ -6,6 +6,17 @@ use App\Events\RedisEvent;
  * $chat = Message::all()->take(-10);
  * $chat = Message::orderBy('created_at', 'desc')->take(10)->get();
  */
+//$active = $request->has('active')? 1 : 0;
+//$updated = DB::table('products')
+//    ->where('id', '=', $id)
+//    ->update([
+//        'name'       => $request->input('name'),
+//        'price'      => $request->input('price'),
+//        'content'    => $request->input('content'),
+//        'image_path' => $request->input('image_path'),
+//        'active'     => $active,
+//        'updated_at' => \Carbon\Carbon::now()
+//    ]);
 
 function mapDataModel($arr, $model, $request, $custom_key = "", $id_key = 0)
 {

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Like;
+use App\Posts;
 use App\Rate;
 use App\User;
 use App\UserInfo;
@@ -30,13 +32,42 @@ class UserController extends Controller
         if ($validator->fails()) {
             return responseValidate($validator->errors()->first(), []);
         }
-        $user = $request->type ? Auth::user() : User::find($request->userId);
-        if(isset($user->id)){
+        $user = $this->getUser($request->type, $request->userId);
+        if (isset($user->id)) {
             $user->getUserInfo;
-            $user->getUserRate;
             return response()->json(\getResponse($user, META_CODE_SUCCESS, GET_USER_DETAIL_SUCCESS));
         }
-        return response()->json(\getResponse([], META_CODE_SUCCESS, GET_USER_DETAIL_ERROR));
+        return response()->json(\getResponse([], META_CODE_ERROR, GET_USER_DETAIL_ERROR));
     }
 
+    public function getUserDashBoard(Request $request)
+    {
+        $validator = getValidatorData(VALIDATE_GET_USER_DETAIL, $request);
+        if ($validator->fails()) {
+            return responseValidate($validator->errors()->first(), []);
+        }
+
+        $userId = $request->userId;
+        $user = $this->getUser($request->type, $request->userId);
+        if (isset($user->id)) {
+            $countLikePost = Like::join('posts', function ($join) use ($userId) {
+                $join->on('posts.id', '=', 'like.postId')->where('posts.userId', $userId);
+            })->count();
+            $countLikeComment = Like::join('comment', function ($join) use ($userId) {
+                $join->on('comment.id', '=', 'like.commentId')->where('comment.userId', $userId);
+            })->count();
+            $data = [
+                "rateCountAVG" => Rate::where('userIdRate', $userId)->avg('rateCount'),
+                "totalLike" => $countLikePost + $countLikeComment,
+                "totalPoint" => $user->getUserPoint->total,
+            ];
+            return response()->json(\getResponse($data, META_CODE_SUCCESS, GET_USER_DETAIL_SUCCESS));
+        }
+        return response()->json(\getResponse([], META_CODE_ERROR, GET_USER_DETAIL_ERROR));
+    }
+
+    protected function getUser($type, $userId)
+    {
+        return $type ? Auth::user() : User::find($userId);
+    }
 }
