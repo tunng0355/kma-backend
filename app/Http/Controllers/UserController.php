@@ -48,7 +48,8 @@ class UserController extends Controller
         }
 
         $userId = $request->userId;
-        $user = $this->getUser($request->type, $request->userId);
+        $user = $this->getUser($request->type, $userId);
+
         if (isset($user->id)) {
             $countLikePost = Like::join('posts', function ($join) use ($userId) {
                 $join->on('posts.id', '=', 'like.postId')->where('posts.userId', $userId);
@@ -56,12 +57,35 @@ class UserController extends Controller
             $countLikeComment = Like::join('comment', function ($join) use ($userId) {
                 $join->on('comment.id', '=', 'like.commentId')->where('comment.userId', $userId);
             })->count();
+            $listFollows = $user->getFriendsFollow->follows;
+            $listFriends = $user->getFriendsFollow->friends;
             $data = [
                 "rateCountAVG" => getAVGRate($userId),
                 "totalLike" => $countLikePost + $countLikeComment,
                 "totalPoint" => $user->getUserPoint->total,
+                "totalFollows" => count(explode(',', $listFollows)),
+                "totalFriends" => count(explode(',', $listFriends)),
             ];
             return response()->json(\getResponse($data, META_CODE_SUCCESS, GET_USER_DETAIL_SUCCESS));
+        }
+        return response()->json(\getResponse([], META_CODE_ERROR, GET_USER_DETAIL_ERROR));
+    }
+
+    public function getListFriendsDetail(Request $request)
+    {
+        $validator = getValidatorData(VALIDATE_GET_USER_DETAIL, $request);
+        if ($validator->fails()) {
+            return responseValidate($validator->errors()->first(), []);
+        }
+
+        $userId = $request->userId;
+        $user = $this->getUser($request->type, $userId);
+
+        if (isset($user->id) && ($friends = $user->getFriendsFollow) != null) {
+            dd($user->getFriendsFollow);
+            dd($user->getFriendsFollow->friends);
+            $listFriends =  explode(',', $user->getFriendsFollow->friends);
+            dd($listFriends);
         }
         return response()->json(\getResponse([], META_CODE_ERROR, GET_USER_DETAIL_ERROR));
     }

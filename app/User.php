@@ -56,4 +56,8 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasOne('App\Point','userId','id');
     }
 
+    public function getFriendsFollow(){
+        return $this->hasOne('App\FriendsFollow','userId','id');
+    }
+
 }
