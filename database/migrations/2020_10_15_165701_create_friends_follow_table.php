@@ -15,10 +15,10 @@ class CreateFriendsFollowTable extends Migration
     {
         Schema::create('friends_follow', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger("userId");
-            $table->binary('friends');
-            $table->binary('follows');
-            $table->binary('follows_groups');
+            $table->unsignedBigInteger("userId")->unique();
+            $table->binary('friends')->nullable();
+            $table->binary('follows')->nullable();
+            $table->binary('follows_groups')->nullable();
             $table->timestamps();
         });
 

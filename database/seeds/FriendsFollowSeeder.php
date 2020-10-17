@@ -11,15 +11,18 @@ class FriendsFollowSeeder extends Seeder
      */
     public function run()
     {
-        $data = [
-            [
-                'id' => 1,
-                'userId' => 4,
-                'friends' => '1,2,3,7',
-                'follows' => '5,10',
-                'follows_groups' => '1,3'
-            ]
-        ];
+        $data = [];
+        for ($i = 0; $i < 15; $i++){
+            $data[] = [
+                'id' => $i + 1,
+                'userId' => $i + 1,
+                'friends' => rand(1,16).','.rand(1,16).','.rand(1,16).','.rand(1,16),
+                'follows' => rand(1,16).','.rand(1,16).','.rand(1,16).','.rand(1,16),
+                'follows_groups' => rand(1,16).','.rand(1,6),
+            ];
+        };
         \App\FriendsFollow::insert($data);
     }
+
+
 }

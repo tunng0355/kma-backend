@@ -22,6 +22,7 @@ class UserInfo extends Migration
             $table->tinyInteger('gender')->default(0);
             $table->string('job')->nullable();
             $table->string('hobbies')->nullable();
+            $table->string('country')->nullable();
             $table->string('school')->nullable();
             $table->timestamps();
         });

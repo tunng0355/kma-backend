@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\FriendsFollow;
 use App\Like;
 use App\Posts;
 use App\Rate;
@@ -80,14 +81,16 @@ class UserController extends Controller
 
         $userId = $request->userId;
         $user = $this->getUser($request->type, $userId);
-
         if (isset($user->id) && ($friends = $user->getFriendsFollow) != null) {
-            dd($user->getFriendsFollow);
-            dd($user->getFriendsFollow->friends);
-            $listFriends =  explode(',', $user->getFriendsFollow->friends);
-            dd($listFriends);
+            $listIdFriends = explode(',', $user->getFriendsFollow->friends);
+            $listFriends = User::join('user_info', function ($join) use ($listIdFriends) {
+                $join->on('user_info.userId', '=', 'users.id')->whereIn('user_info.userId', $listIdFriends);
+            })->get(array('fullName', 'avatar', 'userId', 'job', 'country'));
+            $myListIdFriends = explode(',', Auth::user()->getFriendsFollow->friends);
+            $mutualFriends =  implode(',',array_intersect($myListIdFriends, $lisiends));
+            return response()->json(\getResponse(["listFriends" => $listFriends, "mutualFriends" => $mutualFriends], META_CODE_SUCCESS, GET_USER_DETAIL_SUCCESS));
         }
-        return response()->json(\getResponse([], META_CODE_ERROR, GET_USER_DETAIL_ERROR));
+        return response()->json(\getResponse([], META_CODE_SUCCESS, GET_USER_DETAIL_SUCCESS));
     }
 
     protected function getUser($type, $userId)

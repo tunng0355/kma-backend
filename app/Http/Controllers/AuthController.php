@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\FriendsFollow;
 use App\Mail\MailNotify;
 use App\UserInfo;
 use Illuminate\Http\Request;
@@ -44,6 +45,9 @@ class AuthController extends Controller
             $user->status = USER_ACTIVE;
             $user->sendCode = null;
             $user->save();
+            $friendsFollow = new FriendsFollow();
+            $friendsFollow->userId = $user->id;
+            $friendsFollow->save();
             return response()->json(\getResponse($user, META_CODE_SUCCESS, $request->type));
         }
         return response()->json(\getResponse([], META_CODE_ERROR, SEND_CODE_ERROR));

@@ -23,8 +23,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_03_222222_user_info.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_222222_user_info.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_15_165701_create_friends_follow_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_15_165701_create_friends_follow_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/FriendsFollowSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/FriendsFollowSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,7 +274,8 @@
       <workItem from="1602576579586" duration="2685000" />
       <workItem from="1602589903897" duration="3759000" />
       <workItem from="1602755134328" duration="14897000" />
-      <workItem from="1602840469670" duration="3108000" />
+      <workItem from="1602840469670" duration="3256000" />
+      <workItem from="1602903278876" duration="5888000" />
     </task>
     <servers />
   </component>
@@ -327,7 +329,7 @@
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1598544609293" />
     <state x="483" y="187" width="1022" height="737" key="SettingsEditor/68.27.1852.1053@68.27.1852.1053" timestamp="1601531487966" />
-    <state width="854" height="400" key="SwitcherDM" timestamp="1602844910810">
+    <state width="854" height="400" key="SwitcherDM" timestamp="1602924789867">
       <screen x="68" y="27" width="1852" height="1053" />
     </state>
     <state width="517" height="409" key="SwitcherDM/1080.0.1920.1080/0.140.1080.1920@1080.0.1920.1080" timestamp="1600592928530" />
@@ -337,6 +339,7 @@
     <state width="517" height="399" key="SwitcherDM/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1602602828587" />
     <state width="517" height="409" key="SwitcherDM/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1602779283896" />
     <state width="517" height="398" key="SwitcherDM/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599277926527" />
+    <state width="854" height="400" key="SwitcherDM/1920.0.1920.1080/68.27.1852.1053@68.27.1852.1053" timestamp="1602924789867" />
     <state width="517" height="409" key="SwitcherDM/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599151507602" />
     <state width="498" height="398" key="SwitcherDM/67.27.1853.1053@67.27.1853.1053" timestamp="1600325135828" />
     <state width="854" height="400" key="SwitcherDM/68.27.1852.1053@68.27.1852.1053" timestamp="1602844910810" />
@@ -364,14 +367,15 @@
     <state x="2531" y="232" key="run.anything.popup/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599151641988" />
     <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1598844016802" />
     <state x="658" y="254" width="1153" height="1004" key="run.anything.popup/68.27.1852.1053@68.27.1852.1053" timestamp="1602844878020" />
-    <state x="2530" y="236" width="698" height="697" key="search.everywhere.popup" timestamp="1602771547116">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="656" y="257" width="674" height="680" key="search.everywhere.popup" timestamp="1602920765518">
+      <screen x="68" y="27" width="1852" height="1053" />
     </state>
     <state x="343" y="707" width="672" height="1000" key="search.everywhere.popup/1080.342.1920.1080/0.369.1080.1551@0.369.1080.1551" timestamp="1600044873084" />
     <state x="1690" y="578" width="697" height="696" key="search.everywhere.popup/1080.342.1920.1080/0.369.1080.1551@1080.342.1920.1080" timestamp="1600509777603" />
     <state x="610" y="256" width="1195" height="679" key="search.everywhere.popup/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1600161282873" />
     <state x="2530" y="236" width="698" height="697" key="search.everywhere.popup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1602771547116" />
     <state x="610" y="524" width="697" height="458" key="search.everywhere.popup/1920.0.1920.1080/0.369.1920.711@0.369.1920.711" timestamp="1599271738097" />
+    <state x="656" y="257" width="674" height="680" key="search.everywhere.popup/1920.0.1920.1080/68.27.1852.1053@68.27.1852.1053" timestamp="1602920765518" />
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1600240990918" />
     <state x="656" y="257" width="673" height="679" key="search.everywhere.popup/68.27.1852.1053@68.27.1852.1053" timestamp="1601626892228" />
   </component>
