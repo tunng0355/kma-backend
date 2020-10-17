@@ -66,6 +66,7 @@ class UserController extends Controller
                 $rateCountAVG = getAVGRate($userId);
                 $totalRate = $user->getUserRate->count();
             };
+
             $data = [
                 "rateCountAVG" => isset($rateCountAVG) ? $rateCountAVG : 0,
                 "totalRate" => isset($totalRate) ? $totalRate : 0,
@@ -90,16 +91,20 @@ class UserController extends Controller
         $user = $this->getUser($request->type, $userId);
         if (isset($user->id) && ($friends = $user->getFriendsFollow) != null) {
             $listIdFriends = explode(',', $user->getFriendsFollow->friends);
-            $tempStr = implode(',', $listIdFriends);
+            if(count($listIdFriends)){
+                $tempStr = implode(',', $listIdFriends);
 
-//            dd($listIdFriends);
-            $listFriends = User::join('user_info', function ($join) use ($listIdFriends, $tempStr) {
-                $join->on('user_info.userId', '=', 'users.id')
-                    ->whereIn('user_info.userId', $listIdFriends);
-            })->orderByRaw(DB::raw("FIELD(users.id, $tempStr)"))
+                $listFriends = User::join('user_info', function ($join) use ($listIdFriends, $tempStr) {
+                    $join->on('user_info.userId', '=', 'users.id')
+                        ->whereIn('user_info.userId', $listIdFriends);
+                })->orderByRaw(DB::raw("FIELD(users.id, $tempStr)"))
                     ->get(array('fullName', 'avatar', 'userId', 'job', 'country'));
-            $myListIdFriends = explode(',', Auth::user()->getFriendsFollow->friends);
-            $mutualFriends = implode(',', array_intersect($myListIdFriends, $listIdFriends));
+                $myListIdFriends = explode(',', Auth::user()->getFriendsFollow->friends);
+                $mutualFriends = implode(',', array_intersect($myListIdFriends, $listIdFriends));
+            }else{
+                $listFriends = [];
+                $mutualFriends = 0;
+            }
             return response()->json(\getResponse(["listFriends" => $listFriends, "mutualFriends" => $mutualFriends], META_CODE_SUCCESS, GET_USER_DETAIL_SUCCESS));
         }
         return response()->json(\getResponse([], META_CODE_SUCCESS, GET_USER_DETAIL_SUCCESS));
