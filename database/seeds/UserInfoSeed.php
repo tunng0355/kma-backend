@@ -62,7 +62,7 @@ class UserInfoSeed extends Seeder
             ]
         ];
 
-        for ($i = 6; $i < 15; $i++){
+        for ($i = 7; $i < 15; $i++){
             $data[] = [
                 'userId' => $i,
                 'fullName' => 'Seed name'.$i,

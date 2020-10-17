@@ -10,6 +10,7 @@ use App\User;
 use App\UserInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -61,8 +62,13 @@ class UserController extends Controller
             })->count();
             $listFollows = $user->getFriendsFollow->follows;
             $listFriends = $user->getFriendsFollow->friends;
+            if (isset($user->getUserRate[0])) {
+                $rateCountAVG = getAVGRate($userId);
+                $totalRate = $user->getUserRate->count();
+            };
             $data = [
-                "rateCountAVG" => getAVGRate($userId),
+                "rateCountAVG" => isset($rateCountAVG) ? $rateCountAVG : 0,
+                "totalRate" => isset($totalRate) ? $totalRate : 0,
                 "totalLike" => $countLikePost + $countLikeComment,
                 "totalPoint" => $user->getUserPoint->total,
                 "totalFollows" => count(explode(',', $listFollows)),
@@ -84,11 +90,16 @@ class UserController extends Controller
         $user = $this->getUser($request->type, $userId);
         if (isset($user->id) && ($friends = $user->getFriendsFollow) != null) {
             $listIdFriends = explode(',', $user->getFriendsFollow->friends);
-            $listFriends = User::join('user_info', function ($join) use ($listIdFriends) {
-                $join->on('user_info.userId', '=', 'users.id')->whereIn('user_info.userId', $listIdFriends);
-            })->get(array('fullName', 'avatar', 'userId', 'job', 'country'));
+            $tempStr = implode(',', $listIdFriends);
+
+//            dd($listIdFriends);
+            $listFriends = User::join('user_info', function ($join) use ($listIdFriends, $tempStr) {
+                $join->on('user_info.userId', '=', 'users.id')
+                    ->whereIn('user_info.userId', $listIdFriends);
+            })->orderByRaw(DB::raw("FIELD(users.id, $tempStr)"))
+                    ->get(array('fullName', 'avatar', 'userId', 'job', 'country'));
             $myListIdFriends = explode(',', Auth::user()->getFriendsFollow->friends);
-            $mutualFriends =  implode(',',array_intersect($myListIdFriends, $listIdFriends));
+            $mutualFriends = implode(',', array_intersect($myListIdFriends, $listIdFriends));
             return response()->json(\getResponse(["listFriends" => $listFriends, "mutualFriends" => $mutualFriends], META_CODE_SUCCESS, GET_USER_DETAIL_SUCCESS));
         }
         return response()->json(\getResponse([], META_CODE_SUCCESS, GET_USER_DETAIL_SUCCESS));
