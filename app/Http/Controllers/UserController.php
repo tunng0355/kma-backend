@@ -86,18 +86,17 @@ class UserController extends Controller
         if ($validator->fails()) {
             return responseValidate($validator->errors()->first(), []);
         }
-
+        $limit = $request->limit ? $request->limit : 9;
         $userId = $request->userId;
         $user = $this->getUser($request->type, $userId);
         if (isset($user->id) && ($friends = $user->getFriendsFollow) != null) {
-            $listIdFriends = explode(',', $user->getFriendsFollow->friends);
-            if(count($listIdFriends)){
+            if(($friendsListStr = $friends->friends)){
+                $listIdFriends = explode(',', $friendsListStr);
                 $tempStr = implode(',', $listIdFriends);
-
                 $listFriends = User::join('user_info', function ($join) use ($listIdFriends, $tempStr) {
                     $join->on('user_info.userId', '=', 'users.id')
                         ->whereIn('user_info.userId', $listIdFriends);
-                })->orderByRaw(DB::raw("FIELD(users.id, $tempStr)"))
+                })->orderByRaw(DB::raw("FIELD(users.id, $tempStr)"))->take($limit)
                     ->get(array('fullName', 'avatar', 'userId', 'job', 'country'));
                 $myListIdFriends = explode(',', Auth::user()->getFriendsFollow->friends);
                 $mutualFriends = implode(',', array_intersect($myListIdFriends, $listIdFriends));
