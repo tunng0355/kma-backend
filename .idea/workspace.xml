@@ -21,11 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cd1bf5b7-2c7f-48ce-8cc6-80d1b447990a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_03_222222_user_info.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_03_222222_user_info.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_15_165701_create_friends_follow_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_15_165701_create_friends_follow_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/FriendsFollowSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/FriendsFollowSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +271,7 @@
       <workItem from="1602589903897" duration="3759000" />
       <workItem from="1602755134328" duration="14897000" />
       <workItem from="1602840469670" duration="3256000" />
-      <workItem from="1602903278876" duration="5888000" />
+      <workItem from="1602903278876" duration="6693000" />
     </task>
     <servers />
   </component>

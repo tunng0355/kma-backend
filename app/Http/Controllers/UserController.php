@@ -87,7 +87,7 @@ class UserController extends Controller
                 $join->on('user_info.userId', '=', 'users.id')->whereIn('user_info.userId', $listIdFriends);
             })->get(array('fullName', 'avatar', 'userId', 'job', 'country'));
             $myListIdFriends = explode(',', Auth::user()->getFriendsFollow->friends);
-            $mutualFriends =  implode(',',array_intersect($myListIdFriends, $lisiends));
+            $mutualFriends =  implode(',',array_intersect($myListIdFriends, $listIdFriends));
             return response()->json(\getResponse(["listFriends" => $listFriends, "mutualFriends" => $mutualFriends], META_CODE_SUCCESS, GET_USER_DETAIL_SUCCESS));
         }
         return response()->json(\getResponse([], META_CODE_SUCCESS, GET_USER_DETAIL_SUCCESS));
