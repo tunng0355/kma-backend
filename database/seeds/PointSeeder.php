@@ -11,12 +11,13 @@ class PointSeeder extends Seeder
      */
     public function run()
     {
-        $data = [
-            [
-                'userId' => 4,
-                'total' => 1000,
-            ],
-        ];
+        $data = [];
+        for ($i = 0; $i < 15; $i++){
+            $data[] =            [
+                'userId' => $i + 1,
+                'total' => rand(500, 1000),
+            ];
+        };
         \App\Point::insert($data);
     }
 }

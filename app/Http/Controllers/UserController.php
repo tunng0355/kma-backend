@@ -33,7 +33,8 @@ class UserController extends Controller
         if ($validator->fails()) {
             return responseValidate($validator->errors()->first(), []);
         }
-        $user = $this->getUser($request->type, $request->userId);
+        $userId = $request->userId;
+        $user = $this->getUser($request->type, $userId);
         if (isset($user->id)) {
             $user->getUserInfo;
             return response()->json(\getResponse($user, META_CODE_SUCCESS, GET_USER_DETAIL_SUCCESS));
@@ -95,6 +96,6 @@ class UserController extends Controller
 
     protected function getUser($type, $userId)
     {
-        return $type ? Auth::user() : User::find($userId);
+        return $type ? User::find($userId) : Auth::user();
     }
 }
