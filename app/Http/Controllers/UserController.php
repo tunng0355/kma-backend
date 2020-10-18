@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\FriendsFollow;
 use App\Like;
-use App\Posts;
-use App\Rate;
 use App\User;
 use App\UserInfo;
 use Illuminate\Http\Request;
@@ -86,7 +83,7 @@ class UserController extends Controller
         if ($validator->fails()) {
             return responseValidate($validator->errors()->first(), []);
         }
-        $limit = $request->limit ? $request->limit : 9;
+        $limit = $request->limit ? $request->limit : 12;
         $userId = $request->userId;
         $user = $this->getUser($request->type, $userId);
         if (isset($user->id) && ($friends = $user->getFriendsFollow) != null) {

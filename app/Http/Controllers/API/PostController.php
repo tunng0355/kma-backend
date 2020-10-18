@@ -15,9 +15,10 @@ class PostController extends Controller
     {
         $limit = $request->limit ? $request->limit : 10;
         $typeFilter = $request->type;
-        $postId = $request->postId ? $request->postId : "";
-        $subjectId = $request->subjectId ? $request->subjectId : "";
-        $condition = filterTypeNewFeed($typeFilter, $subjectId, $postId);
+        $postId = $request->postId ? $request->postId : 0;
+        $subjectId = $request->subjectId ? $request->subjectId : 0;
+        $userId = $request->userId ? $request->userId : 0;
+        $condition = filterTypeNewFeed($typeFilter, $subjectId, $postId, $userId);
         $listPost = Posts::where($condition['type'],$condition['operator'], $condition['value'])
                         ->orderBy('created_at', 'desc')->take($limit)->get();
         $data = [];

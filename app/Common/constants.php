@@ -59,6 +59,7 @@ define('POST_TYPE_SUBJECT', 3);
 define('POST_TYPE_HOST', 4);
 define('POST_TYPE_ONLY_TEXT', 5);
 define('POST_TYPE_ONLY_ID', 6);
+define('POST_TYPE_ONLY_USER', 7);
 define('BOOL_TRUE', 1);
 define('BOOL_FALSE', 0);
 define('FILTER_ALL', 0);
