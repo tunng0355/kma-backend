@@ -91,9 +91,10 @@ class AuthController extends Controller
     public function user(Request $request)
     {
         $user = Auth::user();
-
         if ($user) {
-            return response($user);
+            $token = $request->bearerToken();
+            $user->getUserInfo;
+            return response()->json(\getResponse(['token' => $token, 'userInfo' => $user, 'type'=> $user->role], META_CODE_SUCCESS, LOGIN_ACTIVE));
         }
 
         return response(null);

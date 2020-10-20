@@ -13,7 +13,6 @@ Route::prefix('admin')->group(function () {
         Route::middleware(['admin.level'])->group(function () {
 
             //Auth controller
-            Route::get('auth', 'AuthController@user');
             Route::post('change_password', 'AuthController@changePassword');
 
         });
@@ -31,6 +30,7 @@ Route::prefix('user')->group(function () {
     Route::group(['middleware' => 'jwt.auth'], function () {
         //AUTH
         Route::post('logout', 'AuthController@logout');
+        Route::get('auth', 'AuthController@user');
 
         //POST
         Route::get('my_feed', 'API\PostController@myNewFeed');
