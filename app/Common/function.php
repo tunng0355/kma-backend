@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\RedisEvent;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * $chat = Message::all()->take(-10);
@@ -198,8 +199,19 @@ function filterTypeNewFeed($typeFilter, $subjectId, $postId, $userId)
     }
     return $arr_condition;
 
+};
+
+function uploadImageToStorage($image){
+    $fullPath = UPLOAD_DIR.strtotime(date(FORMAT_CURRENT_TIME)).randomString(20);
+    Storage::disk('s3')->put($fullPath, file_get_contents($image), 'public');
+    return Storage::disk('s3')->url($fullPath);
 }
 
-;
+function removeImageStorage($url){
+    if(strpos($urlRemove = $url, "".ENV_S3) == 0){
+        $path = str_replace(ENV_S3, "", $urlRemove);
+        Storage::disk('s3')->delete(UPLOAD_DIR.$path);
+    };
+}
 
 ?>

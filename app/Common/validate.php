@@ -1,10 +1,19 @@
 <?php
-function getValidate($type){
+function getValidate($type)
+{
     $arr_checkVali = array();
-    switch ($type){
+    switch ($type) {
+        case VALIDATE_UPLOAD_IMAGE:
+            $arr_checkVali[0] = [
+                "image" => "required",
+            ];
+            $arr_checkVali[1] = [
+                "image.required" => "image_required",
+            ];
+            break;
         case VALIDATE_GET_USER_DETAIL:
             $arr_checkVali[0] = [
-                "userId" =>  "required",
+                "userId" => "required",
             ];
             $arr_checkVali[1] = [
                 "userId.required" => "userId_required",
@@ -14,14 +23,14 @@ function getValidate($type){
             $arr_checkVali[0] = [
                 "message" => "required",
                 "type" => "required|max:255",
-                "idUserInbox"=> "required|max:255",
-                "roomId" =>  "required|max:255",
+                "idUserInbox" => "required|max:255",
+                "roomId" => "required|max:255",
             ];
             $arr_checkVali[1] = [
                 "message.required" => "message_required",
                 "type.required" => "type_required",
-                "idUserInbox.required"=> "idUserInbox_required",
-                "roomId.required" =>  "roomId_required",
+                "idUserInbox.required" => "idUserInbox_required",
+                "roomId.required" => "roomId_required",
             ];
             break;
         case VALIDATE_REGISTER:
@@ -108,9 +117,15 @@ function getValidate($type){
                 "message.required" => "message_required",
             ];
             break;
-            default:
+        default:
             $arr_checkVali = [];
     }
     return $arr_checkVali;
 }
+
+function validateImage($image){
+    if (!$image->getMimeType()) return false;
+    return (substr($image->getMimeType(), 0, 5) != 'image') && ($image->getSize() > 1024 * 1024);
+}
+
 ?>

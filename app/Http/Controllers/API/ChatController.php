@@ -87,6 +87,7 @@ class ChatController extends Controller
         if($validator->fails()){
             return response()->json(\getResponse([], META_CODE_ERROR, $validator->errors()->first()), Response::HTTP_BAD_REQUEST);
         }
+
         $message = new Message();
         $userSend = Auth::user();
         Message::where('roomId', $request->roomId)->where('userId','!=',$userSend->id)->update(['indexLoad' => 0]);
@@ -103,6 +104,7 @@ class ChatController extends Controller
             "userId" => $userSend->id,
             "countMessage" => getCountMessage($userSend->id, $request->idUserInbox),
         ];
+
         $data->idUserInbox = $request->idUserInbox;
         $data->userInbox = $dataUserMessage;
         sendSocket($data, CHANNEL_ROM.$message->roomId);

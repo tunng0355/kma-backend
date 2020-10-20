@@ -76,7 +76,9 @@ define('LIST_MSG_VALIDATE', 1);
 define('LIMIT_LIST_FRIENDS', 10);
 define('VALIDATE_LIKE_NEW_FEED', 'validate_like_new_feed');
 define('VALIDATE_GET_USER_DETAIL', 'validate_get_user_detail');
+define('VALIDATE_UPLOAD_IMAGE', 'validate_upload_image');
 define('AVATAR_FOREIGN', 'get_avatar_other_table');
+define('CHANGE_AVATAR_SUCCESS', 'chang_avatar_success');
 define('VALIDATE_POST','validate_post');
 define('VALIDATE_HANDLE_SEARCH', 'validate_handle_search');
 define('IMAGES_REQUIRED', 'images_required');
@@ -87,4 +89,5 @@ define('GET_USER_DETAIL_SUCCESS', 'get_user_detail_success');
 define('GET_USER_DETAIL_ERROR', 'no_find_user');
 define('GET_HISTORY_SEARCH_SUCCESS', 'get_history_search_success');
 define('NO_RECORD', 'no_record');
+define('ENV_S3', 'https://appdu-storage.s3.ap-southeast-1.amazonaws.com/kma_social/');
 ?>

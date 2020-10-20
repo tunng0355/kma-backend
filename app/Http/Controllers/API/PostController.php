@@ -19,8 +19,8 @@ class PostController extends Controller
         $subjectId = $request->subjectId ? $request->subjectId : 0;
         $userId = $request->userId ? $request->userId : 0;
         $condition = filterTypeNewFeed($typeFilter, $subjectId, $postId, $userId);
-        $listPost = Posts::where($condition['type'],$condition['operator'], $condition['value'])
-                        ->orderBy('created_at', 'desc')->take($limit)->get();
+        $listPost = Posts::where($condition['type'], $condition['operator'], $condition['value'])
+            ->orderBy('created_at', 'desc')->take($limit)->get();
         $data = [];
         foreach ($listPost as $post) {
             $data[] = getResponseNewFeed($post);
@@ -70,12 +70,10 @@ class PostController extends Controller
                 $content = "";
                 $listImage = $request->images;
                 foreach ($listImage as $item) {
-                    if ($item->getSize() > 1024 * 1024) {
+                    if (validateImage($item)) {
                         continue;
                     }
-                    $fullpath = UPLOAD_DIR . '' . randomString(20) . '' . strtotime(date(FORMAT_CURRENT_TIME));
-                    Storage::disk('s3')->put($fullpath, file_get_contents($item), 'public');
-                    $content .= "," . Storage::disk('s3')->url($fullpath);
+                    $content .= ",". uploadImageToStorage($item);
                 }
                 return ltrim($content, ",");
             default:

@@ -45,6 +45,7 @@ Route::prefix('user')->group(function () {
         Route::get('get_user_detail', 'UserController@getUserDetail');
         Route::get('get_user_dashboard', 'UserController@getUserDashBoard');
         Route::get('get_friends_detail', 'UserController@getListFriendsDetail');
+        Route::post('change_avatar', 'UserController@changeAvatar');
 
         //SubjectController
         Route::get('list_subject', 'SubjectController@getListSubject');

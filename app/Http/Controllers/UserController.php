@@ -8,6 +8,7 @@ use App\UserInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -87,7 +88,7 @@ class UserController extends Controller
         $userId = $request->userId;
         $user = $this->getUser($request->type, $userId);
         if (isset($user->id) && ($friends = $user->getFriendsFollow) != null) {
-            if(($friendsListStr = $friends->friends)){
+            if (($friendsListStr = $friends->friends)) {
                 $listIdFriends = explode(',', $friendsListStr);
                 $tempStr = implode(',', $listIdFriends);
                 $listFriends = User::join('user_info', function ($join) use ($listIdFriends, $tempStr) {
@@ -97,13 +98,26 @@ class UserController extends Controller
                     ->get(array('fullName', 'avatar', 'userId', 'job', 'country'));
                 $myListIdFriends = explode(',', Auth::user()->getFriendsFollow->friends);
                 $mutualFriends = implode(',', array_intersect($myListIdFriends, $listIdFriends));
-            }else{
+            } else {
                 $listFriends = [];
                 $mutualFriends = 0;
             }
             return response()->json(\getResponse(["listFriends" => $listFriends, "mutualFriends" => $mutualFriends], META_CODE_SUCCESS, GET_USER_DETAIL_SUCCESS));
         }
         return response()->json(\getResponse([], META_CODE_SUCCESS, GET_USER_DETAIL_SUCCESS));
+    }
+
+    public function changeAvatar(Request $request)
+    {
+        $validator = getValidatorData(VALIDATE_UPLOAD_IMAGE, $request);
+        if ($validator->fails() || validateImage($request->image)) {
+            return response()->json(\getResponse([], META_CODE_ERROR, VALIDATE_UPLOAD_IMAGE));
+        }
+        $user = Auth::user();
+        removeImageStorage($user->avatar);
+        $user->avatar = uploadImageToStorage($request->image);
+        $user->save();
+        return response()->json(\getResponse($user, META_CODE_SUCCESS,CHANGE_AVATAR_SUCCESS));
     }
 
     protected function getUser($type, $userId)
