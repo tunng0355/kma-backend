@@ -89,5 +89,8 @@ define('GET_USER_DETAIL_SUCCESS', 'get_user_detail_success');
 define('GET_USER_DETAIL_ERROR', 'no_find_user');
 define('GET_HISTORY_SEARCH_SUCCESS', 'get_history_search_success');
 define('NO_RECORD', 'no_record');
+define('TYPE_AVATAR_UPLOAD', 1);
+define('TYPE_COVER_UPLOAD', 2);
+
 define('ENV_S3', 'https://appdu-storage.s3.ap-southeast-1.amazonaws.com/kma_social/');
 ?>

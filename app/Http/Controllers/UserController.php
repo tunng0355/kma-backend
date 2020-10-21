@@ -114,11 +114,19 @@ class UserController extends Controller
             return response()->json(\getResponse([], META_CODE_ERROR, VALIDATE_UPLOAD_IMAGE));
         }
         $user = Auth::user();
-        removeImageStorage($user->avatar);
-        $user->avatar = uploadImageToStorage($request->image);
-        $user->save();
+        if ($request->type == TYPE_AVATAR_UPLOAD) {
+            removeImageStorage($user->avatar);
+            $user->avatar = uploadImageToStorage($request->image);
+            $user->save();
+        } else if ($request->type == TYPE_COVER_UPLOAD) {
+            removeImageStorage($user->coverImage);
+            $user->coverImage = uploadImageToStorage($request->image);
+            $user->save();
+        } else {
+            return response()->json(\getResponse([], META_CODE_ERROR, VALIDATE_UPLOAD_IMAGE));
+        }
         $user->getUserInfo;
-        return response()->json(\getResponse($user, META_CODE_SUCCESS,CHANGE_AVATAR_SUCCESS));
+        return response()->json(\getResponse($user, META_CODE_SUCCESS, CHANGE_AVATAR_SUCCESS));
     }
 
     protected function getUser($type, $userId)

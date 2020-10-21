@@ -6,9 +6,11 @@ function getValidate($type)
         case VALIDATE_UPLOAD_IMAGE:
             $arr_checkVali[0] = [
                 "image" => "required",
+                "type" =>  "required",
             ];
             $arr_checkVali[1] = [
                 "image.required" => "image_required",
+                "type.required" => "type_required",
             ];
             break;
         case VALIDATE_GET_USER_DETAIL:

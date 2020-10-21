@@ -23,14 +23,9 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('status')->default(USER_NEW);
             $table->mediumInteger('sendCode')->nullable();
             $table->string('avatar')->nullable();
+            $table->string('coverImage')->nullable();
             $table->rememberToken()->nullable();
             $table->timestamps();
-
-//            //primary
-//            $table->foreign('userId')->references('id')->on('message');
-//        Schema::table('message', function(Blueprint $table) {
-//            $table->foreign('userId')->references('id')->on('users');
-//        });
         });
     }
 
