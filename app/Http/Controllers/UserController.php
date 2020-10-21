@@ -117,6 +117,7 @@ class UserController extends Controller
         removeImageStorage($user->avatar);
         $user->avatar = uploadImageToStorage($request->image);
         $user->save();
+        $user->getUserInfo;
         return response()->json(\getResponse($user, META_CODE_SUCCESS,CHANGE_AVATAR_SUCCESS));
     }
 
