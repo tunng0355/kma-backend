@@ -44,7 +44,8 @@ class CommentController extends Controller
         $dataResult['countCommentPost'] = $post->getComment->count();
         $dataResult['countLikePost'] = $post->getLike->count();
         sendSocket($dataResult, CHANNEL_COMMENT_FEED . $postId);
-        $listUserIdComment = Comment::where('postId', $postId)->where('userId', '!=', $userId != $post->userId ? 0 : $userId)
+        $isMyComment = $userId != $comment->userId;
+        $listUserIdComment = Comment::where('postId', $postId)->where('userId', '!=',  $isMyComment ? $userId : 0)
                             ->distinct()->pluck('userId')->toArray();
         $comment->typePost = $post->type;
         $comment->caption = $post->caption;
