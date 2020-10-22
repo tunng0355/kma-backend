@@ -161,7 +161,6 @@ function filterTypeNewFeed($typeFilter, $subjectId, $postId, $userId)
     switch ($typeFilter) {
         case POST_TYPE_IMAGE:
         case POST_TYPE_VIDEO:
-        case POST_TYPE_HOST:
             $arr_condition = [
                 'type' => 'type',
                 'operator' => "=",
@@ -188,6 +187,13 @@ function filterTypeNewFeed($typeFilter, $subjectId, $postId, $userId)
                 'type' => 'userId',
                 'operator' => "=",
                 'value' => $userId,
+            ];
+            break;
+        case POST_TYPE_HOST:
+            $arr_condition = [
+                'type' => 'isHot',
+                'operator' => ">",
+                'value' => 0,
             ];
             break;
         default:
