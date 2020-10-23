@@ -55,7 +55,7 @@ class CommentController extends Controller
         $found = array_search($userId, $listUserIdComment);
         $dataSocketComment = $comment->toArray();
         if ($found < 0 && $isMyPostId ){
-            sendNotifySocket($dataSocketComment, $userId, "sdsd");
+            sendNotifySocket($dataSocketComment, $post->userId, "sdsd");
         }
         foreach ($listUserIdComment as $id) {
             sendNotifySocket($comment->toArray(), $id, "sdsd");
