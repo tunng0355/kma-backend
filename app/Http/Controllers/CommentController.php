@@ -45,7 +45,7 @@ class CommentController extends Controller
         $dataResult['countLikePost'] = $post->getLike->count();
         sendSocket($dataResult, CHANNEL_COMMENT_FEED . $postId);
 
-        $isMyPostId = $userId != $post->userId;
+        $isMyPostId = $userId == $post->userId;
         $listUserIdComment = Comment::where('postId', $postId)->where('userId', '!=', $userId )
                             ->distinct()->pluck('userId')->toArray();
         $comment->typePost = $post->type;
@@ -53,9 +53,8 @@ class CommentController extends Controller
         $comment->postUserId = $post->userId;
         $comment->avatarUserNotify = Auth::user()->avatar;
         $dataSocketComment = $comment->toArray();
-
         $found = array_search($post->userId, $listUserIdComment);
-        if ($found === false && !$isMyPostId ){
+        if ($found == false && !$isMyPostId ){
             sendNotifySocket($dataSocketComment, $post->userId, "sdsd");
         }
         foreach ($listUserIdComment as $id) {
