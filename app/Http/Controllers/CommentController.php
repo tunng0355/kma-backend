@@ -52,9 +52,9 @@ class CommentController extends Controller
         $comment->caption = $post->caption;
         $comment->postUserId = $post->userId;
         $comment->avatarUserNotify = Auth::user()->avatar;
-        $found = array_search($userId, $listUserIdComment);
+        $found = array_search($post->userId, $listUserIdComment);
         $dataSocketComment = $comment->toArray();
-        if ($found < 0 && $isMyPostId ){
+        if ($found < 0 && !$isMyPostId ){
             sendNotifySocket($dataSocketComment, $post->userId, "sdsd");
         }
         foreach ($listUserIdComment as $id) {
