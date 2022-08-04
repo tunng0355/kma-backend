@@ -32,7 +32,7 @@ class MailNotify extends Mailable
     public function build()
     {   $msg = $this->msg;
         $this->markdown('email', compact('msg'))
-             ->from('appdu.hotro@gamil.com', 'KMA SOCIAL')->subject($this->sub);
+             ->from('thanhtungktfako1@gmail.com', 'KMA SOCIAL')->subject($this->sub);
 
     }
 }
