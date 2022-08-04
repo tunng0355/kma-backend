@@ -65,27 +65,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $uniqueUser = $request->uniqueUser;
-        $password = $request->password;
-        $condition_1 = ['userName' => $uniqueUser, 'password' => $password];
-        $condition_2 = ['codeStudent' => $uniqueUser, 'password' => $password];
-
-        if (!($token = JWTAuth::attempt($condition_1)) && !($token = JWTAuth::attempt($condition_2))) {
-            return response()->json(\getResponse([], META_CODE_ERROR, MSG_LOGIN_FAIL));
-        }
-
-        $remember_token       = explode(".", $token);
-        $user                 = User::where('userName','like',$condition_1['userName'])
-                               ->orWhere('codeStudent', 'like', $condition_2['codeStudent'])->first();
-
-        if($user->status != USER_ACTIVE){
-            return response()->json(\getResponse(['token' => '', 'userInfo' => $user, 'type'=> $user->role], META_CODE_SUCCESS, LOGIN_NEW));
-        }
-
-        $user->remember_token = $remember_token[2];
-        $user->save();
-        $user->getUserInfo;
-        return response()->json(\getResponse(['token' => $token, 'userInfo' => $user, 'type'=> $user->role], META_CODE_SUCCESS, LOGIN_ACTIVE));
+        echo 1;
     }
 
     public function user(Request $request)
